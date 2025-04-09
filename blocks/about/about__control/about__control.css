@@ -1,0 +1,14 @@
+.about__control {
+  position: absolute;
+  top: 670px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 850px) {
+  .about__control {
+    top: 253px;
+  }
+}

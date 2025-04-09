@@ -47,7 +47,32 @@
       <button class="header__button-tel" type="button"></button>
     </header>
     <main class="content">
-      <section></section>
+      <section class="about">
+        <div class="about__box">
+          <h1 class="about__title">Профессиональный ремонт и обслуживание промышленных насосов высокого давления</h1>
+          <p class="about__text">А также изготовление орбитальных гидродинамических насадок.</p>
+          <button class="about__button">Подробнее</button>
+          <div class="about__box-shield">
+            <img src="./assets/shield-tick.svg" alt="">
+            <p class="about__text">Ваш надежный партнер <br>в решении сложных задач</p>
+          </div>
+        </div>
+        <div class="about__box">
+          <picture class="about__picture">
+            <source media="(max-width: 850px)" srcset="./assets/about-mobile-image.jpg">
+            <img src="./assets/about-desktop-image.jpg" alt="Процесс обслуживания">
+          </picture>
+          <div class="about__control">
+            <button class="about__button-control about__button--prev"></button>
+            <div class="about__dots">
+              <span class="about__dot about__dot_active"></span>
+              <span class="about__dot"></span>
+              <span class="about__dot"></span>
+            </div>
+            <button class="about__button-control about__button--next"></button>
+          </div>
+        </div>
+      </section>
     </main>
   </div>
 </body>

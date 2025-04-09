@@ -1,0 +1,10 @@
+.about__dot {
+  width: 6px;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
+}
+
+.about__dot.about__dot_active {
+  background-color: #FFF;
+}

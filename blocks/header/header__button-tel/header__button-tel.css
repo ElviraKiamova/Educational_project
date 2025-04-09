@@ -1,4 +1,5 @@
 .header__button-tel {
+  display: none;
   width: 30px;
   height: 30px;
   background-color: transparent;
@@ -7,7 +8,7 @@
 }
 
 @media (max-width: 1600px) {
-  .header__burger {
+  .header__button-tel {
     display: flex;
   }
 }

@@ -1,0 +1,7 @@
+.about__box {
+  max-width: 875px;
+}
+
+.about__box:last-child {
+  position: relative;
+}

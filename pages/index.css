@@ -1,5 +1,7 @@
 @import url("../styles/normalize.css");
+
 @import url("../blocks/page/page.css");
+@import url("../blocks/content/content.css");
 
 @import url("../blocks/header/header.css");
 @import url("../blocks/header/header__logo/header__logo.css");
@@ -10,3 +12,14 @@
 @import url("../blocks/header/header__select/header__select.css");
 @import url("../blocks/header/header__burger/header__burger.css");
 @import url("../blocks/header/header__button-tel/header__button-tel.css");
+
+@import url("../blocks/about/about.css");
+@import url("../blocks/about/about__box/about__box.css");
+@import url("../blocks/about/about__title/about__title.css");
+@import url("../blocks/about/about__text/about__text.css");
+@import url("../blocks/about/about__button/about__button.css");
+@import url("../blocks/about/about__box-shield/about__box-shield.css");
+@import url("../blocks/about/about__control/about__control.css");
+@import url("../blocks/about/about__button-control/about__button-control.css");
+@import url("../blocks/about/about__dots/about__dots.css");
+@import url("../blocks/about/about__dot/about__dot.css");

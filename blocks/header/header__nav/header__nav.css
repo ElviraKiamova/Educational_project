@@ -5,6 +5,12 @@
   margin: 0 auto 0 30px;
 }
 
+@media (max-width: 1700px) {
+  .header__nav {
+    margin: 0 20px 0 30px;
+  }
+}
+
 @media (max-width: 1600px) {
   .header__nav {
     display: none;

@@ -1,0 +1,18 @@
+.about__box-shield {
+  display: flex;
+  align-items: center;
+  gap: 39px;
+  max-width: 420px;
+  padding: 20px;
+}
+
+@media (max-width: 850px) {
+  .about__box-shield {
+    gap: 30px;
+    padding: 11px 15px;
+  }
+  .about__box-shield img {
+    width: 30px;
+    height: 30px;
+  }  
+}

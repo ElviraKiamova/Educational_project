@@ -9,10 +9,21 @@
   box-sizing: border-box;
 }
 
+@media (max-width: 1919px) {
+  .header {
+    padding: 30px 80px 55px;
+  }
+}
+
 @media (max-width: 1600px) {
   .header {
     justify-content: space-between;
     gap: 0;
-    padding: 12px 20px ;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header {
+    padding: 12px 20px;
   }
 }
