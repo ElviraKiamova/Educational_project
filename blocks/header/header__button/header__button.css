@@ -1,0 +1,17 @@
+.header__button {
+  width: 186px;
+  height: 50px;
+  border: 2px solid #1F1F1F;
+  border-radius: 10px;
+  font-family: "Golos Text", sans-serif;
+  background-color: #FFF;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+@media (max-width: 1600px) {
+  .header__button {
+    display: none;
+  }
+}

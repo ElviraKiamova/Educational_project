@@ -1,0 +1,14 @@
+.header__button-tel {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  background-image: url(../../../assets/menu_mobile.svg);
+  border: none;
+}
+
+@media (max-width: 1600px) {
+  .header__burger {
+    display: flex;
+  }
+}
+

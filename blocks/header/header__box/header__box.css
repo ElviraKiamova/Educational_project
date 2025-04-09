@@ -1,0 +1,25 @@
+.header__box {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  margin-right: 40px;
+  text-align: left;
+}
+
+.header__box a {
+  font-size: 16px;
+}
+
+.header__box:nth-child(2) {
+  margin-right: 35px;
+}
+
+.header__box .header__adress {
+  letter-spacing: -0.4px;
+}
+
+@media (max-width: 1600px) {
+  .header__box {
+    display: none;
+  }
+}

@@ -1,0 +1,12 @@
+.header__nav {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin: 0 auto 0 30px;
+}
+
+@media (max-width: 1600px) {
+  .header__nav {
+    display: none;
+  }
+}

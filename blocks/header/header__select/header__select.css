@@ -1,0 +1,11 @@
+.header__select {
+  border: none;
+  font-family: "Golos Text", sans-serif;
+  font-size: 15px;
+}
+
+@media (max-width: 1600px) {
+  .header__select {
+    display: none;
+  }
+}
