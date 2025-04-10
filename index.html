@@ -49,11 +49,13 @@
     <main class="content">
       <section class="about">
         <div class="about__box">
-          <h1 class="about__title">Профессиональный ремонт и обслуживание промышленных насосов высокого давления</h1>
+          <h1 class="about__title">Профессиональный ремонт и обслуживание <span>промышленных насосов высокого давления</span></h1>
           <p class="about__text">А также изготовление орбитальных гидродинамических насадок.</p>
           <button class="about__button">Подробнее</button>
           <div class="about__box-shield">
-            <img src="./assets/shield-tick.svg" alt="">
+            <div class="services__card-img">
+              <img src="./assets/shield-tick.svg" alt="Щит">
+            </div>
             <p class="about__text">Ваш надежный партнер <br>в решении сложных задач</p>
           </div>
         </div>
@@ -70,6 +72,65 @@
               <span class="about__dot"></span>
             </div>
             <button class="about__button-control about__button--next"></button>
+          </div>
+        </div>
+      </section>
+      <section class="services">
+        <div class="services__container">
+          <div class="services__box">
+            <div class="services__box-title">
+              <h2 class="services__subtitle">Услуги</h2>
+              <p class="services__text">Наша компания осуществляет профессиональный ремонт, обслуживание и восстановление <span>насосов высокого давления.</span></p>
+            </div>
+            <ul class="services__cards">
+              <li class="services__card">
+                <div class="services__card-img">
+                  <img class="icon-service" src="./assets/screw.svg" alt="Гайка">
+                </div>
+                <p class="services__card-text">Ремонт насосов ВД</p>
+                <button class="services__card-button"></button>
+              </li>
+              <li class="services__card">
+                <div class="services__card-img">
+                  <img class="service" src="./assets/magnifier.svg" alt="Лупа">
+                </div>
+                <p class="services__card-text">Диагностика</p>
+                <button class="services__card-button"></button>
+              </li>
+              <li class="services__card">
+                <div class="services__card-img">
+                  <img class="service" src="./assets/wheel.svg" alt="Колесо">
+                </div>
+                <p class="services__card-text">Ремонт в собственной мастерской</p>
+                <button class="services__card-button"></button>
+              </li>
+              <li class="services__card">
+                <div class="services__card-img">
+                  <img class="service" src="./assets/key.svg" alt="Ключ">
+                </div>
+                <p class="services__card-text">Ремонт на площадке заказчика</p>
+                <button class="services__card-button"></button>
+              </li>
+              <li class="services__card">
+                <div class="services__card-img">
+                  <img class="service" src="./assets/flash.svg" alt="Молния">
+                </div>
+                <p class="services__card-text">Подбор аналогов для бесперебойной работы</p>
+                <button class="services__card-button"></button>
+              </li>
+              <li class="services__card">
+                <div class="services__card-img">
+                  <img class="service" src="./assets/arrows.svg" alt="Стрелки">
+                </div>
+                <p class="services__card-text">Замена изношенных деталей</p>
+                <button class="services__card-button"></button>
+              </li>
+            </ul>
+            <button class="services__button">Заказать услугу</button>
+          </div>
+          <div class="services__box">
+            <p class="services__warranty">Мы гарантируем, что насосы будут работать!</p>
+            <img class="services__img" src="./assets/good_ 1.jpg" alt="">
           </div>
         </div>
       </section>

@@ -1,9 +1,8 @@
 .about__box-shield {
   display: flex;
   align-items: center;
-  gap: 39px;
+  gap: 20px;
   max-width: 420px;
-  padding: 20px;
 }
 
 @media (max-width: 850px) {

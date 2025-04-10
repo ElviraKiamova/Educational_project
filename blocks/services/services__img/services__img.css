@@ -1,0 +1,9 @@
+.services__img {
+  position: absolute;
+  right: -290px;
+  top: 56%;
+  transform: translateY(-50%);
+  width: auto;
+  height: auto;
+  z-index: 0;
+}

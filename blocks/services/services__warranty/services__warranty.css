@@ -1,0 +1,24 @@
+.services__warranty {
+  position: relative;
+  display: inline-block;
+  max-width: 363px;
+  margin: 0 65px 0 60px;
+  padding: 20px 40px 28px;
+  border-radius: 10px;
+  background-color: #FFF;
+  line-height: 120%;
+  text-align: center;
+  z-index: 5;
+}
+
+.services__warranty::before {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: #FFF;
+  transform: rotate(45deg);
+  top: 15px;
+  left: 40%;
+  z-index: -1;
+}

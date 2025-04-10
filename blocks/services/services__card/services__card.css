@@ -1,0 +1,9 @@
+.services__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 47px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #FFF;
+}

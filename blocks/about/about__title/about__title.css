@@ -7,6 +7,11 @@
   text-transform: uppercase;
 }
 
+.about__title span {
+  color: #B4100D;
+}
+
+
 @media (max-width: 850px) {
   .about__title {
     margin: 0 0 15px;

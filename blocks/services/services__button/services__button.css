@@ -1,0 +1,8 @@
+.services__button {
+  width: 410px;
+  height: 60px;
+  border: 2px solid #B4100D;
+  border-radius: 10px;
+  background-color: transparent;
+  font-size: 16px;
+}

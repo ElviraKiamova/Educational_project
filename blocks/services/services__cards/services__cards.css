@@ -1,0 +1,11 @@
+.services__cards {
+  display: grid;
+  /* grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr); */
+  grid-template-columns: repeat(3, 410px);
+  grid-template-rows: repeat(2, 210px);
+  gap: 20px;
+  margin: 68px 0 30px;
+  padding: 0;
+  list-style-type: none;
+}

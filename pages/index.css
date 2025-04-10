@@ -13,6 +13,8 @@
 @import url("../blocks/header/header__burger/header__burger.css");
 @import url("../blocks/header/header__button-tel/header__button-tel.css");
 
+@import url("../blocks/icon-service/icon-service.css");
+
 @import url("../blocks/about/about.css");
 @import url("../blocks/about/about__box/about__box.css");
 @import url("../blocks/about/about__title/about__title.css");
@@ -23,3 +25,17 @@
 @import url("../blocks/about/about__button-control/about__button-control.css");
 @import url("../blocks/about/about__dots/about__dots.css");
 @import url("../blocks/about/about__dot/about__dot.css");
+
+@import url("../blocks/services/services.css");
+@import url("../blocks/services/services__container/services__container.css");
+@import url("../blocks/services/services__subtitle/services__subtitle.css");
+@import url("../blocks/services/services__box-title/services__box-title.css");
+@import url("../blocks/services/services__text/services__text.css");
+@import url("../blocks/services/services__cards/services__cards.css");
+@import url("../blocks/services/services__card/services__card.css");
+@import url("../blocks/services/services__card-img/services__card-img.css");
+@import url("../blocks/services/services__card-button/services__card-button.css");
+@import url("../blocks/services/services__button/services__button.css");
+@import url("../blocks/services/services__warranty/services__warranty.css");
+@import url("../blocks/services/services__img/services__img.css");
+@import url("../blocks/services/services__box/services__box.css");
