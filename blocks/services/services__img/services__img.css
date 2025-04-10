@@ -7,3 +7,20 @@
   height: auto;
   z-index: 0;
 }
+
+@media (max-width: 1900px) {
+  .services__img {
+    position: static;
+    transform: none;
+    margin-bottom: 50px;
+  }
+}
+  
+@media (max-width: 400px) {
+  .services__img {
+    width: 850px;
+    height: 480px;
+    margin-top: -8px;
+    margin-bottom: 0;
+  }
+}

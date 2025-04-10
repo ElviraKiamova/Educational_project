@@ -6,3 +6,10 @@
   height: 80px;
   background-color: #F2F2F2;
 }
+
+@media (max-width: 400px) {
+  .services__card-img.about__img  {
+    width: 60px;
+    height: 60px;
+  }
+}

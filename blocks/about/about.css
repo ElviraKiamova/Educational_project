@@ -13,11 +13,18 @@
   }
 }
 
-@media (max-width: 1700px) {
+@media (max-width: 1900px) {
   .about {
     flex-direction: column-reverse;
     align-items: center;
     gap: 16px;
+    padding: 20px 0;
+  }
+}
+
+@media (max-width: 1000px) {
+  .about {
     padding: 20px;
+    box-sizing: border-box;
   }
 }

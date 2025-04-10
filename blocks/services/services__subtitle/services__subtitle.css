@@ -5,3 +5,12 @@
   letter-spacing: -3.5px;
   text-transform: uppercase;
 }
+
+@media (max-width: 800px) {
+  .services__subtitle {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0;
+  }
+}

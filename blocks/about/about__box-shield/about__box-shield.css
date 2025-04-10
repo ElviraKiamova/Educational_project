@@ -10,8 +10,11 @@
     gap: 30px;
     padding: 11px 15px;
   }
-  .about__box-shield img {
-    width: 30px;
-    height: 30px;
-  }  
+}
+
+@media (max-width: 400px) {
+  .about__box-shield {
+    gap: 17px;
+    padding: 0;
+  }
 }

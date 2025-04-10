@@ -7,3 +7,11 @@
   border-radius: 10px;
   background-color: #FFF;
 }
+
+@media (max-width: 400px) {
+  .services__card {
+    gap: 20px;
+    font-size: 18px;
+    line-height: 130%;
+  }
+}

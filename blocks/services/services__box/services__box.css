@@ -6,3 +6,20 @@
 .services__box:last-child {
   position: relative;
 }
+
+@media (max-width: 1900px) {
+  .services__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .services__box:first-child {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 800px) {
+  .services__box {
+    padding: 0 20px;
+  }
+}

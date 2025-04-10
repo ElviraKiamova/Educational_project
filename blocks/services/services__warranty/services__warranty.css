@@ -22,3 +22,15 @@
   left: 40%;
   z-index: -1;
 }
+
+@media (max-width: 400px) {
+  .services__warranty {
+    margin: 0;
+    padding: 28px 30px 28px 28px;
+    font-size: 18px;
+  }
+  .services__warranty::before {
+    left: 38%;
+    top: 17px;
+  }
+}

@@ -5,4 +5,12 @@
   border-radius: 10px;
   background-color: transparent;
   font-size: 16px;
+  color: #B4100D;
+}
+
+@media (max-width: 400px) {
+  .services__button {
+    width: 335px;
+    height: 59px;
+  }
 }

@@ -53,8 +53,8 @@
           <p class="about__text">А также изготовление орбитальных гидродинамических насадок.</p>
           <button class="about__button">Подробнее</button>
           <div class="about__box-shield">
-            <div class="services__card-img">
-              <img src="./assets/shield-tick.svg" alt="Щит">
+            <div class="services__card-img about__img">
+              <img class="icon-service about__img" src="./assets/shield-tick.svg" alt="Щит">
             </div>
             <p class="about__text">Ваш надежный партнер <br>в решении сложных задач</p>
           </div>
@@ -92,35 +92,35 @@
               </li>
               <li class="services__card">
                 <div class="services__card-img">
-                  <img class="service" src="./assets/magnifier.svg" alt="Лупа">
+                  <img class="icon-service" src="./assets/magnifier.svg" alt="Лупа">
                 </div>
                 <p class="services__card-text">Диагностика</p>
                 <button class="services__card-button"></button>
               </li>
               <li class="services__card">
                 <div class="services__card-img">
-                  <img class="service" src="./assets/wheel.svg" alt="Колесо">
+                  <img class="icon-service" src="./assets/wheel.svg" alt="Колесо">
                 </div>
                 <p class="services__card-text">Ремонт в собственной мастерской</p>
                 <button class="services__card-button"></button>
               </li>
               <li class="services__card">
                 <div class="services__card-img">
-                  <img class="service" src="./assets/key.svg" alt="Ключ">
+                  <img class="icon-service" src="./assets/key.svg" alt="Ключ">
                 </div>
                 <p class="services__card-text">Ремонт на площадке заказчика</p>
                 <button class="services__card-button"></button>
               </li>
               <li class="services__card">
                 <div class="services__card-img">
-                  <img class="service" src="./assets/flash.svg" alt="Молния">
+                  <img class="icon-service" src="./assets/flash.svg" alt="Молния">
                 </div>
                 <p class="services__card-text">Подбор аналогов для бесперебойной работы</p>
                 <button class="services__card-button"></button>
               </li>
               <li class="services__card">
                 <div class="services__card-img">
-                  <img class="service" src="./assets/arrows.svg" alt="Стрелки">
+                  <img class="icon-service" src="./assets/arrows.svg" alt="Стрелки">
                 </div>
                 <p class="services__card-text">Замена изношенных деталей</p>
                 <button class="services__card-button"></button>
@@ -130,7 +130,10 @@
           </div>
           <div class="services__box">
             <p class="services__warranty">Мы гарантируем, что насосы будут работать!</p>
-            <img class="services__img" src="./assets/good_ 1.jpg" alt="">
+           <picture>
+            <source class="services__img" media="(max-width: 400px)" srcset="./assets/good_ 2.png">
+            <img class="services__img" src="./assets/good_ 1.png" alt="">
+          </picture>
           </div>
         </div>
       </section>

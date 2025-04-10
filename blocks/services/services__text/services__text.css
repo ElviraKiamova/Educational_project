@@ -4,3 +4,10 @@
 .services__text span{
   color: #B4100D;
 }
+
+@media (max-width: 800px) {
+  .services__text {
+    font-size: 16px;
+    line-height: 130%;
+  }
+}
