@@ -1,0 +1,17 @@
+.popup-application__close {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  width: 40px;
+  height: 40px;
+  background-image: url(../../../assets/delite.svg);
+  background-color: transparent;
+  border: none;
+}
+
+@media (max-width: 800px) {
+  .popup-application__close {
+    top: 30px;
+    right: 30px;
+  }
+}

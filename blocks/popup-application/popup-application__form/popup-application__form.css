@@ -1,0 +1,15 @@
+.popup-application__form {
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  padding: 100px 80px 269px;
+  background-color: #18191E;
+  color: #F4F4F4;
+  box-sizing: border-box;
+}
+
+@media (max-width: 800px) {
+  .popup-application__form {
+    padding: 50px 20px;
+  }
+}

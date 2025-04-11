@@ -1,0 +1,10 @@
+.popup-application__textarea {
+  display: block;
+  width: 100%;
+  min-height: 120px;
+  padding: 25px;
+  border: 2px solid #464646;
+  border-radius: 10px;
+  background-color: transparent;
+  box-sizing: border-box;
+}

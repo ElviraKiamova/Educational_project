@@ -1,0 +1,17 @@
+.popup-application__box-button {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  color: #727272;
+
+}
+
+.popup-application__box-button a {
+  color: #FFF;
+}
+
+@media (max-width: 800px) {
+  .popup-application__box-button {
+    flex-direction: column;
+  }
+}

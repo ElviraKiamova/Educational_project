@@ -1,0 +1,26 @@
+.popup-application__label.file {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 120px;
+  margin: 20px 0 24px;
+  border: 2px dashed #464646;
+  cursor: pointer;
+}
+
+.popup-application__label.file span {
+  position: relative;
+}
+
+.popup-application__label.file span::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -41px;
+  width: 30px;
+  height: 30px;
+  background-image: url(../../../assets/Attach.svg);
+  font-size: 30px;
+  color: #FFF;
+}

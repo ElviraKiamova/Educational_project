@@ -1,0 +1,14 @@
+.popup-application__button {
+  width: 372px;
+  height: 69px;
+  background-color: #FFF;
+  color: #1F1F1F;
+  border-radius: 10px;
+  border: none;
+}
+
+@media (max-width: 800px) {
+  .popup-application__button {
+    width: 335px;
+  }
+}

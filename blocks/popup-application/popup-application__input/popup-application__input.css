@@ -1,0 +1,19 @@
+.popup-application__input {
+  width: 570px;
+  padding: 22px 25px;
+  border: 2px solid #464646;
+  border-radius: 10px;
+  background-color: transparent;
+  box-sizing: border-box;
+}
+
+.popup-application__input.email {
+  width: 580px;
+}
+
+@media (max-width: 800px) {
+  .popup-application__input, .popup-application__input.email {
+    width: 335px;
+    padding: 22px 20px;
+  }
+}
