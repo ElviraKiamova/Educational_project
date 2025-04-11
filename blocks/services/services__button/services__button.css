@@ -6,6 +6,13 @@
   background-color: transparent;
   font-size: 16px;
   color: #B4100D;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.services__button:hover {
+  background-color: #B4100D;
+  color: #FFF;
+  cursor: pointer;
 }
 
 @media (max-width: 400px) {

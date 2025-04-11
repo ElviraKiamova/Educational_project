@@ -4,9 +4,16 @@
   margin: 28px 0 150px;
   background-color: #B4100D;
   color: #FFF;
-  border: none;
+  border: 2px solid #B4100D;
   border-radius: 10px;
   font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+.about__button:hover {
+  background-color: #FFF;
+  color: #B4100D;
+  cursor: pointer;
 }
 
 @media (max-width: 850px) {

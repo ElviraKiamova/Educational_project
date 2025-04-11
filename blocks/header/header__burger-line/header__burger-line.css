@@ -6,7 +6,7 @@
 
 .header__burger.active .header__burger-line:nth-child(1) {
     width: 20px;
-    transform: translateY(5px) rotate(40deg);
+    transform: translateY(6px) rotate(45deg);
 }
 
 .header__burger.active .header__burger-line:nth-child(2) {
@@ -15,5 +15,5 @@
 
 .header__burger.active .header__burger-line:nth-child(3) {
     width: 20px;
-    transform: translateY(-7.5px) rotate(-40deg);
+    transform: translateY(-7px) rotate(-45deg);
 }
