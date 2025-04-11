@@ -10,11 +10,6 @@
   border: none;
 }
 
-.header__burger span {
-  width: 18px;
-  border: 1px solid #1F1F1F;
-}
-
 @media (max-width: 1600px) {
   .header__burger {
     display: flex;

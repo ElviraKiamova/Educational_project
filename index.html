@@ -15,35 +15,37 @@
   <div class="page">
     <header class="header">
       <button class="header__burger" type="button">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
       </button>
       <a class="header__logo" href="#">
         <img src="./assets/logo1.svg" alt="Логотип компании">
         <img src="./assets/logo2.svg" alt="Промышленные услуги">
       </a>
-      <select class="header__select">
-        <option value="ru" selected>RU</option>
-        <option value="en">EN</option>
-      </select>
-      <nav class="header__nav">
-        <a class="header__nav-link" href="#">Услуги</a>
-        <a class="header__nav-link" href="#">Продукция</a>
-        <a class="header__nav-link" href="#">О компании</a>
-        <a class="header__nav-link" href="#">Портфолио</a>
-        <a class="header__nav-link" href="#">Вопрос-ответ</a>
-        <a class="header__nav-link" href="#">Контакты</a>
-      </nav>
-      <div class="header__box">
-        <a class="header__email" href="mailto:info@ingolf.is">info@ingolf.is</a>
-        <p class="header__adress">г. Уфа, ул. Юбилейная, 17/4</p>
+      <div class="header__container">
+        <select class="header__select">
+          <option value="ru" selected>RU</option>
+          <option value="en">EN</option>
+        </select>
+        <nav class="header__nav">
+          <a class="header__nav-link" href="#">Услуги</a>
+          <a class="header__nav-link" href="#">Продукция</a>
+          <a class="header__nav-link" href="#">О компании</a>
+          <a class="header__nav-link" href="#">Портфолио</a>
+          <a class="header__nav-link" href="#">Вопрос-ответ</a>
+          <a class="header__nav-link" href="#">Контакты</a>
+        </nav>
+        <div class="header__box">
+          <a class="header__email" href="mailto:info@ingolf.is">info@ingolf.is</a>
+          <p class="header__adress">г. Уфа, ул. Юбилейная, 17/4</p>
+        </div>
+        <div class="header__box">
+          <a class="header__tel" href="tel:+79047358156">+7&nbsp;(904)&nbsp;735&#8209;81&#8209;56</a>
+          <a class="header__tel" href="tel:+73472578156">+7&nbsp;(347)&nbsp;257&#8209;81&#8209;56</a>
+        </div>
+        <button class="header__button" type="button" aria-label="Оставить заявку на обслуживание">Оставить заявку</button>
       </div>
-      <div class="header__box">
-        <a class="header__tel" href="tel:+79047358156">+7&nbsp;(904)&nbsp;735&#8209;81&#8209;56</a>
-        <a class="header__tel" href="tel:+73472578156">+7&nbsp;(347)&nbsp;257&#8209;81&#8209;56</a>
-      </div>
-      <button class="header__button" type="button" aria-label="Оставить заявку на обслуживание">Оставить заявку</button>
       <button class="header__button-tel" type="button"></button>
     </header>
     <main class="content">
@@ -131,13 +133,14 @@
           <div class="services__box">
             <p class="services__warranty">Мы гарантируем, что насосы будут работать!</p>
            <picture>
-            <source class="services__img" media="(max-width: 400px)" srcset="./assets/good_ 2.png">
-            <img class="services__img" src="./assets/good_ 1.png" alt="">
+            <source class="services__img" media="(max-width: 400px)" srcset="./assets/good_2.png">
+            <img class="services__img" src="./assets/good_1.png" alt="Лицо компании">
           </picture>
           </div>
         </div>
       </section>
     </main>
   </div>
+  <script src="./scripts/index.js"></script>
 </body>
 </html>

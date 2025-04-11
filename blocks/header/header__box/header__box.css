@@ -20,6 +20,7 @@
 
 @media (max-width: 1600px) {
   .header__box {
-    display: none;
+    gap: 10px;
+    margin: 0 0 10px 0;
   }
 }

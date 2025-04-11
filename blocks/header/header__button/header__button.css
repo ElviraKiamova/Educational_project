@@ -12,6 +12,7 @@
 
 @media (max-width: 1600px) {
   .header__button {
-    display: none;
+    width: 335px;
+    margin-top: 24px;
   }
 }
