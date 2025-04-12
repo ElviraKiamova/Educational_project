@@ -5,6 +5,7 @@
   width: 80px;
   height: 80px;
   background-color: #F2F2F2;
+  border-radius: 10px;
 }
 
 @media (max-width: 400px) {

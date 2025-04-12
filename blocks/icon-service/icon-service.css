@@ -4,6 +4,23 @@
   height: 40px;
 }
 
+.icon-service.key {
+  position: relative;
+  top: 5px;
+  width: 22px;
+  height: 57px;
+}
+
+.icon-service.magnifier {
+  width: 29px;
+  height: 29px;
+}
+
+.icon-service.arrows {
+  width: 30px;
+  height: 20px;
+}
+
 @media (max-width: 400px) {
   .icon-service.about__img {
     width: 30px;
