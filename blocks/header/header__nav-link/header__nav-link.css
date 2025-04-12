@@ -3,3 +3,7 @@
   color: #797979;
 }
 
+.header__nav-link:hover {
+  color: #B4100D;
+  cursor: default;
+}

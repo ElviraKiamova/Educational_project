@@ -12,7 +12,7 @@
 .services__button:hover {
   background-color: #B4100D;
   color: #FFF;
-  cursor: pointer;
+  cursor: default;
 }
 
 @media (max-width: 400px) {
