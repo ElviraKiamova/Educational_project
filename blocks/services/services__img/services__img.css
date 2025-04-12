@@ -1,16 +1,18 @@
 .services__img {
   position: absolute;
-  right: -350px;
+  right: -290px;
   top: 56%;
   transform: translateY(-50%);
-  width: auto;
-  height: auto;
+  width: 1063px;
+  height: 598px;
   z-index: 0;
 }
 
 @media (max-width: 1900px) {
   .services__img {
     position: static;
+    width: 852px;
+    height: 479px;
     transform: none;
     margin-bottom: 50px;
   }
