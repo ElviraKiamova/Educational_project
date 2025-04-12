@@ -8,6 +8,9 @@ const nextButtonElement = document.querySelector('.about__button--next');
 const dotElements = document.querySelectorAll('.about__dot');
 const imgElement = document.querySelector('.about__picture img');
 const sourceElement = document.querySelector('.about__picture source');
+const selectHeaderElement = document.querySelector('.header__select');
+const itemSelectRuElement = document.querySelector('.header__select-item_ru');
+const itemSelectEnElement = document.querySelector('.header__select-item_en');
 let currentSlide = 0;
 const desktopImages = [
     './assets/about-desktop-image1.jpg',
@@ -20,6 +23,22 @@ const mobileImages = [
     './assets/about-mobile-image3.jpg'
 ];
 
+selectHeaderElement.addEventListener('click', (evt) => {
+  evt.stopPropagation();
+  selectHeaderElement.classList.toggle('active');
+});
+
+itemSelectEnElement.addEventListener('click', (evt) => {
+  evt.stopPropagation();
+  const contentRu = itemSelectRuElement.textContent;
+  itemSelectRuElement.textContent = itemSelectEnElement.textContent;
+  itemSelectEnElement.textContent = contentRu;
+  selectHeaderElement.classList.remove('active');
+});
+
+document.addEventListener('click', () => {
+  selectHeaderElement.classList.remove('active');
+});
 
 
 function updateSlide(index) {
@@ -47,8 +66,6 @@ dotElements.forEach((dot, index) => {
         updateSlide(index);
     });
 });
-
-
 
 
 

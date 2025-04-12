@@ -1,7 +1,41 @@
 .header__select {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 0;
+  padding: 0;
   width: 42px;
   border: none;
   color: #797979;
-  font-family: "Golos Text", sans-serif;
   font-size: 15px;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.header__select-item_ru {
+  position: relative;
+}
+
+.header__select::after {
+  content: "";
+  position: absolute;
+  top: 55%;
+  right: 8px;
+  width: 10px;
+  height: 10px;
+  background-image: url(../../../assets/dropdown.svg);
+  background-repeat: no-repeat;
+  transform: translateY(-50%);
+  filter: invert(49%) sepia(6%) saturate(135%) hue-rotate(314deg) brightness(93%) contrast(89%);
+}
+
+.header__select-item_en {
+  display: none;
+  position: absolute;
+  top: 90%;
+  left: 0;
+}
+
+.header__select.active .header__select-item_en {
+  display: block;
 }

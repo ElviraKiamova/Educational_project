@@ -4,6 +4,7 @@
   height: 30px;
   background-color: transparent;
   background-image: url(../../../assets/menu_mobile.svg);
+  background-repeat: no-repeat;
   border: none;
 }
 
