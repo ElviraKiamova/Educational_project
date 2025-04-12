@@ -12,35 +12,6 @@
   <title>Ingolf — Ремонт насосов высокого давления в Уфе</title>
 </head>
 <body>
-  <div class="popup-application">
-    <form class="popup-application__form" action="#" method="post">
-      <button class="popup-application__close" type="button" aria-label="Закрыть попап"></button>
-      <h2 class="popup-application__title">Оставить заявку</h2>
-      <p class="popup-application__text">Для получения подробной информации просим заполнить форму обратной связи</p>
-      <div class="popup-application__box-input">
-        <label class="popup-application__label">
-          <input class="popup-application__input" type="text" name="name" placeholder="Имя *" required>
-        </label>
-        <label class="popup-application__label">
-          <input class="popup-application__input" type="tel" name="phone" placeholder="Телефон *" required>
-        </label>
-        <label class="popup-application__label">
-          <input class="popup-application__input email" type="email" name="email" placeholder="Email *" required>
-        </label>
-      </div>
-      <label class="popup-application__label">
-        <textarea class="popup-application__textarea"  name="requirements" placeholder="Технические требования (подробно опишите ваш запрос)"></textarea>
-      </label>
-      <label class="popup-application__label file">
-          <span>Прикрепить фото, видео</span>
-          <input class="popup-application__input-file" name="files" type="file" multiple>
-      </label>
-      <div class="popup-application__box-button">
-        <button class="popup-application__button" type="submit">Оставить заявку</button>
-        <p class="popup-application__text">Я согласен-(на) с <a href="#">политикой конфиденциальности</a></p>
-      </div>
-    </form>
-  </div>
   <div class="page">
     <header class="header">
       <button class="header__burger" type="button">
@@ -169,6 +140,35 @@
         </div>
       </section>
     </main>
+  </div>
+    <div class="popup-application">
+    <form class="popup-application__form" action="#" method="post">
+      <button class="popup-application__close" type="button" aria-label="Закрыть попап"></button>
+      <h2 class="popup-application__title">Оставить заявку</h2>
+      <p class="popup-application__text">Для получения подробной информации просим заполнить форму обратной связи</p>
+      <div class="popup-application__box-input">
+        <label class="popup-application__label">
+          <input class="popup-application__input" type="text" name="name" placeholder="Имя *" required>
+        </label>
+        <label class="popup-application__label">
+          <input class="popup-application__input" type="tel" name="phone" placeholder="Телефон *" required>
+        </label>
+        <label class="popup-application__label">
+          <input class="popup-application__input email" type="email" name="email" placeholder="Email *" required>
+        </label>
+      </div>
+      <label class="popup-application__label textarea">
+        <textarea class="popup-application__textarea"  name="requirements" placeholder="Технические требования (подробно опишите ваш запрос)"></textarea>
+      </label>
+      <label class="popup-application__label file">
+          <span>Прикрепить фото, видео</span>
+          <input class="popup-application__input-file" name="files" type="file" multiple>
+      </label>
+      <div class="popup-application__box-button">
+        <button class="popup-application__button" type="submit">Оставить заявку</button>
+        <p class="popup-application__text">Я согласен-(на) с <a href="#">политикой конфиденциальности</a></p>
+      </div>
+    </form>
   </div>
   <script src="./scripts/index.js"></script>
 </body>

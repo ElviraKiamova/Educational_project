@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1919px) {
   .popup-application__form {
     padding: 50px 20px;
   }

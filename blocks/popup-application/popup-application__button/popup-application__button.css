@@ -1,10 +1,18 @@
 .popup-application__button {
   width: 372px;
-  height: 69px;
+  height: 70px;
   background-color: #FFF;
   color: #1F1F1F;
   border-radius: 10px;
-  border: none;
+  border: 2px solid #1F1F1F;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+.popup-application__button:hover {
+  color: #FFF;
+  background-color: #1F1F1F;
+  border: 2px solid #FFF;
+  cursor: default;
 }
 
 @media (max-width: 800px) {

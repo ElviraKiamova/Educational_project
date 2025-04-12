@@ -15,11 +15,3 @@
   line-height: 140%;
   letter-spacing: 0%;
 }
-
-@media (max-height: 1000px) {
-  .popup-application {
-    position: relative;
-    height: auto;
-    min-height: 100vh;
-  }
-}

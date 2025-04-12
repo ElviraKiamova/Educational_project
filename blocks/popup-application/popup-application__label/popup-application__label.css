@@ -6,7 +6,15 @@
   height: 120px;
   margin: 20px 0 24px;
   border: 2px dashed #464646;
-  cursor: pointer;
+  border-radius: 10px;
+  color: #464646;
+  transition: color 0.3s ease, border 0.3s ease;
+}
+
+.popup-application__label.file:hover {
+  border: 2px dashed #FFF;
+  color: #FFF;
+  cursor:default;
 }
 
 .popup-application__label.file span {
@@ -16,11 +24,35 @@
 .popup-application__label.file span::before {
   content: '';
   position: absolute;
-  top: -3px;
+  top: -5px;
   left: -41px;
   width: 30px;
   height: 30px;
   background-image: url(../../../assets/Attach.svg);
   font-size: 30px;
-  color: #FFF;
+  transition: filter 0.3s ease;
+}
+
+.popup-application__label.file:hover span::before {
+  filter: brightness(1000%) saturate(0%);
+}
+
+.popup-application__label.textarea, .popup-application__label {
+  position: relative;
+}
+
+.popup-application__label.textarea::after, .popup-application__label::after {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 28px;
+  width: 1px;
+  height: 0;
+  background-color: #FFF;
+  transition: height 0.3s ease;
+  transform: translateY(-50%);
+}
+
+.popup-application__label.textarea:has(.popup-application__textarea.active)::after, .popup-application__label:has(.popup-application__input.active)::after {
+  height: 22px;
 }

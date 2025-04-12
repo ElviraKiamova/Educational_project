@@ -1,6 +1,5 @@
 const burgerElement = document.querySelector('.header__burger');
 const containerElement = document.querySelector('.header__container');
-const popup = document.querySelector('.popup-application');
 const popupElement = document.querySelector('.popup-application');
 const closePopupButtonElement = document.querySelector('.popup-application__close');
 const prevButtonElement = document.querySelector('.about__button--prev');
@@ -22,6 +21,15 @@ const mobileImages = [
     './assets/about-mobile-image2.jpg',
     './assets/about-mobile-image3.jpg'
 ];
+
+
+popupElement.querySelectorAll('.popup-application__input, .popup-application__textarea').forEach(element => {
+  element.addEventListener('click', function(evt) {
+    evt.preventDefault();
+    this.classList.toggle('active');
+  });
+});
+
 
 selectHeaderElement.addEventListener('click', (evt) => {
   evt.stopPropagation();
@@ -84,15 +92,18 @@ document.addEventListener('click', (evt) => {
 document.addEventListener('click', (evt) => {
   if (evt.target.closest('.header__button') || evt.target.closest('.about__button') || evt.target.closest('.services__button')) {
     popupElement.style.display = 'flex';
+    document.body.classList.add('no-scroll');
   } 
 });
 
 closePopupButtonElement.addEventListener('click', () => {
-    popupElement.style.display = 'none';
+  popupElement.style.display = 'none';
+  document.body.classList.remove('no-scroll');
 });
 
 document.addEventListener('keydown', (evt) => {
   if (evt.key === 'Escape') {
     popupElement.style.display = 'none';
+    document.body.classList.remove('no-scroll');
   }
 });
