@@ -15,7 +15,14 @@
   cursor: default;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1900px) and (min-width: 769px) {
+  .services__card {
+    gap: 1.2vw;
+    padding: 1.2vw;
+  }
+}
+
+@media (max-width: 768px) {
   .services__card {
     gap: 20px;
     font-size: 18px;

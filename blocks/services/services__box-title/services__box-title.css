@@ -3,10 +3,10 @@
   align-items: center;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 768px) {
   .services__box-title {
     flex-direction: column;
-    gap: 20px;
     align-items: flex-start;
+    gap: 20px;
   }
 }

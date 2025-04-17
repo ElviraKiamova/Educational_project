@@ -6,7 +6,14 @@
   text-transform: uppercase;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1900px) and (min-width: 769px) {
+  .services__subtitle {
+    font-size: 4.5vw;
+    margin-right: 10vw;
+  }
+}
+
+@media (max-width: 768px) {
   .services__subtitle {
     font-weight: 500;
     font-size: 32px;

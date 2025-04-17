@@ -9,6 +9,7 @@
 .header__box a {
   font-size: 16px;
   transition: color 0.3s ease;
+  white-space: nowrap;
 }
 
 .header__box a:hover {
@@ -24,9 +25,23 @@
   letter-spacing: -0.4px;
 }
 
-@media (max-width: 1600px) {
+
+@media (max-width: 1900px) and (min-width: 769px) {
+   .header__box {
+    margin-right: 0;
+  }
+  .header__box a {
+    font-size: 1vw;
+    margin-right: 1vw;
+  }
+}
+
+@media (max-width: 768px) {
   .header__box {
     gap: 10px;
     margin: 0 0 10px 0;
   }
+  .header__box a {
+  letter-spacing: -0.3px;
+}
 }

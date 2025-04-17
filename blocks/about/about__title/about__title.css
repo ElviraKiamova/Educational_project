@@ -11,8 +11,14 @@
   color: #B4100D;
 }
 
+@media (max-width: 1900px) and (min-width: 769px) {
+  .about__title {
+    font-size: 3.5vw;
+    margin: 5% 0 2%;
+  }
+}
 
-@media (max-width: 850px) {
+@media (max-width: 768px) {
   .about__title {
     margin: 0 0 15px;
     font-size: 24px;

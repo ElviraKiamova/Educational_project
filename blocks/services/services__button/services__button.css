@@ -15,7 +15,15 @@
   cursor: default;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 1900px) and (min-width: 769px) {
+  .services__button {
+    width: 25vw;
+    height: 4vw;
+    font-size: 1vw;
+  }
+}
+
+@media (max-width: 768px) {
   .services__button {
     width: 335px;
     height: 59px;

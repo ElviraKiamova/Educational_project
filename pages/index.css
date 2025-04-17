@@ -28,6 +28,8 @@
 @import url("../blocks/about/about__button-control/about__button-control.css");
 @import url("../blocks/about/about__dots/about__dots.css");
 @import url("../blocks/about/about__dot/about__dot.css");
+@import url("../blocks/about/about__picture/about__picture.css");
+@import url("../blocks/about/about__picture-img/about__picture-img.css");
 
 @import url("../blocks/services/services.css");
 @import url("../blocks/services/services__container/services__container.css");
@@ -38,6 +40,7 @@
 @import url("../blocks/services/services__card/services__card.css");
 @import url("../blocks/services/services__card-img/services__card-img.css");
 @import url("../blocks/services/services__card-button/services__card-button.css");
+@import url("../blocks/services/services__card-text/services__card-text.css");
 @import url("../blocks/services/services__button/services__button.css");
 @import url("../blocks/services/services__warranty/services__warranty.css");
 @import url("../blocks/services/services__img/services__img.css");

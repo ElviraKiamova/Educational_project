@@ -7,7 +7,31 @@
   gap: 20px;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1900px) and (min-width: 769px) {
+  .about__control {
+    top: auto;
+    bottom: 6%;
+  }
+  .about__button-control {
+    width: 2.8vw;
+    height: 2.8vw;
+    min-width: 28px;
+    min-height: 28px;
+    background-size: 0.7vw 0.7vw;
+  }
+  .about__dot {
+    width: 0.35vw;
+    height: 0.35vw;
+    min-width: 3.5px;
+    min-height: 3.5px;
+  }
+  .about__dots {
+    width: 1.8vw;
+    min-width: 18px;
+  }
+}
+
+@media (max-width: 768px) {
   .about__control {
     top: 253px;
   }

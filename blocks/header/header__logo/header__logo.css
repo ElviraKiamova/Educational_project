@@ -16,7 +16,18 @@
   height: 10px;
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 1900px) and (min-width: 769px) {
+  .header__logo img:first-child, .header__logo img:last-child {
+    width: 8vw;
+    height: auto;
+  }
+  .header__logo {
+    gap: 5px;
+    margin-right: 2vw;
+  }
+}
+
+@media (max-width: 768px) {
   .header__logo {
     gap: 5px;
     margin-right: 0;

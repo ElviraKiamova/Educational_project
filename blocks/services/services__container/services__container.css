@@ -12,14 +12,17 @@
   }
 }
 
-@media (max-width: 1900px) {
+@media (max-width: 1900px) and (min-width: 769px) {
   .services__container {
-    flex-direction: column;
+    padding: 0 5%;
+    margin: 5% 0;
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 768px) {
   .services__container {
+    margin: 120px 0 130px;
+    flex-direction: column;
     margin: 50px 0 0;
   }
 }

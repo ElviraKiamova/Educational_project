@@ -8,7 +8,14 @@
   border-radius: 10px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 1900px) and (min-width: 769px) {
+  .services__card-img {
+    width: 5vw;
+    height: 5vw;
+  }
+}
+
+@media (max-width: 768px) {
   .services__card-img.about__img  {
     width: 60px;
     height: 60px;

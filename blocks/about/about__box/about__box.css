@@ -5,3 +5,9 @@
 .about__box:last-child {
   position: relative;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .about__box {
+    max-width: 48%;
+  }
+}

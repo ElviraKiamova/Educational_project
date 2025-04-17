@@ -7,7 +7,13 @@
   font-size: 20px;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1900px) and (min-width: 769px) {
+  .about__text, .about__text:last-child {
+    font-size: 1.2vw;
+  }
+}
+
+@media (max-width: 768px) {
   .about__text {
     font-size: 14px;
   }

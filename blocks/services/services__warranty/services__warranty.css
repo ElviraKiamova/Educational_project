@@ -23,7 +23,25 @@
   z-index: -1;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 1900px) and (min-width: 769px) {
+  .services__warranty {
+    max-width: 25vw;
+    min-width: 180px;
+    margin: 0 4%;
+    padding: 1.2vw 1.8vw 1.5vw;
+    font-size: 1.3vw;
+  }
+
+  .services__warranty::before {
+    width: 3.5vw;
+    height: 3.5vw;
+    top: 2.5vw;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+  }
+}
+
+@media (max-width: 768px) {
   .services__warranty {
     margin: 0;
     padding: 28px 30px 28px 28px;

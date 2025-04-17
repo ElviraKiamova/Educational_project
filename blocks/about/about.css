@@ -7,23 +7,26 @@
   padding: 16px 0 72px;
 }
 
+@media (max-width: 1900px) and (min-width: 769px) {
+  .about {
+    gap: 2%;
+    padding: 2% 5%;
+    max-width: none;
+    width: auto;
+  }
+}
+
 @media (max-width: 1920px) {
   .about {
     padding: 16px 80px 76px;
   }
 }
 
-@media (max-width: 1900px) {
+@media (max-width: 768px) {
   .about {
     flex-direction: column-reverse;
     align-items: center;
     gap: 16px;
-    padding: 20px 0;
-  }
-}
-
-@media (max-width: 1000px) {
-  .about {
     padding: 20px;
     box-sizing: border-box;
   }

@@ -1,0 +1,12 @@
+.about__picture-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  .about__picture-img {
+    width: 335px;
+    height: 323px;
+  }
+}

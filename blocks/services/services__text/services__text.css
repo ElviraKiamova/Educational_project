@@ -5,7 +5,13 @@
   color: #B4100D;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1900px) and (min-width: 769px) {
+  .services__text {
+    font-size: 1.2vw;
+  }
+}
+
+@media (max-width: 768px) {
   .services__text {
     font-size: 16px;
     line-height: 130%;

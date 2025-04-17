@@ -16,11 +16,11 @@
   position: relative;
 }
 
-.header__select::after {
+.header__select-item_ru::after {
   content: "";
   position: absolute;
-  top: 55%;
-  right: 8px;
+  top: 60%;
+  right: -15px;
   width: 10px;
   height: 10px;
   background-image: url(../../../assets/dropdown.svg);
@@ -38,4 +38,23 @@
 
 .header__select.active .header__select-item_en {
   display: block;
+}
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .header__select {
+    width: 1vw;
+    min-width: 30px;
+    color: #797979;
+    font-size: 1vw;
+  }
+  .header__select-item_ru::after {
+    right: -0.8vw;
+    width: 0.6vw;
+    height: 0.6vw;
+    background-image: url(../../../assets/dropdown.svg);
+    background-repeat: no-repeat;
+    background-size: contain; /* Масштабируем изображение */
+    transform: translateY(-50%);
+    filter: invert(49%) sepia(6%) saturate(135%) hue-rotate(314deg) brightness(93%) contrast(89%);
+  }
 }
