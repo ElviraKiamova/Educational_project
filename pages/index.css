@@ -31,9 +31,12 @@
 @import url("../blocks/about/about__picture/about__picture.css");
 @import url("../blocks/about/about__picture-img/about__picture-img.css");
 
+@import url("../blocks/subtitle/subtitle.css");
+@import url("../blocks/text-red/text-red.css");
+@import url("../blocks/button-request/button-request.css");
+
 @import url("../blocks/services/services.css");
 @import url("../blocks/services/services__container/services__container.css");
-@import url("../blocks/services/services__subtitle/services__subtitle.css");
 @import url("../blocks/services/services__box-title/services__box-title.css");
 @import url("../blocks/services/services__text/services__text.css");
 @import url("../blocks/services/services__cards/services__cards.css");
@@ -57,3 +60,21 @@
 @import url("../blocks/popup-application/popup-application__label/popup-application__label.css");
 @import url("../blocks/popup-application/popup-application__box-button/popup-application__box-button.css");
 @import url("../blocks/popup-application/popup-application__button/popup-application__button.css");
+
+@import url("../blocks/products/products.css");
+@import url("../blocks/products/products__container/products__container.css");
+@import url("../blocks/products/products__text/products__text.css");
+@import url("../blocks/products/products__list-card/products__list-card.css");
+@import url("../blocks/products/products__card/products__card.css");
+@import url("../blocks/products/products__card-img/products__card-img.css");
+@import url("../blocks/products/products__card-box/products__card-box.css");
+@import url("../blocks/products/products__card-switch/products__card-switch.css");
+@import url("../blocks/products/products__card-button/products__card-button.css");
+@import url("../blocks/products/products__card-description/products__card-description.css");
+@import url("../blocks/products/products__card-title/products__card-title.css");
+@import url("../blocks/products/products__card-text/products__card-text.css");
+@import url("../blocks/products/products__subtitle/products__subtitle.css");
+@import url("../blocks/products/products__list-advantages/products__list-advantages.css");
+@import url("../blocks/products/products__item-advantages/products__item-advantages.css");
+@import url("../blocks/products/products__item-number/products__item-number.css");
+@import url("../blocks/products/products__item-text/products__item-text.css");

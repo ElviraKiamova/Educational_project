@@ -1,0 +1,18 @@
+.button-request {
+  width: 500px;
+  height: 60px;
+  margin-top: 30px;
+  border: 2px solid #B4100D;
+  border-radius: 10px;
+  background-color: #FFF;
+  color: #B4100D;
+  font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+.button-request:hover {
+  border: 2px solid #B4100D;
+  background-color: #B4100D;
+  color: #FFF;
+  cursor: default;
+}

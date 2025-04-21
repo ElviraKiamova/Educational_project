@@ -1,5 +1,4 @@
-.services__subtitle {
-  margin-right: 170px;
+.subtitle {
   font-size: 76px;
   line-height: 108%;
   letter-spacing: -3.5px;
@@ -9,7 +8,6 @@
 @media (max-width: 1900px) and (min-width: 769px) {
   .services__subtitle {
     font-size: 4.5vw;
-    margin-right: 10vw;
   }
 }
 

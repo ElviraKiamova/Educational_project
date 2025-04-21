@@ -1,0 +1,11 @@
+.products__card-button {
+  width: 20px;
+  height: 6px;
+  background-color: #B4100D;
+  border: none;
+  border-radius: 20px;
+}
+
+.products__card-button_right {
+  background-color: #BBBBBB;
+}

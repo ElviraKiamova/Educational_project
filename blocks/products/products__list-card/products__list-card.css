@@ -1,0 +1,7 @@
+.products__list-card {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  margin-bottom: 80px;
+  padding: 0;
+}

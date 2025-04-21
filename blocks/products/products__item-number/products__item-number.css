@@ -1,0 +1,12 @@
+.products__item-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  background-color: #FFF;
+  color: #B4100D;
+  font-size: 40px;
+  line-height: 130%;
+}
