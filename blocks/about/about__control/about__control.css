@@ -8,10 +8,6 @@
 }
 
 @media (max-width: 1900px) and (min-width: 769px) {
-  .about__control {
-    top: auto;
-    bottom: 6%;
-  }
   .about__button-control {
     width: 2.8vw;
     height: 2.8vw;
@@ -28,6 +24,21 @@
   .about__dots {
     width: 1.8vw;
     min-width: 18px;
+  }
+}
+
+@media (max-width: 1900px) and (min-width: 901px) {
+  .about__control {
+    top: auto;
+    bottom: 6%;
+  }
+}
+
+
+@media (max-width: 900px) and (min-width: 769px) {
+  .about__control {
+    top: 70%;
+    bottom: auto;
   }
 }
 

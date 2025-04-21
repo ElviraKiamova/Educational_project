@@ -2,12 +2,24 @@
   max-width: 875px;
 }
 
-.about__box:last-child {
+.about__box.slide {
   position: relative;
 }
 
 @media (max-width: 1900px) and (min-width: 769px) {
   .about__box {
     max-width: 48%;
+  }
+}
+
+@media (max-width: 768px) {
+  .about__box {
+    text-align: center;
+  }
+}
+
+@media (max-width: 376px) {
+  .about__box {
+    text-align: start;
   }
 }

@@ -14,14 +14,13 @@
   transform: rotate(-180deg);
 }
 
-@media (max-width: 1900px) and (min-width: 769px) {
+@media (max-width: 1300px) and (min-width: 769px) {
   .services__card-button {
     top: 0.8vw;
     right: 0.8vw;
     width: 0.5vw;
     height: 0.5vw;
-    min-width: 12px;
-    min-height: 12px;
-    border: 0.3vw solid #B4100D;
+    min-width: 14px;
+    min-height: 14px;
   }
 }
