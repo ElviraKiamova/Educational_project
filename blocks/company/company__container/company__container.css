@@ -1,0 +1,7 @@
+.company__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1760px;
+  margin: 120px 0;
+}

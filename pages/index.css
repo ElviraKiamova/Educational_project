@@ -78,3 +78,13 @@
 @import url("../blocks/products/products__item-advantages/products__item-advantages.css");
 @import url("../blocks/products/products__item-number/products__item-number.css");
 @import url("../blocks/products/products__item-text/products__item-text.css");
+
+@import url("../blocks/company/company.css");
+@import url("../blocks/company/company__container/company__container.css");
+@import url("../blocks/company/company__box/company__box.css");
+@import url("../blocks/company/company__list-info/company__list-info.css");
+@import url("../blocks/company/company__item-info/company__item-info.css");
+@import url("../blocks/company/company__number-info/company__number-info.css");
+@import url("../blocks/company/company__carousel/company__carousel.css");
+@import url("../blocks/company/company__switch-carousel/company__switch-carousel.css");
+@import url("../blocks/company/company__img/company__img.css");

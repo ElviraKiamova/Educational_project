@@ -1,0 +1,11 @@
+.company__list-info {
+  display: flex;
+  gap: 80px;
+  margin: 0 15px 0 0;
+  padding: 0;
+  list-style: none;
+  line-height: 20px;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 0;
+}
