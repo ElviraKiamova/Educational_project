@@ -1,4 +1,4 @@
-.popup-application__button {
+.form__button {
   width: 372px;
   height: 70px;
   background-color: #FFF;
@@ -8,7 +8,7 @@
   transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
 
-.popup-application__button:hover {
+.form__button:hover {
   color: #FFF;
   background-color: #1F1F1F;
   border: 2px solid #FFF;
@@ -16,7 +16,7 @@
 }
 
 @media (max-width: 800px) {
-  .popup-application__button {
+  .form__button {
     width: 335px;
   }
 }

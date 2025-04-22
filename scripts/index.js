@@ -1,7 +1,7 @@
 const burgerElement = document.querySelector('.header__burger');
 const containerElement = document.querySelector('.header__container');
 const popupElement = document.querySelector('.popup-application');
-const closePopupButtonElement = document.querySelector('.popup-application__close');
+const closePopupButtonElement = document.querySelector('.form__close');
 const prevButtonElement = document.querySelector('.about__button--prev');
 const nextButtonElement = document.querySelector('.about__button--next');
 const dotElements = document.querySelectorAll('.about__dot');
@@ -23,7 +23,7 @@ const mobileImages = [
 ];
 
 
-popupElement.querySelectorAll('.popup-application__input, .popup-application__textarea').forEach(element => {
+popupElement.querySelectorAll('.form__input, .form__textarea').forEach(element => {
   element.addEventListener('click', function(evt) {
     evt.preventDefault();
     this.classList.toggle('active');

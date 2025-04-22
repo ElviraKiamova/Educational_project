@@ -1,4 +1,4 @@
-.popup-application__title {
+.form__title {
   margin-bottom: 30px;
   font-family: Golos Text;
   font-weight: 500;
@@ -9,7 +9,7 @@
 }
 
 @media (max-width: 800px) {
-  .popup-application__title {
+  .form__title {
     margin-bottom:15px;
     font-size: 32px;
     line-height: 100%;

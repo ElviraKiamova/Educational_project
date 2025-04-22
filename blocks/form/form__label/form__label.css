@@ -1,4 +1,4 @@
-.popup-application__label.file {
+.form__label.file {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,17 +11,17 @@
   transition: color 0.3s ease, border 0.3s ease;
 }
 
-.popup-application__label.file:hover {
+.form__label.file:hover {
   border: 2px dashed #FFF;
   color: #FFF;
   cursor:default;
 }
 
-.popup-application__label.file span {
+.form__label.file span {
   position: relative;
 }
 
-.popup-application__label.file span::before {
+.form__label.file span::before {
   content: '';
   position: absolute;
   top: -5px;
@@ -33,15 +33,15 @@
   transition: filter 0.3s ease;
 }
 
-.popup-application__label.file:hover span::before {
+.form__label.file:hover span::before {
   filter: brightness(1000%) saturate(0%);
 }
 
-.popup-application__label.textarea, .popup-application__label {
+.form__label.textarea, .form__label {
   position: relative;
 }
 
-.popup-application__label.textarea::after, .popup-application__label::after {
+.form__label.textarea::after, .form__label::after {
   content: '';
   position: absolute;
   top: 40px;
@@ -53,6 +53,6 @@
   transform: translateY(-50%);
 }
 
-.popup-application__label.textarea:has(.popup-application__textarea.active)::after, .popup-application__label:has(.popup-application__input.active)::after {
+.form__label.textarea:has(.form__textarea.active)::after, .form__label:has(.form__input.active)::after {
   height: 22px;
 }

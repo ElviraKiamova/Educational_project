@@ -1,4 +1,4 @@
-.popup-application__form {
+.form {
   position: relative;
   width: 100%;
   max-width: 1920px;
@@ -10,13 +10,13 @@
 }
 
 @media (max-width: 1919px) {
-  .popup-application__form {
+  .form {
     padding: 50px 20px;
   }
 }
 
 @media (max-height: 1000px) {
-  .popup-application__form {
+  .form {
     padding: 20px;
     max-height: 100vh;
     overflow-y: auto;

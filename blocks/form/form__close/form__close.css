@@ -1,4 +1,4 @@
-.popup-application__close {
+.form__close {
   position: absolute;
   top: 50px;
   right: 50px;
@@ -10,7 +10,7 @@
 }
 
 @media (max-width: 800px) {
-  .popup-application__close {
+  .form__close {
     top: 10px;
     right: 10px;
   }

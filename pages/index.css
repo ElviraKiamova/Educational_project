@@ -50,16 +50,17 @@
 @import url("../blocks/services/services__box/services__box.css");
 
 @import url("../blocks/popup-application/popup-application.css");
-@import url("../blocks/popup-application/popup-application__form/popup-application__form.css");
-@import url("../blocks/popup-application/popup-application__close/popup-application__close.css");
-@import url("../blocks/popup-application/popup-application__title/popup-application__title.css");
-@import url("../blocks/popup-application/popup-application__box-input/popup-application__box-input.css");
-@import url("../blocks/popup-application/popup-application__input/popup-application__input.css");
-@import url("../blocks/popup-application/popup-application__textarea/popup-application__textarea.css");
-@import url("../blocks/popup-application/popup-application__input-file/popup-application__input-file.css");
-@import url("../blocks/popup-application/popup-application__label/popup-application__label.css");
-@import url("../blocks/popup-application/popup-application__box-button/popup-application__box-button.css");
-@import url("../blocks/popup-application/popup-application__button/popup-application__button.css");
+
+@import url("../blocks/form/form.css");
+@import url("../blocks/form/form__close/form__close.css");
+@import url("../blocks/form/form__title/form__title.css");
+@import url("../blocks/form/form__box-input/form__box-input.css");
+@import url("../blocks/form/form__input/form__input.css");
+@import url("../blocks/form/form__textarea/form__textarea.css");
+@import url("../blocks/form/form__input-file/form__input-file.css");
+@import url("../blocks/form/form__label/form__label.css");
+@import url("../blocks/form/form__box-button/form__box-button.css");
+@import url("../blocks/form/form__button/form__button.css");
 
 @import url("../blocks/cards/cards.css");
 @import url("../blocks/cards/cards__item/cards__item.css");

@@ -1,4 +1,4 @@
-.popup-application__box-button {
+.form__box-button {
   display: flex;
   align-items: center;
   gap: 30px;
@@ -6,12 +6,12 @@
 
 }
 
-.popup-application__box-button a {
+.form__box-button a {
   color: #FFF;
 }
 
 @media (max-width: 800px) {
-  .popup-application__box-button {
+  .form__box-button {
     flex-direction: column;
   }
 }

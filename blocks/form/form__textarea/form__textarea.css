@@ -1,6 +1,8 @@
-.popup-application__input {
-  width: 570px;
-  padding: 22px 25px;
+.form__textarea {
+  display: block;
+  width: 100%;
+  min-height: 120px;
+  padding: 26px;
   border: 2px solid #464646;
   border-radius: 10px;
   background-color: transparent;
@@ -13,35 +15,24 @@
   transition: border 0.3s ease, background-color 0.3s ease;
 }
 
-.popup-application__input::placeholder {
+.form__textarea::placeholder {
   font-size: 18px;
   line-height: 25px;
   letter-spacing: 0%;
   transition: font-size 0.3s ease, transform 0.3s ease, color 0.3s ease;
 }
 
-.popup-application__input:hover::placeholder {
+.form__textarea:hover::placeholder {
   color: #FFF;
 }
 
-.popup-application__input.email {
-  width: 580px;
-}
-
-.popup-application__input.active {
+.form__textarea.active {
   border: 2px solid #818181;
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.popup-application__input.active::placeholder {
+.form__textarea.active::placeholder {
   font-size: 14px;
   transform: translateY(-20px);
   color: #A3A3A3;
-}
-
-@media (max-width: 800px) {
-  .popup-application__input, .popup-application__input.email {
-    width: 335px;
-    padding: 22px 20px;
-  }
 }
