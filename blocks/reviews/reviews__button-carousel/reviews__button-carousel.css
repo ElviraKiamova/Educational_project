@@ -1,0 +1,22 @@
+.reviews__button-carousel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background-color: #B4100D;
+  border: none;
+  border-radius: 50px;
+  background-image: url(../../../assets/reviews-magnifier.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.reviews__item-carousel:hover .reviews__button-carousel {
+  opacity: 1;
+}

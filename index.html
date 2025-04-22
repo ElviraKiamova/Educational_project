@@ -288,8 +288,8 @@
       </section>
       <section class="feedback">
         <form class="form form_feedback" action="#" method="post">
-          <h2 class="form__title">Обратная связь</h2>
-          <p class="form__text">Для получения подробной информации просим заполнить форму обратной связи</p>
+          <h2 class="subtitle">Обратная связь</h2>
+          <p class="form__text form__text_top">Для получения подробной информации просим заполнить форму обратной связи</p>
           <div class="form__box-input">
             <label class="form__label">
               <input class="form__input" type="text" name="name" placeholder="Имя *" required>
@@ -314,13 +314,48 @@
           </div>
         </form>
       </section>
+      <section class="reviews">
+        <div class="reviews__container">
+          <div class="reviews__box">
+            <h2 class="subtitle">Отзывы</h2>
+            <div class="switch">
+              <button class="switch__button back"></button>
+              <button class="switch__button forward"></button>
+            </div>
+          </div>
+          <ul class="reviews__carousel">
+            <li class="reviews__item-carousel">
+              <img class="reviews__img-carousel" src="./assets/reviews-carousel-img.jpg" alt="Отзыв компании Домстрой">
+              <button class="reviews__button-carousel"></button>
+            </li>
+            <li class="reviews__item-carousel">
+              <img class="reviews__img-carousel" src="./assets/reviews-img-luk.jpg" alt="Отзыв компании Лукойл">
+              <button class="reviews__button-carousel"></button>
+            </li>
+            <li class="reviews__item-carousel">
+              <div class="reviews__icon-carousel">
+                <img class="" src="./assets/reviews-carousel-knauf.svg" alt="Логотип компании Кнауф">
+              </div>
+              <img class="reviews__img-carousel" src="./assets/reviews-img-luk.jpg" alt="Отзыв компании Кнауф">
+              <button class="reviews__button-carousel"></button>
+            </li>
+            <li class="reviews__item-carousel">
+              <div class="reviews__icon-carousel">
+                <img class="reviews__img-carousel mvideo" src="./assets/reviews-carousel-mvideo.svg" alt="Логотип компании МВидео">
+              </div>
+              <img class="reviews__img-carousel" src="./assets/reviews-img-luk.jpg" alt="Отзыв компании МВидео">
+              <button class="reviews__button-carousel"></button>
+            </li>
+          </ul>
+        </div>
+      </section>
     </main>
   </div>
     <div class="popup-application">
       <form class="form form_popup-application" action="#" method="post">
       <button class="form__close" type="button" aria-label="Закрыть попап"></button>
-      <h2 class="form__title">Оставить заявку</h2>
-      <p class="form__text">Для получения подробной информации просим заполнить форму обратной связи</p>
+      <h2 class="subtitle">Оставить заявку</h2>
+      <p class="form__text form__text_top">Для получения подробной информации просим заполнить форму обратной связи</p>
       <div class="form__box-input">
         <label class="form__label">
           <input class="form__input" type="text" name="name" placeholder="Имя *" required>

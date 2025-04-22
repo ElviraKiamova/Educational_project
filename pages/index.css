@@ -100,3 +100,12 @@
 @import url("../blocks/portfolio/portfolio__box/portfolio__box.css");
 
 @import url("../blocks/feedback/feedback.css");
+
+@import url("../blocks/reviews/reviews.css");
+@import url("../blocks/reviews/reviews__container/reviews__container.css");
+@import url("../blocks/reviews/reviews__box/reviews__box.css");
+@import url("../blocks/reviews/reviews__carousel/reviews__carousel.css");
+@import url("../blocks/reviews/reviews__item-carousel/reviews__item-carousel.css");
+@import url("../blocks/reviews/reviews__img-carousel/reviews__img-carousel.css");
+@import url("../blocks/reviews/reviews__button-carousel/reviews__button-carousel.css");
+@import url("../blocks/reviews/reviews__icon-carousel/reviews__icon-carousel.css");

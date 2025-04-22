@@ -1,0 +1,23 @@
+.reviews__item-carousel {
+  position: relative;
+  max-width: 403px;
+  max-height: 570px;
+  border-radius: 10px;
+}
+
+.reviews__item-carousel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 5;
+}
+
+.reviews__item-carousel:hover::before {
+  opacity: 1;
+}
