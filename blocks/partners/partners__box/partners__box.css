@@ -1,0 +1,5 @@
+.partners__box {
+  display: flex;
+  gap: 104px;
+  margin-top: 60px;
+}
