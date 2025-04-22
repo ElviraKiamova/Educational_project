@@ -1,7 +1,8 @@
 const burgerElement = document.querySelector('.header__burger');
 const containerElement = document.querySelector('.header__container');
 const popupElement = document.querySelector('.popup-application');
-const formPopupElement = document.querySelector('.form_popup-application');
+const formPopupElement = popupElement.querySelector('.form');
+const formFeedbackElement = document.querySelector('.form_feedback');
 const closePopupButtonElement = formPopupElement.querySelector('.form__close');
 const prevButtonElement = document.querySelector('.about__button--prev');
 const nextButtonElement = document.querySelector('.about__button--next');
@@ -23,13 +24,17 @@ const mobileImages = [
     './assets/about-mobile-image3.jpg'
 ];
 
-
-popupElement.querySelectorAll('.form__input, .form__textarea').forEach(element => {
-  element.addEventListener('click', function(evt) {
-    evt.preventDefault();
-    this.classList.toggle('active');
+function toggleActive(form) {
+  form.querySelectorAll('.form__input, .form__textarea').forEach(element => {
+    element.addEventListener('click', function(evt) {
+      evt.preventDefault();
+      this.classList.toggle('active');
+    });
   });
-});
+}
+
+toggleActive(formPopupElement);
+toggleActive(formFeedbackElement);
 
 
 selectHeaderElement.addEventListener('click', (evt) => {
