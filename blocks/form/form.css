@@ -2,12 +2,17 @@
   position: relative;
   width: 100%;
   max-width: 1920px;
-  padding: 100px 80px 269px;
+  padding: 100px 80px 270px;
   background-color: #18191E;
   color: #F4F4F4;
   box-sizing: border-box;
-  
 }
+
+.form.form_feedback {
+  max-width: 1760px;
+  padding: 100px 0 99px;
+}
+
 
 @media (max-width: 1919px) {
   .form {

@@ -21,6 +21,11 @@
   position: relative;
 }
 
+.form.form_feedback .form__label.file span {
+  font-size: 18px;
+  line-height: 25px;
+}
+
 .form__label.file span::before {
   content: '';
   position: absolute;

@@ -61,6 +61,7 @@
 @import url("../blocks/form/form__label/form__label.css");
 @import url("../blocks/form/form__box-button/form__box-button.css");
 @import url("../blocks/form/form__button/form__button.css");
+@import url("../blocks/form/form__text/form__text.css");
 
 @import url("../blocks/cards/cards.css");
 @import url("../blocks/cards/cards__item/cards__item.css");
@@ -97,3 +98,5 @@
 @import url("../blocks/portfolio/portfolio.css");
 @import url("../blocks/portfolio/portfolio__container/portfolio__container.css");
 @import url("../blocks/portfolio/portfolio__box/portfolio__box.css");
+
+@import url("../blocks/feedback/feedback.css");

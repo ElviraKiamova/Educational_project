@@ -1,7 +1,8 @@
 const burgerElement = document.querySelector('.header__burger');
 const containerElement = document.querySelector('.header__container');
 const popupElement = document.querySelector('.popup-application');
-const closePopupButtonElement = document.querySelector('.form__close');
+const formPopupElement = document.querySelector('.form_popup-application');
+const closePopupButtonElement = formPopupElement.querySelector('.form__close');
 const prevButtonElement = document.querySelector('.about__button--prev');
 const nextButtonElement = document.querySelector('.about__button--next');
 const dotElements = document.querySelectorAll('.about__dot');
@@ -96,7 +97,9 @@ document.addEventListener('click', (evt) => {
   } 
 });
 
-closePopupButtonElement.addEventListener('click', () => {
+console.log(closePopupButtonElement);
+closePopupButtonElement.addEventListener('click', (evt) => {
+  console.log(evt.target);
   popupElement.style.display = 'none';
   document.body.classList.remove('no-scroll');
 });

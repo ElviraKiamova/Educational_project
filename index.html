@@ -286,10 +286,38 @@
           </ul>
         </div>
       </section>
+      <section class="feedback">
+        <form class="form form_feedback" action="#" method="post">
+          <h2 class="form__title">Обратная связь</h2>
+          <p class="form__text">Для получения подробной информации просим заполнить форму обратной связи</p>
+          <div class="form__box-input">
+            <label class="form__label">
+              <input class="form__input" type="text" name="name" placeholder="Имя *" required>
+            </label>
+            <label class="form__label">
+              <input class="form__input" type="tel" name="phone" placeholder="Телефон *" required>
+            </label>
+            <label class="form__label">
+              <input class="form__input email" type="email" name="email" placeholder="Email *" required>
+            </label>
+          </div>
+          <label class="form__label textarea">
+            <textarea class="form__textarea"  name="requirements" placeholder="Технические требования (подробно опишите ваш запрос)"></textarea>
+          </label>
+          <label class="form__label file">
+              <span>Прикрепить фото, видео</span>
+              <input class="form__input-file" name="files" type="file" multiple>
+          </label>
+          <div class="form__box-button">
+            <button class="form__button" type="submit">Оставить заявку</button>
+            <p class="form__text">Я согласен-(на) с <a href="#">политикой конфиденциальности</a></p>
+          </div>
+        </form>
+      </section>
     </main>
   </div>
     <div class="popup-application">
-      <form class="form" action="#" method="post">
+      <form class="form form_popup-application" action="#" method="post">
       <button class="form__close" type="button" aria-label="Закрыть попап"></button>
       <h2 class="form__title">Оставить заявку</h2>
       <p class="form__text">Для получения подробной информации просим заполнить форму обратной связи</p>
