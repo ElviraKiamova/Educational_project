@@ -1,0 +1,9 @@
+.cards__item-img {
+  width: 540px;
+  height: 540px;
+  border-radius: 6px;
+}
+
+.cards__item-img.card-portfolio {
+  height: 520px;
+}

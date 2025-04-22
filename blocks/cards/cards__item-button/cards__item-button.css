@@ -1,4 +1,4 @@
-.products__card-button {
+.cards__item-button {
   width: 20px;
   height: 6px;
   background-color: #B4100D;
@@ -6,6 +6,6 @@
   border-radius: 20px;
 }
 
-.products__card-button_right {
+.cards__item-button_right {
   background-color: #BBBBBB;
 }

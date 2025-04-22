@@ -1,0 +1,18 @@
+.cards__item-text {
+  margin-top: 9px;
+  font-size: 18px;
+  line-height: 130%;
+}
+
+.cards__item-text span {
+  color: #797979;
+}
+
+.cards__item-text.card-portfolio {
+  margin: 3px 0 38px;
+  color: #1F1F1F;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 130%;
+  letter-spacing: 0%;
+}

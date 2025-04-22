@@ -61,18 +61,22 @@
 @import url("../blocks/popup-application/popup-application__box-button/popup-application__box-button.css");
 @import url("../blocks/popup-application/popup-application__button/popup-application__button.css");
 
+@import url("../blocks/cards/cards.css");
+@import url("../blocks/cards/cards__item/cards__item.css");
+@import url("../blocks/cards/cards__item-box/cards__item-box.css");
+@import url("../blocks/cards/cards__item-button/cards__item-button.css");
+@import url("../blocks/cards/cards__item-description/cards__item-description.css");
+@import url("../blocks/cards/cards__item-img/cards__item-img.css");
+@import url("../blocks/cards/cards__item-switch/cards__item-switch.css");
+@import url("../blocks/cards/cards__item-text/cards__item-text.css");
+@import url("../blocks/cards/cards__item-title/cards__item-title.css");
+
+@import url("../blocks/switch/switch.css");
+@import url("../blocks/switch/switch__button/switch__button.css");
+
 @import url("../blocks/products/products.css");
 @import url("../blocks/products/products__container/products__container.css");
 @import url("../blocks/products/products__text/products__text.css");
-@import url("../blocks/products/products__list-card/products__list-card.css");
-@import url("../blocks/products/products__card/products__card.css");
-@import url("../blocks/products/products__card-img/products__card-img.css");
-@import url("../blocks/products/products__card-box/products__card-box.css");
-@import url("../blocks/products/products__card-switch/products__card-switch.css");
-@import url("../blocks/products/products__card-button/products__card-button.css");
-@import url("../blocks/products/products__card-description/products__card-description.css");
-@import url("../blocks/products/products__card-title/products__card-title.css");
-@import url("../blocks/products/products__card-text/products__card-text.css");
 @import url("../blocks/products/products__subtitle/products__subtitle.css");
 @import url("../blocks/products/products__list-advantages/products__list-advantages.css");
 @import url("../blocks/products/products__item-advantages/products__item-advantages.css");
@@ -88,3 +92,7 @@
 @import url("../blocks/company/company__carousel/company__carousel.css");
 @import url("../blocks/company/company__switch-carousel/company__switch-carousel.css");
 @import url("../blocks/company/company__img/company__img.css");
+
+@import url("../blocks/portfolio/portfolio.css");
+@import url("../blocks/portfolio/portfolio__container/portfolio__container.css");
+@import url("../blocks/portfolio/portfolio__box/portfolio__box.css");
