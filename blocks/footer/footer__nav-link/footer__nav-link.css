@@ -1,0 +1,9 @@
+.footer__nav-link {
+  color: #FFF;
+  font-size: 40px;
+  line-height: 90%;
+}
+
+.footer__nav-item:first-child .footer__nav-link {
+  font-size: 36px;
+}

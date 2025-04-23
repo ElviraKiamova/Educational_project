@@ -1,0 +1,14 @@
+.footer__nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer__nav-item:nth-child(1) {
+  margin-right: 176px;
+}
+
+.footer__nav-item:nth-child(2) {
+  margin-right: 214px;
+}

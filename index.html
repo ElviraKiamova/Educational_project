@@ -28,7 +28,7 @@
           <li class="header__select-item header__select-item_ru">RU</li>
           <li class="header__select-item header__select-item_en">EN</li>
         </ul>
-        <nav class="header__nav">
+        <nav class="header__nav" aria-label="nav-header">
           <a class="header__nav-link" href="#">Услуги</a>
           <a class="header__nav-link" href="#">Продукция</a>
           <a class="header__nav-link" href="#">О компании</a>
@@ -309,7 +309,7 @@
               <input class="form__input-file" name="files" type="file" multiple>
           </label>
           <div class="form__box-button">
-            <button class="form__button" type="submit">Оставить заявку</button>
+            <button class="button-request button-request_white" type="submit">Оставить заявку</button>
             <p class="form__text">Я согласен-(на) с <a href="#">политикой конфиденциальности</a></p>
           </div>
         </form>
@@ -406,6 +406,45 @@
         </div>
       </section>
     </main>
+    <footer class="footer">
+      <div class="footer__container">
+        <nav class="footer__nav" aria-label="nav-footer">
+          <ul class="footer__nav-list">
+            <li class="footer__nav-item">
+              <h5 class="footer__nav-title">Телефоны</h5>
+              <a class="footer__nav-link" href="tel:+79047358156">+7&nbsp;(904)&nbsp;735&#8209;81&#8209;56</a>
+              <a class="footer__nav-link" href="tel:+73472578156">+7&nbsp;(347)&nbsp;257&#8209;81&#8209;56</a>
+            </li>
+            <li class="footer__nav-item">
+              <h5 class="footer__nav-title">Адрес</h5>
+              <a class="footer__nav-link" href="https://maps.google.com/?q=Уфа,+ул.+Юбилейная,+17/4">г.&nbsp;Уфа,&nbsp;ул.&nbsp;Юбилейная,&nbsp;17/4</a>
+            </li>
+            <li class="footer__nav-item">
+              <h5 class="footer__nav-title">Email</h5>
+              <a class="footer__nav-link" href="mailto:info@ingolf.is">info@ingolf.is</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="footer__map-box">
+          <img class="footer__map-img" src="./assets/footer-img.png" alt="">
+          <div class="footer__map-block">
+            <button class="footer__map-btn"></button>
+            <p class="footer__map-text">Юбилейная, 17/4</p>
+          </div>
+        </div>
+        <div class="footer__box">
+          <div class="footer__branding">
+            <img class="footer__logo" src="./assets/logo-footer.svg" alt="Логотип компании Ингольф">
+            <button class="button-request button-request_white" type="submit">Оставить заявку</button>
+          </div>
+          <div class="footer__info">
+            <p class="footer__copyright">© Ингольф Индастриал Сервисез 2025</p>
+            <a class="footer__info-link confidentiality" href="#">Политика конфиденциальности</a>
+            <a class="footer__info-link" href="https://pandaworks.ru/">Разработано в Пандаворкс</a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
     <div class="popup-application">
       <form class="form form_popup-application" action="#" method="post">

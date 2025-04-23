@@ -1,22 +1,20 @@
-.form__button {
+.button-request_white {
+  margin: 0;
   width: 372px;
   height: 70px;
-  background-color: #FFF;
   color: #1F1F1F;
-  border-radius: 10px;
   border: 2px solid #1F1F1F;
-  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
 
-.form__button:hover {
+.button-request_white:hover {
   color: #FFF;
   background-color: #1F1F1F;
   border: 2px solid #FFF;
-  cursor: default;
+  cursor: pointer;
 }
 
 @media (max-width: 800px) {
-  .form__button {
+  .button-request_white {
     width: 335px;
   }
 }

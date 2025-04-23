@@ -1,0 +1,6 @@
+.footer__branding {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #DFE0E9;
+}

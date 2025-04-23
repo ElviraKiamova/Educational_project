@@ -32,8 +32,11 @@
 @import url("../blocks/about/about__picture-img/about__picture-img.css");
 
 @import url("../blocks/subtitle/subtitle.css");
+
 @import url("../blocks/text-red/text-red.css");
+
 @import url("../blocks/button-request/button-request.css");
+@import url("../blocks/button-request/button-request_white/button-request_white.css");
 
 @import url("../blocks/services/services.css");
 @import url("../blocks/services/services__container/services__container.css");
@@ -60,7 +63,6 @@
 @import url("../blocks/form/form__input-file/form__input-file.css");
 @import url("../blocks/form/form__label/form__label.css");
 @import url("../blocks/form/form__box-button/form__box-button.css");
-@import url("../blocks/form/form__button/form__button.css");
 @import url("../blocks/form/form__text/form__text.css");
 
 @import url("../blocks/cards/cards.css");
@@ -123,3 +125,20 @@
 @import url("../blocks/questions/questions__faq-switch/questions__faq-switch.css");
 @import url("../blocks/questions/questions__faq-answer/questions__faq-answer.css");
 @import url("../blocks/questions/questions__faq-text/questions__faq-text.css");
+
+@import url("../blocks/footer/footer.css");
+@import url("../blocks/footer/footer__container/footer__container.css");
+@import url("../blocks/footer/footer__nav/footer__nav.css");
+@import url("../blocks/footer/footer__nav-list/footer__nav-list.css");
+@import url("../blocks/footer/footer__nav-item/footer__nav-item.css");
+@import url("../blocks/footer/footer__nav-title/footer__nav-title.css");
+@import url("../blocks/footer/footer__nav-link/footer__nav-link.css");
+@import url("../blocks/footer/footer__map-box/footer__map-box.css");
+@import url("../blocks/footer/footer__map-img/footer__map-img.css");
+@import url("../blocks/footer/footer__map-block/footer__map-block.css");
+@import url("../blocks/footer/footer__map-btn/footer__map-btn.css");
+@import url("../blocks/footer/footer__map-text/footer__map-text.css");
+@import url("../blocks/footer/footer__box/footer__box.css");
+@import url("../blocks/footer/footer__branding/footer__branding.css");
+@import url("../blocks/footer/footer__info/footer__info.css");
+@import url("../blocks/footer/footer__info-link/footer__info-link.css");

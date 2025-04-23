@@ -1,0 +1,9 @@
+.footer__info-link {
+  color: #FFF;
+  text-decoration: underline;
+}
+
+.footer__info-link.confidentiality {
+  position: relative;
+  left: -45px;
+}

@@ -1,0 +1,10 @@
+.footer__map-btn {
+  width: 73px;
+  height: 73px;
+  background-color: #B4100D;
+  border-radius: 50px;
+  border: none;
+  background-image: url(../../../assets/footer-map-btn.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
