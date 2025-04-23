@@ -1,0 +1,10 @@
+.questions__faq-switch {
+  position: relative;
+  top: -7px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-image: url(../../../assets/questions-plus.svg);
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+}

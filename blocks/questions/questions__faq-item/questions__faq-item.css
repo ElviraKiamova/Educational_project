@@ -1,0 +1,7 @@
+.questions__faq-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 40px 0 28px;
+  border-bottom: 1px solid #C0C2CC;
+}

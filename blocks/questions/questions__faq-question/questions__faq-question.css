@@ -1,0 +1,10 @@
+.questions__faq-question {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 22px;
+}
+
+.questions__faq-question strong {
+  max-width: 1130px;
+}

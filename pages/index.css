@@ -114,3 +114,12 @@
 @import url("../blocks/partners/partners__container/partners__container.css");
 @import url("../blocks/partners/partners__box/partners__box.css");
 @import url("../blocks/partners/partners__img/partners__img.css");
+
+@import url("../blocks/questions/questions.css");
+@import url("../blocks/questions/questions__container/questions__container.css");
+@import url("../blocks/questions/questions__faq-list/questions__faq-list.css");
+@import url("../blocks/questions/questions__faq-item/questions__faq-item.css");
+@import url("../blocks/questions/questions__faq-question/questions__faq-question.css");
+@import url("../blocks/questions/questions__faq-switch/questions__faq-switch.css");
+@import url("../blocks/questions/questions__faq-answer/questions__faq-answer.css");
+@import url("../blocks/questions/questions__faq-text/questions__faq-text.css");
