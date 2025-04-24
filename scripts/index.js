@@ -3,7 +3,6 @@ const containerElement = document.querySelector('.header__container');
 const popupElement = document.querySelector('.popup-application');
 const formPopupElement = popupElement.querySelector('.form');
 const formFeedbackElement = document.querySelector('.form_feedback');
-const closePopupButtonElement = formPopupElement.querySelector('.form__close');
 const prevButtonElement = document.querySelector('.about__button--prev');
 const nextButtonElement = document.querySelector('.about__button--next');
 const dotElements = document.querySelectorAll('.about__dot');
@@ -101,24 +100,53 @@ document.addEventListener('click', (evt) => {
   }
 });
 
-document.addEventListener('click', (evt) => {
-  if (evt.target.closest('.header__button') || evt.target.closest('.about__button') || evt.target.closest('.services__button')) {
-    popupElement.style.display = 'flex';
+
+// открытия попапов форм заявок
+
+const popupApplicationElement = document.querySelector('.popup-application');
+const popupModelElement = document.querySelector('.popup-model');
+const closeButtonElements = document.querySelectorAll('.form__close');
+
+document.addEventListener('click', ({ target }) => {
+  if (
+    target.closest('.header__button') ||
+    target.closest('.about__button') ||
+    target.closest('.services__button') ||
+    target.closest('.button-request_footer')
+  ) {
+    popupApplicationElement.style.display = 'flex';
     document.body.classList.add('no-scroll');
-  } 
+  }
+
+  if (target.closest('.cards__item')) {
+    const card = target.closest('.cards__item');
+    const modelTitle = card.querySelector('.cards__item-title').textContent;
+    popupModelElement.querySelector('.subtitle').textContent = `Заявка на ${modelTitle}`;
+    popupModelElement.style.display = 'flex';
+    document.body.classList.add('no-scroll');
+  }
 });
 
-closePopupButtonElement.addEventListener('click', (evt) => {
-  popupElement.style.display = 'none';
-  document.body.classList.remove('no-scroll');
-});
+closeButtonElements.forEach((button) =>
+  button.addEventListener('click', () => {
+    popupApplicationElement.style.display = 'none';
+    popupModelElement.style.display = 'none';
+    document.body.classList.remove('no-scroll');
+  })
+);
 
-document.addEventListener('keydown', (evt) => {
-  if (evt.key === 'Escape') {
-    popupElement.style.display = 'none';
+document.addEventListener('keydown', ({ key }) => {
+  if (key === 'Escape') {
+    popupApplicationElement.style.display = 'none';
+    popupModelElement.style.display = 'none';
     document.body.classList.remove('no-scroll');
   }
 });
+
+
+
+
+
 
 openReplyElements.forEach((item) => {
   item.addEventListener('click', (evt) => {
