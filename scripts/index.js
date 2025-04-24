@@ -12,6 +12,8 @@ const sourceElement = document.querySelector('.about__picture source');
 const selectHeaderElement = document.querySelector('.header__select');
 const itemSelectRuElement = document.querySelector('.header__select-item_ru');
 const itemSelectEnElement = document.querySelector('.header__select-item_en');
+const openReplyElements = document.querySelectorAll('.questions__faq-switch');
+
 let currentSlide = 0;
 const desktopImages = [
     './assets/about-desktop-image1.jpg',
@@ -102,9 +104,7 @@ document.addEventListener('click', (evt) => {
   } 
 });
 
-console.log(closePopupButtonElement);
 closePopupButtonElement.addEventListener('click', (evt) => {
-  console.log(evt.target);
   popupElement.style.display = 'none';
   document.body.classList.remove('no-scroll');
 });
@@ -114,4 +114,11 @@ document.addEventListener('keydown', (evt) => {
     popupElement.style.display = 'none';
     document.body.classList.remove('no-scroll');
   }
+});
+
+openReplyElements.forEach((item) => {
+  item.addEventListener('click', (evt) => {
+    item.classList.toggle('questions__faq-switch_plus');
+    item.classList.toggle('questions__faq-switch_minus');
+  });
 });

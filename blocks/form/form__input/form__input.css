@@ -11,6 +11,7 @@
   caret-color: transparent;
   outline: none;
   transition: border 0.3s ease, background-color 0.3s ease;
+  cursor: default;
 }
 
 .form__input::placeholder {
