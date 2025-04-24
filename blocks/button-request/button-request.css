@@ -10,7 +10,7 @@
   transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
 
-.button-request:hover {
+.cards.cards-products .cards__item:hover .button-request {
   border: 2px solid #B4100D;
   background-color: #B4100D;
   color: #FFF;

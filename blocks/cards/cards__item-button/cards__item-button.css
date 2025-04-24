@@ -9,3 +9,11 @@
 .cards__item-button_right {
   background-color: #BBBBBB;
 }
+
+.cards__item-button.active {
+  background-color: #B4100D;
+}
+
+.cards__item-button.inactive {
+  background-color: #BBBBBB;
+}

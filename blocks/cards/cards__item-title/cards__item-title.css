@@ -2,3 +2,8 @@
   font-size: 36px;
   line-height: 130%;
 }
+
+.cards.cards-products .cards__item:hover .cards__item-title {
+  color: #B4100D;
+  transition: color 0.3s ease;
+}

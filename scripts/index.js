@@ -13,6 +13,7 @@ const selectHeaderElement = document.querySelector('.header__select');
 const itemSelectRuElement = document.querySelector('.header__select-item_ru');
 const itemSelectEnElement = document.querySelector('.header__select-item_en');
 const openReplyElements = document.querySelectorAll('.questions__faq-switch');
+const itemElements = document.querySelectorAll('.cards.cards-products .cards__item'); 
 
 let currentSlide = 0;
 const desktopImages = [
@@ -120,5 +121,28 @@ openReplyElements.forEach((item) => {
   item.addEventListener('click', (evt) => {
     item.classList.toggle('questions__faq-switch_plus');
     item.classList.toggle('questions__faq-switch_minus');
+  });
+});
+
+
+itemElements.forEach(item => {
+  const leftButton = item.querySelector('.cards__item-button_left');
+  const rightButton = item.querySelector('.cards__item-button_right');
+  const img = item.querySelector('.cards__item-img');
+
+  leftButton.addEventListener('click', () => {
+    img.classList.remove('mirrored');
+    leftButton.classList.add('active');
+    leftButton.classList.remove('inactive');
+    rightButton.classList.add('inactive');
+    rightButton.classList.remove('active');
+  });
+
+  rightButton.addEventListener('click', () => {
+    img.classList.add('mirrored');
+    rightButton.classList.add('active');
+    rightButton.classList.remove('inactive');
+    leftButton.classList.add('inactive');
+    leftButton.classList.remove('active');
   });
 });
