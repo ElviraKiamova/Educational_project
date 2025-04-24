@@ -7,5 +7,7 @@
 }
 
 .cards.cards-portfolio {
+  max-width: 1760px;
   margin: 0;
+  overflow: hidden;
 }

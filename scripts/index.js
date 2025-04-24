@@ -13,7 +13,10 @@ const selectHeaderElement = document.querySelector('.header__select');
 const itemSelectRuElement = document.querySelector('.header__select-item_ru');
 const itemSelectEnElement = document.querySelector('.header__select-item_en');
 const openReplyElements = document.querySelectorAll('.questions__faq-switch');
-const itemElements = document.querySelectorAll('.cards.cards-products .cards__item'); 
+const itemElements = document.querySelectorAll('.cards.cards-products .cards__item');
+const carouselCompanyElement = document.querySelector('.company__carousel');
+const buttonSwitchCompanyElement = document.querySelector('.company__switch-carousel button');
+const cardsCompanyElements = document.querySelectorAll('.company__img-carousel'); 
 
 let currentSlide = 0;
 const desktopImages = [
@@ -146,3 +149,123 @@ itemElements.forEach(item => {
     leftButton.classList.remove('active');
   });
 });
+
+
+// прокрутка карусели в секции Company
+
+const totalCards = cardsCompanyElements.length;
+const cardWidths = Array.from(cardsCompanyElements).map(card => card.offsetWidth + 20);
+const totalWidth = cardWidths.reduce((sum, width) => sum + width, 0);
+
+for (let i = 0; i < totalCards * 2; i++) {
+  const clone = cardsCompanyElements[i % totalCards].cloneNode(true);
+  carouselCompanyElement.appendChild(clone);
+}
+
+let translateX = 0;
+let isAnimating = false;
+let isDragging = false;
+let startX = 0;
+let currentTranslate = 0;
+
+function updateCarousel() {
+  carouselCompanyElement.style.transform = `translateX(${translateX}px)`;
+}
+
+function handleInfiniteScroll() {
+  while (Math.abs(translateX) >= totalWidth) {
+    const firstCard = carouselCompanyElement.firstElementChild;
+    carouselCompanyElement.appendChild(firstCard);
+    translateX += cardWidths[0];
+    carouselCompanyElement.style.transition = 'none';
+    updateCarousel();
+    cardWidths.push(cardWidths.shift());
+  }
+  while (translateX > 0) {
+    const lastCard = carouselCompanyElement.lastElementChild;
+    carouselCompanyElement.insertBefore(lastCard, carouselCompanyElement.firstElementChild);
+    translateX -= cardWidths[cardWidths.length - 1];
+    carouselCompanyElement.style.transition = 'none';
+    updateCarousel();
+    cardWidths.unshift(cardWidths.pop());
+  }
+}
+
+buttonSwitchCompanyElement.addEventListener('click', () => {
+  if (isAnimating || isDragging) return;
+  isAnimating = true;
+
+  const nextIndex = carouselCompanyElement.children.length % totalCards || 0;
+  translateX -= cardWidths[nextIndex];
+
+  carouselCompanyElement.style.transition = 'transform 0.5s ease';
+  updateCarousel();
+
+  setTimeout(() => {
+    if (Math.abs(translateX) >= totalWidth) {
+      const firstCard = carouselCompanyElement.firstElementChild;
+      carouselCompanyElement.appendChild(firstCard);
+      translateX += cardWidths[0];
+      carouselCompanyElement.style.transition = 'none';
+      updateCarousel();
+      cardWidths.push(cardWidths.shift());
+    }
+    isAnimating = false;
+  }, 500);
+});
+
+carouselCompanyElement.addEventListener('mousedown', (e) => {
+  if (isAnimating) return;
+  isDragging = true;
+  startX = e.pageX;
+  currentTranslate = translateX;
+  carouselCompanyElement.classList.add('dragging');
+  e.preventDefault();
+});
+
+carouselCompanyElement.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+  const deltaX = e.pageX - startX;
+  translateX = currentTranslate + deltaX;
+  carouselCompanyElement.style.transition = 'none';
+  updateCarousel();
+});
+
+carouselCompanyElement.addEventListener('mouseup', () => {
+  if (!isDragging) return;
+  isDragging = false;
+  carouselCompanyElement.classList.remove('dragging');
+  handleInfiniteScroll();
+});
+
+carouselCompanyElement.addEventListener('mouseleave', () => {
+  if (!isDragging) return;
+  isDragging = false;
+  carouselCompanyElement.classList.remove('dragging');
+  handleInfiniteScroll();
+});
+
+carouselCompanyElement.addEventListener('touchstart', (e) => {
+  if (isAnimating) return;
+  isDragging = true;
+  startX = e.touches[0].pageX;
+  currentTranslate = translateX;
+  carouselCompanyElement.classList.add('dragging');
+});
+
+carouselCompanyElement.addEventListener('touchmove', (e) => {
+  if (!isDragging) return;
+  const deltaX = e.touches[0].pageX - startX;
+  translateX = currentTranslate + deltaX;
+  carouselCompanyElement.style.transition = 'none';
+  updateCarousel();
+});
+
+carouselCompanyElement.addEventListener('touchend', () => {
+  if (!isDragging) return;
+  isDragging = false;
+  carouselCompanyElement.classList.remove('dragging');
+  handleInfiniteScroll();
+});
+
+updateCarousel();

@@ -1,10 +1,9 @@
 .company__switch-carousel {
   display: flex;
   align-items: center;
-  gap: 13px;
+  gap: 10px;
   align-self: center;
   color: #727272;
   font-size: 18px;
   line-height: 130%;
-  cursor: pointer;
 }
