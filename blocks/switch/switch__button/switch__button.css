@@ -4,14 +4,28 @@
   border: none;
   border-radius: 50px;
   background-color: #FFF;
-  background-image: url(../../../assets/prev-gray.svg);
   background-repeat: no-repeat;
   background-size: 8px 18px;
   background-position: center;
 }
 
 .switch__button.forward {
+  background-image: url(../../../assets/prev-gray.svg);
+  transform: rotate(180deg)
+}
+
+.switch__button.back {
+  background-image: url(../../../assets/prev-gray.svg);
+}
+
+.switch__button.active {
   background-color: #B4100D;
   background-image: url(../../../assets/prev.svg);
-  transform: rotate(180deg)
+}
+
+.switch__button:disabled {
+  background-image: url(../../../assets/prev-gray.svg);
+  background-color: #FFF;
+  opacity: 0.7;
+   cursor: not-allowed;
 }

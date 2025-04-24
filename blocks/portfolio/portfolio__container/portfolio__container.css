@@ -1,3 +1,6 @@
 .portfolio__container {
-  margin: 100px 0 94px; 
+  width: 100%;
+  max-width: 1760px;
+  margin: 100px 0 95px; 
+  overflow: hidden;
 }
