@@ -7,3 +7,12 @@
 .footer__nav-item:first-child .footer__nav-link {
   font-size: 36px;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .footer__nav-link {
+    font-size: 2.1vw;
+  }
+  .footer__nav-item:first-child .footer__nav-link {
+    font-size: 1.9vw;
+  }
+}

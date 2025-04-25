@@ -10,3 +10,12 @@
   font-size: 18px;
   line-height: 90%;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .footer__map-text {
+    width: 9vw;
+    height: 1.5vw;
+    border-radius: 0.3vw;
+    font-size: 1vw;
+  }
+}

@@ -8,3 +8,11 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .footer__map-btn {
+    width: 4vw;
+    height: 4vw;
+    border-radius: 2.5vw;
+  }
+}

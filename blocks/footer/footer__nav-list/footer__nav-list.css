@@ -5,3 +5,9 @@
   list-style: none;
   font-size: 20px;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .footer__nav-list {
+    font-size: 1.1vw;
+  }
+}

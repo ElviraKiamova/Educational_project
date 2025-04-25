@@ -2,3 +2,9 @@
   font-weight: 400;
   font-size: 20px;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .footer__nav-title {
+    font-size: 1.1vw;
+  }
+}

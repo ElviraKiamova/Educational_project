@@ -7,3 +7,9 @@
   position: relative;
   left: -45px;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .footer__info-link.confidentiality {
+    left: -2.5vw;
+  }
+}

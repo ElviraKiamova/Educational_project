@@ -1,5 +1,7 @@
 .footer__map-box {
   position: relative;
+  width: 100%;
+  max-width: 1920px;
 }
 
 .footer__map-box::before {

@@ -12,3 +12,15 @@
 .footer__nav-item:nth-child(2) {
   margin-right: 214px;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .footer__nav-item {
+    gap: 1vw;
+  }
+  .footer__nav-item:nth-child(1) {
+    margin-right: 9vw;
+  }
+  .footer__nav-item:nth-child(2) {
+    margin-right: 11vw;
+  }
+}

@@ -8,3 +8,9 @@
   align-items: center;
   gap: 10px;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .footer__map-block {
+    gap: 0.5vw;
+  }
+}

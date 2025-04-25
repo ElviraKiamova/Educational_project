@@ -3,3 +3,10 @@
   max-width: 1760px;
   padding: 65px 0 40px;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .footer__box {
+    max-width: 90%;
+    padding: 3.5vw 0 2vw;
+  }
+}

@@ -4,3 +4,9 @@
   padding-bottom: 40px;
   border-bottom: 1px solid #DFE0E9;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .footer__branding {
+    padding-bottom: 2vw;
+  }
+}

@@ -4,3 +4,10 @@
   max-width: 1535px;
   margin-bottom: 36px;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .footer__nav {
+    max-width: 80vw;
+    margin-bottom: 2vw;
+  }
+}

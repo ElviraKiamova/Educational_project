@@ -7,3 +7,10 @@
   font-size: 17px;
   line-height: 20px;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .footer {
+    font-size: 0.9vw;
+    line-height: 1.1vw;
+  }
+}
