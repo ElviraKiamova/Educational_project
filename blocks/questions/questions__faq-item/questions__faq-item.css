@@ -5,3 +5,9 @@
   padding: 40px 0 28px;
   border-bottom: 1px solid #C0C2CC;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .questions__faq-item {
+    padding: 2vw 0 1.5vw;
+  }
+}

@@ -3,3 +3,10 @@
   color: rgba(31, 31, 31, 0.75);
   font-size: 18px;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .questions__faq-text {
+    max-width: 60vw;
+    font-size: 1vw;
+  }
+}

@@ -1,3 +1,9 @@
 .questions__faq-list {
   margin-top: 40px;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .questions__faq-list {
+    margin-top: 2vw;
+  }
+}

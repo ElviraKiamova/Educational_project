@@ -3,3 +3,10 @@
   max-width: 1760px;
   margin: 100px 0 98px; 
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .questions__container {
+    max-width: 90%;
+    margin: 5vw 0 5vw;
+  }
+}

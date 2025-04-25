@@ -8,3 +8,12 @@
 .questions__faq-question strong {
   max-width: 1130px;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .questions__faq-question {
+    font-size: 1.2vw;
+  }
+  .questions__faq-question strong {
+    max-width: 60vw;
+  }
+}

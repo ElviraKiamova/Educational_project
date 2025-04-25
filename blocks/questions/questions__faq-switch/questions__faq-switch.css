@@ -15,3 +15,12 @@
 .questions__faq-switch_minus {
   background-image: url(../../../assets/questions-minus.svg);
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .questions__faq-switch {
+    top: -0.4vw;
+    width: 2vw;
+    height: 2vw;
+    background-size: 2vw 2vw;
+  }
+}
