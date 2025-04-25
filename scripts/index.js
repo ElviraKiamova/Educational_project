@@ -33,7 +33,7 @@ const mobileImages = [
 ];
 
 function toggleActive(form) {
-  formPopupElement.querySelectorAll('.form__input, .form__textarea').forEach(element => {
+  form.querySelectorAll('.form__input, .form__textarea').forEach(element => {
     element.addEventListener('click', function(evt) {
       evt.preventDefault();
       this.classList.toggle('active');
@@ -133,6 +133,7 @@ closeButtonElements.forEach((button) =>
     popupApplicationElement.style.display = 'none';
     popupModelElement.style.display = 'none';
     document.body.classList.remove('no-scroll');
+    
   })
 );
 

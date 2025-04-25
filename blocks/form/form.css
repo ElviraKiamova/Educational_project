@@ -13,20 +13,13 @@
   padding: 100px 0 99px;
 }
 
-@media (max-width: 1900px) and (min-width: 769px) {
+@media (max-width: 1920px) and (min-width: 769px) {
   .form {
     max-width: 100%;
     padding: 5vw 4vw 14vw;
   }
   .form.form_feedback {
+    max-width: 90%;
     padding: 5vw 0 5vw;
-  }
-}
-
-@media (max-height: 1000px) {
-  .form {
-    padding: 20px;
-    max-height: 100vh;
-    overflow-y: auto;
   }
 }
