@@ -104,6 +104,7 @@
 @import url("../blocks/portfolio/portfolio__box/portfolio__box.css");
 
 @import url("../blocks/feedback/feedback.css");
+@import url("../blocks/feedback/feedback__container/feedback__container.css");
 
 @import url("../blocks/reviews/reviews.css");
 @import url("../blocks/reviews/reviews__container/reviews__container.css");

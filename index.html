@@ -312,35 +312,37 @@
           </ul>
         </div>
       </section>
-      <!-- <section class="feedback">
-        <form class="form form_feedback" action="#" method="post">
-          <h2 class="subtitle">Обратная связь</h2>
-          <p class="form__text form__text_top">Для получения подробной информации просим заполнить форму обратной связи</p>
-          <div class="form__box-input">
-            <label class="form__label">
-              <input class="form__input" type="text" name="name" placeholder="Имя *" required>
+      <section class="feedback">
+        <div class="feedback__container">
+          <form class="form form_feedback" action="#" method="post">
+            <h2 class="subtitle">Обратная связь</h2>
+            <p class="form__text form__text_top">Для получения подробной информации просим заполнить форму обратной связи</p>
+            <div class="form__box-input">
+              <label class="form__label">
+                <input class="form__input" type="text" name="name" placeholder="Имя *" required>
+              </label>
+              <label class="form__label">
+                <input class="form__input" type="tel" name="phone" placeholder="Телефон *" required>
+              </label>
+              <label class="form__label">
+                <input class="form__input email" type="email" name="email" placeholder="Email *" required>
+              </label>
+            </div>
+            <label class="form__label textarea">
+              <textarea class="form__textarea"  name="requirements" placeholder="Технические требования (подробно опишите ваш запрос)"></textarea>
             </label>
-            <label class="form__label">
-              <input class="form__input" type="tel" name="phone" placeholder="Телефон *" required>
+            <label class="form__label file">
+                <span>Прикрепить фото, видео</span>
+                <input class="form__input-file" name="files" type="file" multiple>
             </label>
-            <label class="form__label">
-              <input class="form__input email" type="email" name="email" placeholder="Email *" required>
-            </label>
-          </div>
-          <label class="form__label textarea">
-            <textarea class="form__textarea"  name="requirements" placeholder="Технические требования (подробно опишите ваш запрос)"></textarea>
-          </label>
-          <label class="form__label file">
-              <span>Прикрепить фото, видео</span>
-              <input class="form__input-file" name="files" type="file" multiple>
-          </label>
-          <div class="form__box-button">
-            <button class="button-request button-request_white" type="submit">Оставить заявку</button>
-            <p class="form__text">Я согласен-(на) с <a href="#">политикой конфиденциальности</a></p>
-          </div>
-        </form>
+            <div class="form__box-button">
+              <button class="button-request button-request_white" type="submit">Оставить заявку</button>
+              <p class="form__text">Я согласен-(на) с <a href="#">политикой конфиденциальности</a></p>
+            </div>
+          </form>
+        </div>
       </section>
-      <section class="reviews">
+      <!-- <section class="reviews">
         <div class="reviews__container">
           <div class="reviews__box">
             <h2 class="subtitle">Отзывы</h2>

@@ -16,3 +16,9 @@
   letter-spacing: 0%;
   overflow-y: auto;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .popup-model {
+    font-size: 1.2vw;
+  }
+}

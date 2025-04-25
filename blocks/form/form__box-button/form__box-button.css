@@ -10,8 +10,9 @@
   color: #FFF;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1900px) and (min-width: 769px) {
   .form__box-button {
-    flex-direction: column;
+    gap: 1.5vw;
+    margin-top: 1.2vw;
   }
 }

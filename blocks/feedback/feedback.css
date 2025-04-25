@@ -4,3 +4,9 @@
   width: 100%;
   background-color: #18191E;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .feedback {
+    max-width: 100%;
+  }
+}

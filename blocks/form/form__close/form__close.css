@@ -9,9 +9,11 @@
   border: none;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1900px) and (min-width: 769px) {
   .form__close {
-    top: 10px;
-    right: 10px;
+    top: 2.5vw;
+    right: 2.5vw;
+    width: 2vw;
+    height: 2vw;
   }
 }
