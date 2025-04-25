@@ -3,3 +3,9 @@
   justify-content: space-between;
   margin-bottom: 50px;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .portfolio__box {
+    margin-bottom: 2.5vw;
+  }
+}

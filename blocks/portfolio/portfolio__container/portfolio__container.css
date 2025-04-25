@@ -4,3 +4,10 @@
   margin: 100px 0 95px; 
   overflow: hidden;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .portfolio__container {
+    max-width: 90%;
+    margin: 5vw 0 4.5vw;
+  }
+}

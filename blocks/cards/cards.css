@@ -15,10 +15,7 @@
 
 @media (max-width: 1900px) and (min-width: 769px) {
   .cards {
-    gap: 2vw;
+    gap: 3vw;
     margin: 0 0 4vw 0;
-  }
-  .cards.cards-portfolio {
-    max-width: 90%;
   }
 }

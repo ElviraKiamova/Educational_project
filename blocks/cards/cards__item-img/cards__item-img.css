@@ -20,10 +20,10 @@
 
 @media (max-width: 1900px) and (min-width: 769px) {
   .cards__item-img {
-    width: 28vw;
-    height: 28vw;
+    width: 27vw;
+    height: 27vw;
   }
   .cards__item-img.card-portfolio {
-    height: 28vw;
+    height: 27vw;
   }
 }
