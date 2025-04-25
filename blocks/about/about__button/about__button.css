@@ -13,7 +13,7 @@
 .about__button:hover {
   background-color: #FFF;
   color: #B4100D;
-  cursor: default;
+  cursor: pointer;
 }
 
 @media (max-width: 1900px) and (min-width: 769px) {

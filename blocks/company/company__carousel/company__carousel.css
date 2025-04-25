@@ -15,3 +15,10 @@
   cursor: grabbing;
   transition: none;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .company__carousel {
+    gap: 1vw;
+    margin: 3vw 0 2vw;
+  }
+}

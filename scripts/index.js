@@ -33,7 +33,7 @@ const mobileImages = [
 ];
 
 function toggleActive(form) {
-  form.querySelectorAll('.form__input, .form__textarea').forEach(element => {
+  formPopupElement.querySelectorAll('.form__input, .form__textarea').forEach(element => {
     element.addEventListener('click', function(evt) {
       evt.preventDefault();
       this.classList.toggle('active');

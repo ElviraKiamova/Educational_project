@@ -9,7 +9,7 @@
   color: #797979;
   font-size: 15px;
   list-style-type: none;
-  cursor: default;
+  cursor: pointer;
 }
 
 .header__select-item_ru {

@@ -12,11 +12,6 @@
   white-space: nowrap;
 }
 
-.header__box a:hover {
-  color: #B4100D;
-  cursor: default;
-}
-
 .header__box:nth-child(2) {
   margin-right: 35px;
 }
