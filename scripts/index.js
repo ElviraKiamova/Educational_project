@@ -118,7 +118,7 @@ document.addEventListener('click', ({ target }) => {
     document.body.classList.add('no-scroll');
   }
 
-  if (target.closest('.cards__item')) {
+  if (target.closest('.button-request') && target.closest('.cards-products')) {
     const card = target.closest('.cards__item');
     const modelTitle = card.querySelector('.cards__item-title').textContent;
     popupModelElement.querySelector('.subtitle').textContent = `Заявка на ${modelTitle}`;
