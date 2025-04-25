@@ -5,3 +5,10 @@
   padding: 0;
   list-style: none;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .products__list-advantages {
+    gap: 5vw;
+    margin: 1.5vw 0 0 0;
+  }
+}

@@ -17,3 +17,11 @@
 .cards__item-button.inactive {
   background-color: #BBBBBB;
 }
+
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .cards__item-button {
+    width: 1vw;
+    height: 0.3vw;
+  }
+}

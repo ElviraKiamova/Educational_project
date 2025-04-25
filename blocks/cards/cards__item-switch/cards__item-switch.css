@@ -6,3 +6,10 @@
   display: flex;
   gap: 4px;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .cards__item-switch {
+    bottom: 0.7vw;
+    gap: 0.2vw;
+  }
+}

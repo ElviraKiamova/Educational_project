@@ -13,7 +13,8 @@
 
 @media (max-width: 1900px) and (min-width: 769px) {
   .about__title {
-    font-size: 3.5vw;
+    font-size: 3vw;
+    letter-spacing: -2.5px;
     margin: 5% 0 2%;
   }
 }

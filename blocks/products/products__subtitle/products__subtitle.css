@@ -2,3 +2,9 @@
   font-size: 30px;
   line-height: 130%;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .products__subtitle {
+    font-size: 1.8vw;
+  }
+}

@@ -13,6 +13,14 @@
   cursor: pointer;
 }
 
+@media (max-width: 1900px) and (min-width: 769px) {
+  .button-request_white {
+    width: 22vw;
+    height: 4.5vw;
+    font-size: 1vw;
+  }
+}
+
 @media (max-width: 800px) {
   .button-request_white {
     width: 335px;

@@ -7,3 +7,9 @@
   color: #B4100D;
   transition: color 0.3s ease;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .cards__item-title {
+    font-size: 2vw;
+  }
+}

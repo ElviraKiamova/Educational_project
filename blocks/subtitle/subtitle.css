@@ -6,13 +6,14 @@
 }
 
 @media (max-width: 1900px) and (min-width: 769px) {
-  .services__subtitle {
+  .subtitle {
     font-size: 4.5vw;
+    letter-spacing: -0.2vw;
   }
 }
 
 @media (max-width: 768px) {
-  .services__subtitle {
+  .subtitle {
     font-weight: 500;
     font-size: 32px;
     line-height: 100%;

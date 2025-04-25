@@ -16,3 +16,13 @@
   color: #FFF;
   cursor: pointer;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .button-request {
+    width: 25vw;
+    height: 4vw;
+    margin-top: 1.5vw;
+    font-size: 1vw;
+  }
+  
+}

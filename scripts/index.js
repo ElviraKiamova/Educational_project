@@ -16,6 +16,9 @@ const itemElements = document.querySelectorAll('.cards.cards-products .cards__it
 const carouselCompanyElement = document.querySelector('.company__carousel');
 const buttonSwitchCompanyElement = document.querySelector('.company__switch-carousel button');
 const cardsCompanyElements = document.querySelectorAll('.company__img-carousel'); 
+const popupApplicationElement = document.querySelector('.popup-application');
+const popupModelElement = document.querySelector('.popup-model');
+const closeButtonElements = document.querySelectorAll('.form__close');
 
 let currentSlide = 0;
 const desktopImages = [
@@ -61,29 +64,29 @@ document.addEventListener('click', () => {
 
 
 function updateSlide(index) {
-    imgElement.src = desktopImages[index];
-    sourceElement.srcset = mobileImages[index];
-    dotElements.forEach(dot => dot.classList.remove('about__dot_active'));
-    dotElements[index].classList.add('about__dot_active');
-    currentSlide = index;
+  imgElement.src = desktopImages[index];
+  sourceElement.srcset = mobileImages[index];
+  dotElements.forEach(dot => dot.classList.remove('about__dot_active'));
+  dotElements[index].classList.add('about__dot_active');
+  currentSlide = index;
 }
 
 prevButtonElement.addEventListener('click', () => {
-    let newIndex = currentSlide - 1;
-    if (newIndex < 0) newIndex = desktopImages.length - 1;
-    updateSlide(newIndex);
+  let newIndex = currentSlide - 1;
+  if (newIndex < 0) newIndex = desktopImages.length - 1;
+  updateSlide(newIndex);
 });
 
 nextButtonElement.addEventListener('click', () => {
-    let newIndex = currentSlide + 1;
-    if (newIndex >= desktopImages.length) newIndex = 0;
-    updateSlide(newIndex);
+  let newIndex = currentSlide + 1;
+  if (newIndex >= desktopImages.length) newIndex = 0;
+  updateSlide(newIndex);
 });
 
 dotElements.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        updateSlide(index);
-    });
+  dot.addEventListener('click', () => {
+      updateSlide(index);
+  });
 });
 
 
@@ -103,11 +106,9 @@ document.addEventListener('click', (evt) => {
 
 // открытия попапов форм заявок
 
-const popupApplicationElement = document.querySelector('.popup-application');
-const popupModelElement = document.querySelector('.popup-model');
-const closeButtonElements = document.querySelectorAll('.form__close');
-
-document.addEventListener('click', ({ target }) => {
+document.addEventListener('click', (event) => {
+  event.preventDefault(); 
+  const target = event.target;
   if (
     target.closest('.header__button') ||
     target.closest('.about__button') ||

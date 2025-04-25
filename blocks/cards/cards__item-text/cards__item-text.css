@@ -16,3 +16,12 @@
   line-height: 130%;
   letter-spacing: 0%;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .cards__item-text {
+    font-size: 1.2vw;
+  }
+  .cards__item-text.card-portfolio {
+    font-size: 1.3vw;
+  }
+}

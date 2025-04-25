@@ -12,3 +12,13 @@
   transition: transform 0.5s ease;
   will-change: transform;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .cards {
+    gap: 2vw;
+    margin: 0 0 4vw 0;
+  }
+  .cards.cards-portfolio {
+    max-width: 90%;
+  }
+}

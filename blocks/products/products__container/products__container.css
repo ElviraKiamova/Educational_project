@@ -3,3 +3,11 @@
   max-width: 1760px;
   margin: 100px 0 142px;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .products__container {
+    max-width: 90%;
+    margin: 5% 0;
+    padding: 0 5%;
+  }
+}
