@@ -3,3 +3,10 @@
   gap: 104px;
   margin-top: 60px;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .partners__box {
+    gap: 5vw;
+    margin-top: 3vw;
+  }
+}

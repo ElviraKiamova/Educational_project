@@ -1,3 +1,6 @@
-.partners__img {
-  
+@media (max-width: 1900px) and (min-width: 769px) {
+  .partners__img {
+    width: 18vw;
+    height: auto;
+  }
 }

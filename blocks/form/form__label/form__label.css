@@ -9,6 +9,7 @@
   border-radius: 10px;
   color: #464646;
   transition: color 0.3s ease, border 0.3s ease;
+  box-sizing: border-box;
 }
 
 .form__label.file:hover {
