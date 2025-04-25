@@ -16,6 +16,26 @@
 }
 
 .reviews__icon-carousel .mvideo {
+  width: 50px;
+  height: 20px;
   bottom: 12px;
   left: 40%;
+}
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .reviews__icon-carousel {
+    top: 0.5vw;
+    left: 40%;
+    width: 4vw;
+    height: 5vw;
+  }
+  .reviews__icon-carousel img {
+    bottom: 0;
+    width: 3vw;
+  }
+  .reviews__icon-carousel .mvideo {
+    bottom: 0.6vw;
+    left: 40%;
+    width: 2vw;
+  }
 }

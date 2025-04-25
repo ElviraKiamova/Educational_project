@@ -5,3 +5,9 @@
   padding: 0;
   list-style: none;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .reviews__carousel {
+    gap: 2.5vw;
+  }
+}

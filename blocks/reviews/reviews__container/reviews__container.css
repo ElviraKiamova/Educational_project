@@ -6,3 +6,11 @@
   border-bottom: 1px solid #E0E0E0;
   overflow: hidden;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .reviews__container {
+    max-width: 90%;
+    margin: 5vw 0 0 0;
+    padding-bottom: 5vw;
+  }
+}

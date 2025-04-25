@@ -3,3 +3,9 @@
   justify-content: space-between;
   margin-bottom: 60px;
 }
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .reviews__box {
+    margin-bottom: 3vw;
+  }
+}

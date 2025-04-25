@@ -22,3 +22,11 @@
 .reviews__item-carousel:hover::before {
   opacity: 1;
 }
+
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .reviews__item-carousel {
+    max-width: 20.5vw;
+    max-height: 30vw;
+  }
+}

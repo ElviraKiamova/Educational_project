@@ -1,3 +1,19 @@
 .reviews__img-carousel {
+  width: 402px;
+  height: 570px;
   border-radius: 10px;
+}
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .reviews__img-carousel {
+    width: 21vw;
+    height: 30vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .reviews__img-carousel {
+    width: 282px;
+    height: 400px;
+  }
 }
