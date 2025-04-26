@@ -11,3 +11,9 @@
     margin: 5vw 0 4.5vw;
   }
 }
+
+@media (max-width: 768px) {
+  .portfolio__container {
+    margin: 50px 20px;
+  }
+}

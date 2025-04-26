@@ -27,3 +27,15 @@
     height: 27vw;
   }
 }
+
+
+@media (max-width: 768px) {
+  .cards__item-img {
+    width: 315px;
+    height: 315px;
+  }
+  .cards__item-img.card-portfolio {
+    width: 315px;
+    height: 303px;
+  }
+}

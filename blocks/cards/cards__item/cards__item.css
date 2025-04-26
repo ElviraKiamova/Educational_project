@@ -12,3 +12,9 @@
     padding: 0.5vw 0.5vw 1.5vw;
   }
 }
+
+@media (max-width: 768px) {
+  .cards__item {
+    padding: 10px 10px 15px 10px;
+  }
+}

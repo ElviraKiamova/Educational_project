@@ -11,3 +11,10 @@
     margin: 2.5vw 0 0.8vw;
   }
 }
+
+@media (max-width: 768px) {
+  .form__box-input {
+    gap: 12px;
+    margin: 25px 0 15px;
+  }
+}

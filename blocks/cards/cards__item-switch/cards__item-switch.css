@@ -13,3 +13,10 @@
     gap: 0.2vw;
   }
 }
+
+
+@media (max-width: 768px) {
+  .cards__item-switch {
+    bottom: 20px;
+  }
+}

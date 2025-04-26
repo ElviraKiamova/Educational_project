@@ -89,3 +89,14 @@
     height: 1.2vw;
   }
 }
+
+@media (max-width: 768px) {
+  .form__label {
+    width: 100%;
+  }
+  .form__label.file {
+    justify-content: flex-end;
+    height: 80px;
+    padding: 28px 38px;
+  }
+}

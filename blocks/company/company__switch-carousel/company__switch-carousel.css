@@ -14,3 +14,12 @@
     font-size: 1.2vw;
   }
 }
+
+@media (max-width: 768px) {
+  .company__switch-carousel {
+    position: relative;
+    left: -20px;
+    width: 100%;
+    justify-content: center;
+  }
+}

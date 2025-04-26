@@ -9,3 +9,9 @@
     font-size: 4vw;
   }
 }
+
+@media (max-width: 768px) {
+  .company__number-info {
+    font-size: 50px;
+  }
+}

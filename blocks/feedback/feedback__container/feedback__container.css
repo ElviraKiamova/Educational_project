@@ -1,4 +1,5 @@
 .feedback__container {
+  display: flex;
   width: 100%;
   max-width: 1760px;
 }
@@ -6,5 +7,12 @@
 @media (max-width: 1900px) and (min-width: 769px) {
   .feedback__container {
     max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .feedback__container {
+    max-width: 90%;
+    
   }
 }

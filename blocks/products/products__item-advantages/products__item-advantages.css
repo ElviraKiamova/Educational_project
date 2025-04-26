@@ -9,3 +9,9 @@
     gap: 1.5vw;
   }
 }
+
+@media (max-width: 768px) {
+  .products__item-advantages {
+    gap: 15px;
+  }
+}

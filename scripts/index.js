@@ -145,6 +145,21 @@ document.addEventListener('keydown', ({ key }) => {
   }
 });
 
+// замена изображения в секции portfolio на мобильных устройствах
+
+function updateCardImages() {
+  const cardImage = document.querySelector('.offset');
+  console.log(cardImage);
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  if (isMobile) {
+    cardImage.src = '../assets/portfolio1-mobile.jpg';
+  } else {
+    cardImage.src = '../assets/portfolio1.jpg';
+  }
+}
+document.addEventListener('DOMContentLoaded', updateCardImages);
+window.addEventListener('resize', updateCardImages);
+
 
 
 

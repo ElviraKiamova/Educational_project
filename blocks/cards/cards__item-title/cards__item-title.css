@@ -13,3 +13,9 @@
     font-size: 2vw;
   }
 }
+
+@media (max-width: 768px) {
+  .cards__item-title {
+    font-size: 26px;
+  }
+}

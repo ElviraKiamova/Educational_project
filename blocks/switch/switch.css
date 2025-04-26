@@ -8,3 +8,9 @@
     gap: 0.8vw;
   }
 }
+
+@media (max-width: 768px) {
+  .switch {
+    display:none;
+  }
+}

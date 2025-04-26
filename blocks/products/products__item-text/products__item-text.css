@@ -8,3 +8,9 @@
     font-size: 1.2vw;
   }
 }
+
+@media (max-width: 768px) {
+  .products__item-text {
+    font-size: 18px;
+  }
+}

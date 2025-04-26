@@ -9,3 +9,9 @@
     margin-bottom: 2.5vw;
   }
 }
+
+@media (max-width: 768px) {
+  .portfolio__box {
+    margin-bottom: 30px;
+  }
+}

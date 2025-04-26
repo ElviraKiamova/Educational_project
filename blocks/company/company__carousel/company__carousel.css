@@ -22,3 +22,9 @@
     margin: 3vw 0 2vw;
   }
 }
+
+@media (max-width: 768px) {
+  .company__carousel {
+    margin: 30px 0 28px;
+  }
+}

@@ -1,8 +1,10 @@
 .button-request_white {
   margin: 0;
   width: 372px;
+  height: 69px;
   color: #1F1F1F;
   border: 2px solid #1F1F1F;
+  font-size: 18px;
 }
 
 .button-request_white:hover {
@@ -16,5 +18,11 @@
   .button-request_white {
     width: 22vw;
     font-size: 1vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .button-request_white {
+    width: 100%;
   }
 }

@@ -9,12 +9,12 @@
 }
 
 .cards__item-text.card-portfolio {
-  margin: 3px 0 38px;
+  margin: 3px 0 0;
   color: #1F1F1F;
   font-weight: bold;
   font-size: 20px;
   line-height: 130%;
-  letter-spacing: 0%;
+  letter-spacing: -0.5px;
 }
 
 @media (max-width: 1900px) and (min-width: 769px) {
@@ -23,5 +23,26 @@
   }
   .cards__item-text.card-portfolio {
     font-size: 1.3vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .cards__item-text {
+    font-size: 14px;
+  }
+  .cards__item-text:nth-of-type(2) {
+     margin-top: 5px;
+  }
+  .cards__item-text.card-portfolio {
+    margin: 5px 0 0;
+    color: #1F1F1F;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 120%;
+    letter-spacing: -0.5px;
+  }
+
+  .cards__item-text:nth-of-type(2).card-portfolio {
+    margin-top: 12px;
   }
 }

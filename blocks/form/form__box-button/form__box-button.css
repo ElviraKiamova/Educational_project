@@ -6,6 +6,10 @@
   margin-top: 24px;
 }
 
+.form_feedback .form__box-button {
+  margin-top: 26px;
+}
+
 .form__box-button a {
   color: #FFF;
 }
@@ -14,5 +18,15 @@
   .form__box-button {
     gap: 1.5vw;
     margin-top: 1.2vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .form__box-button {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .form_feedback .form__box-button {
+    margin-top: 20px;
   }
 }

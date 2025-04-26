@@ -18,3 +18,11 @@
     font-size: 2.5vw;
   }
 }
+
+@media (max-width: 768px) {
+ .products__item-number {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+  }
+}

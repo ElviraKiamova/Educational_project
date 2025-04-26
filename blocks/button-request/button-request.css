@@ -25,5 +25,12 @@
     font-size: 1vw;
     align-self: center;
   }
-  
+}
+
+@media (max-width: 768px) {
+  .button-request {
+    width: 310px;
+    height: 50px;
+    margin-top: 16px;
+  }
 }
