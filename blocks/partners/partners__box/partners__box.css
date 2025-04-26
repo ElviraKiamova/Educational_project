@@ -10,3 +10,11 @@
     margin-top: 3vw;
   }
 }
+
+@media (max-width: 768px) {
+  .partners__box {
+    align-items: center;
+    gap: 25px;
+    margin-top: 38px;
+  }
+}
