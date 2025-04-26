@@ -10,3 +10,9 @@
     margin: 5vw 0 5vw;
   }
 }
+
+@media (max-width: 768px) {
+  .questions__container {
+    margin: 50px 20px;
+  }
+}

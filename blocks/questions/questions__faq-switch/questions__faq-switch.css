@@ -6,6 +6,7 @@
   border: none;
   background-size: 40px 40px;
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .questions__faq-switch_plus {
@@ -22,5 +23,14 @@
     width: 2vw;
     height: 2vw;
     background-size: 2vw 2vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .questions__faq-switch {
+    top: -2px;
+    width: 30px;
+    height: 30px;
+    background-size: 30px 30px;
   }
 }

@@ -11,3 +11,9 @@
     padding: 2vw 0 1.5vw;
   }
 }
+
+@media (max-width: 768px) {
+  .questions__faq-item {
+    padding: 22px 0;
+  }
+}

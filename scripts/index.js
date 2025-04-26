@@ -176,6 +176,8 @@ openReplyElements.forEach((item) => {
 });
 
 
+
+
 itemElements.forEach(item => {
   const leftButton = item.querySelector('.cards__item-button_left');
   const rightButton = item.querySelector('.cards__item-button_right');

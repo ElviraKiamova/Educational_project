@@ -7,3 +7,9 @@
     margin-top: 2vw;
   }
 }
+
+@media (max-width: 768px) {
+  .questions__faq-list {
+    margin-top: 10px;
+  }
+}
