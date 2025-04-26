@@ -149,12 +149,15 @@ document.addEventListener('keydown', ({ key }) => {
 
 function updateCardImages() {
   const cardImage = document.querySelector('.offset');
-  console.log(cardImage);
+  const reviewImage = document.querySelector('.domstroy');
+
   const isMobile = window.matchMedia('(max-width: 768px)').matches;
   if (isMobile) {
     cardImage.src = '../assets/portfolio1-mobile.jpg';
+    reviewImage.src = './assets/reviews-img-luk.jpg';
   } else {
     cardImage.src = '../assets/portfolio1.jpg';
+    reviewImage.src = './assets/reviews-carousel-img.jpg';
   }
 }
 document.addEventListener('DOMContentLoaded', updateCardImages);

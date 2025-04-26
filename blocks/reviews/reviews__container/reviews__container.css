@@ -14,3 +14,10 @@
     padding-bottom: 5vw;
   }
 }
+
+@media (max-width: 768px) {
+  .reviews__container {
+    margin: 50px 0 0 0;
+    padding-bottom: 48px;
+  }
+}

@@ -11,3 +11,10 @@
     gap: 2.5vw;
   }
 }
+
+@media (max-width: 768px) {
+  .reviews__carousel {
+    gap: 20px;
+    margin-left: 20px;
+  }
+}
