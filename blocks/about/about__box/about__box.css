@@ -22,4 +22,7 @@
   .about__box {
     text-align: start;
   }
+  .about__box.slide {
+    margin-bottom: 5px;
+  }
 }

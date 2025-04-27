@@ -17,6 +17,6 @@
 
 @media (max-width: 768px) {
   .cards__item-switch {
-    bottom: 20px;
+    bottom: 15px;
   }
 }

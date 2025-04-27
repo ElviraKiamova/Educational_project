@@ -36,8 +36,6 @@
   }
   .cards__item-img.card-portfolio {
     max-width: 315px;
-    width: 100%;
-    aspect-ratio: 4 / 3;
     height: auto;
   }
 }

@@ -1,7 +1,7 @@
 .questions__faq-answer {
   display: none;
   width: 100%;
-  margin: 22px 0;
+  margin: 20px 0 18px;
 }
 
 .questions__faq-item.active .questions__faq-answer {

@@ -1,7 +1,7 @@
 .footer__box {
   width: 100%;
   max-width: 1760px;
-  padding: 65px 0 40px;
+  padding: 68px 0 40px;
 }
 
 @media (max-width: 1900px) and (min-width: 769px) {

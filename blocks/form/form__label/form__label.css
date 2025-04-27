@@ -35,6 +35,8 @@
   width: 30px;
   height: 30px;
   background-image: url(../../../assets/Attach.svg);
+  background-repeat: no-repeat;
+  background-position: center;
   font-size: 30px;
   transition: filter 0.3s ease;
 }
@@ -75,18 +77,18 @@
     font-size: 1.2vw;
     line-height: 1.5vw;
   }
-  .form__label.file span::before {
-    width: 1.5vw;
-    height: 1.5vw;
-    top: -0.3vw;
-    left: -2vw;
-  }
   .form__label.textarea::after, .form__label::after {
     top: 2vw;
     left: 1.5vw;
   }
   .form__label.textarea:has(.form__textarea.active)::after, .form__label:has(.form__input.active)::after {
     height: 1.2vw;
+  }
+  .form__label.file span::before {
+    width: min(2vw, 24px);
+    height: min(2vw, 24px);
+    top: -0.2vw;
+    left: -min(2.5vw, 28px);
   }
 }
 
@@ -98,9 +100,16 @@
     height: 80px;
     padding: 28px 38px;
   }
+  .form__label.file span::before {
+    width: 24px;
+    height: 24px;
+    top: -0.2rem;
+    left: -2rem;
+    background-size: contain;
+  }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 376px) {
   .form__label.file {
     justify-content: flex-end;
   }

@@ -4,8 +4,10 @@
   gap: 20px;
   max-width: 1760px;
   width: 100%;
-  padding: 16px 0 72px;
+  padding: 16px 0 80px;
 }
+
+
 
 @media (max-width: 1900px) and (min-width: 769px) {
   .about {
@@ -13,12 +15,6 @@
     padding: 2% 5%;
     max-width: none;
     width: auto;
-  }
-}
-
-@media (max-width: 1920px) {
-  .about {
-    padding: 16px 80px 76px;
   }
 }
 

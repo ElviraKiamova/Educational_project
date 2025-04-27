@@ -37,7 +37,7 @@
 
 @media (max-width: 900px) and (min-width: 769px) {
   .about__control {
-    top: 70%;
+    top: 80%;
     bottom: auto;
   }
 }

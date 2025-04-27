@@ -9,7 +9,7 @@
 
 .cards__item-description.card-portfolio {
   flex-grow: 1;
-  margin-top: 15px;
+  margin-top: 23px;
 }
 
 @media (max-width: 1900px) and (min-width: 769px) {
@@ -23,7 +23,7 @@
   .cards__item-description {
     width: 100%;
     max-width: 500px;
-    margin: 10px 0 0 5px;
+    margin: 15px 0 0 5px;
   }
   .cards__item-description.card-portfolio {
     margin: 5px 0;

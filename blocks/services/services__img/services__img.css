@@ -3,7 +3,7 @@
   right: -290px;
   top: 56%;
   transform: translateY(-50%);
-  width: 1063px;
+  max-width: 1063px;
   height: 598px;
   z-index: 0;
 }
