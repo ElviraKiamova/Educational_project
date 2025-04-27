@@ -1,8 +1,10 @@
 .reviews__item-carousel {
   position: relative;
-  max-width: 402px;
-  max-height: 570px;
-  border-radius: 10px;
+  flex: 0 0 calc((100% - 153px) / 4);
+  max-width: calc((100% - 153px) / 4);
+  height: auto;
+  display: block;
+  box-sizing: border-box;
 }
 
 .reviews__item-carousel::before {
@@ -26,14 +28,15 @@
 
 @media (max-width: 1900px) and (min-width: 769px) {
   .reviews__item-carousel {
-    max-width: 20.5vw;
-    max-height: 30vw;
+    flex: 0 0 calc((100% - 7.5vw) / 4);
+    max-width: calc((100% - 7.5vw) / 4);
   }
 }
 
 @media (max-width: 768px) {
   .reviews__item-carousel {
-    width: 282px;
-    height: 400px;
+    flex: 0 0 calc(100% - 40px);
+    max-width: 282px;
+    height: auto;
   }
 }

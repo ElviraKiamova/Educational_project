@@ -157,14 +157,14 @@ function updateCardImages() {
     cardImage.src = './assets/portfolio1-mobile.jpg';
     reviewImage.src = './assets/reviews-img-luk.jpg';
   } else {
-    cardImage.src = './assets/portfolio1.jpg';
+    cardImage.src = './assets/portfolio1.webp';
     reviewImage.src = './assets/reviews-carousel-img.jpg';
   }
 
   if (isMobileFooter) {
     footerImage.src = './assets/footer-img-mobile.png';
   } else {
-    footerImage.src = './assets/footer-img.png';
+    footerImage.src = './assets/footer-img.webp';
   }
 }
 document.addEventListener('DOMContentLoaded', updateCardImages);
@@ -333,7 +333,7 @@ carouselCompanyElement.addEventListener('touchmove', (e) => {
   translateX = currentTranslate + deltaX;
   carouselCompanyElement.style.transition = 'none';
   updateCarousel();
-});
+}, { passive: true });
 
 carouselCompanyElement.addEventListener('touchend', () => {
   if (!isDragging) return;

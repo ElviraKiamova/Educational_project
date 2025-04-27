@@ -8,7 +8,9 @@
 }
 
 .cards__item.cards-portfolio {
-  height: 701px;
+  flex: 0 0 calc((100% - 60px) / 3);
+  max-width: calc((100% - 60px) / 3);
+  height: auto;
   box-sizing: border-box;
 }
 
@@ -16,6 +18,8 @@
 
 @media (max-width: 1900px) and (min-width: 769px) {
   .cards__item {
+    flex: 0 0 calc((100% - 4vw) / 3);
+    max-width: calc((100% - 4vw) / 3);
     padding: 0.5vw 0.5vw 1.5vw;
   }
 }
@@ -25,7 +29,9 @@
     padding: 10px 10px 15px 10px;
   }
   .cards__item.cards-portfolio {
-    height: auto;
+    flex: 0 0 calc(100% - 40px);
+    max-width: 300px;
+    height: 440px;
     box-sizing: content-box;
   }
 }
