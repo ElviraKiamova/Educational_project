@@ -1,4 +1,19 @@
+.header__link {
+  position: relative;
+}
+
 .header__link:hover {
+  display: inline-block;
   color: #B4100D;
   cursor: pointer;
+}
+
+.header__link::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: -5px;
+  right: -5px;
+  bottom: -16px;
+  z-index: 1;
 }

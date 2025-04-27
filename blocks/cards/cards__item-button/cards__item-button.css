@@ -1,9 +1,33 @@
 .cards__item-button {
+  position: relative;
   width: 20px;
   height: 6px;
   background-color: #B4100D;
   border: none;
   border-radius: 20px;
+}
+
+.cards__item-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  z-index: 1;
+}
+
+.cards__item-button_left::before {
+  top: 50%;
+  left: -50%;
+  transform: translate(-70%, -50%);
+}
+
+.cards__item-button_right::before {
+  top: 50%;
+  right: -7px;
+  transform: translate(-10%, -50%);
 }
 
 .cards__item-button_right {
