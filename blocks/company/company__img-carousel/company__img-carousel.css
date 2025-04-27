@@ -1,11 +1,21 @@
+.company__img-carousel {
+  width: 560px;
+  height: 746px;
+}
+
+.company__img-carousel_big {
+  width: 995px;
+  height: 746px;
+}
+
 @media (max-width: 1900px) and (min-width: 769px) {
-  .company__img-carousel {
+  .company__img-carousel, .company__img-carousel_big {
     max-width: 30vw;
   }
 }
 
 @media (max-width: 768px) {
-  .company__img-carousel {
+  .company__img-carousel, .company__img-carousel_big {
     width: 274px;
     height: 365px;
   }
