@@ -144,22 +144,26 @@ document.addEventListener('keydown', ({ key }) => {
   }
 });
 
-// замена изображения в секции portfolio на мобильных устройствах
+// замена изображений на мобильных устройствах
 
 function updateCardImages() {
   const cardImage = document.querySelector('.offset');
   const reviewImage = document.querySelector('.domstroy');
   const footerImage = document.querySelector('.footer__map-img');
-
   const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  const isMobileFooter = window.matchMedia('(max-width: 376px)').matches;
+
   if (isMobile) {
     cardImage.src = '../assets/portfolio1-mobile.jpg';
     reviewImage.src = '../assets/reviews-img-luk.jpg';
-    footerImage.src = '../assets/footer-img-mobile.png';
-    
   } else {
     cardImage.src = '../assets/portfolio1.jpg';
     reviewImage.src = './assets/reviews-carousel-img.jpg';
+  }
+
+  if (isMobileFooter) {
+    footerImage.src = '../assets/footer-img-mobile.png';
+  } else {
     footerImage.src = '../assets/footer-img.png';
   }
 }

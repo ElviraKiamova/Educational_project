@@ -1,3 +1,18 @@
 .footer__map-img {
-  width: 100%;
+  width: 1920px;
+  height: 702px;
+}
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .footer__map-img {
+    width: 100vw;
+    height: 36.56vw;
+  }
+}
+
+@media (max-width: 376px) {
+  .footer__map-img {
+    width: 375px;
+    height: 456px;
+  }
 }
