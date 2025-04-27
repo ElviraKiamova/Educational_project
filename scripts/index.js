@@ -154,17 +154,17 @@ function updateCardImages() {
   const isMobileFooter = window.matchMedia('(max-width: 376px)').matches;
 
   if (isMobile) {
-    cardImage.src = '../assets/portfolio1-mobile.jpg';
-    reviewImage.src = '../assets/reviews-img-luk.jpg';
+    cardImage.src = './assets/portfolio1-mobile.jpg';
+    reviewImage.src = './assets/reviews-img-luk.jpg';
   } else {
-    cardImage.src = '../assets/portfolio1.jpg';
+    cardImage.src = './assets/portfolio1.jpg';
     reviewImage.src = './assets/reviews-carousel-img.jpg';
   }
 
   if (isMobileFooter) {
-    footerImage.src = '../assets/footer-img-mobile.png';
+    footerImage.src = './assets/footer-img-mobile.png';
   } else {
-    footerImage.src = '../assets/footer-img.png';
+    footerImage.src = './assets/footer-img.png';
   }
 }
 document.addEventListener('DOMContentLoaded', updateCardImages);
