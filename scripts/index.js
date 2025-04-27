@@ -325,7 +325,7 @@ carouselCompanyElement.addEventListener('touchstart', (e) => {
   startX = e.touches[0].pageX;
   currentTranslate = translateX;
   carouselCompanyElement.classList.add('dragging');
-});
+}, { passive: true });
 
 carouselCompanyElement.addEventListener('touchmove', (e) => {
   if (!isDragging) return;
@@ -340,7 +340,7 @@ carouselCompanyElement.addEventListener('touchend', () => {
   isDragging = false;
   carouselCompanyElement.classList.remove('dragging');
   handleInfiniteScroll();
-});
+}, { passive: true });
 updateCarousel();
 
 
