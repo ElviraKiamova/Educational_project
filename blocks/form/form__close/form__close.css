@@ -19,3 +19,10 @@
     height: 2vw;
   }
 }
+
+@media (max-width: 768px) {
+  .form__close {
+    top: 20px;
+    right: 20px;
+  }
+}

@@ -28,4 +28,7 @@
   .form.form_feedback {
     padding: 50px 0;
   }
+  .form.form_popup-application {
+    padding: 50px 20px;
+  }
 }

@@ -95,8 +95,13 @@
     width: 100%;
   }
   .form__label.file {
-    justify-content: flex-end;
     height: 80px;
     padding: 28px 38px;
+  }
+}
+
+@media (max-width: 375px) {
+  .form__label.file {
+    justify-content: flex-end;
   }
 }
