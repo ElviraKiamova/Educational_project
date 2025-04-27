@@ -14,7 +14,7 @@
 <body>
   <div class="page">
     <header class="header">
-      <button class="header__burger" type="button">
+      <button class="header__burger" type="button" aria-label="Открыть меню">
         <span class="header__burger-line"></span>
         <span class="header__burger-line"></span>
         <span class="header__burger-line"></span>
@@ -53,7 +53,7 @@
         <div class="about__box">
           <h1 class="about__title">Профессиональный ремонт и обслуживание <span>промышленных насосов высокого давления</span></h1>
           <p class="about__text">А также изготовление орбитальных гидродинамических насадок.</p>
-          <button class="about__button">Подробнее</button>
+          <button class="about__button" aria-label="Подробнее о компании">Подробнее</button>
           <div class="about__box-shield">
             <div class="services__card-img about__img">
               <img class="icon-service about__img" src="./assets/shield-tick.svg" alt="Щит">
@@ -67,13 +67,13 @@
             <img class="about__picture-img" src="./assets/about-desktop-image1.jpg" alt="Процесс обслуживания">
           </picture>
           <div class="about__control">
-            <button class="about__button-control about__button--prev"></button>
+            <button class="about__button-control about__button--prev" aria-label="Предыдущий слайд"></button>
             <div class="about__dots">
               <span class="about__dot about__dot_active"></span>
               <span class="about__dot"></span>
               <span class="about__dot"></span>
             </div>
-            <button class="about__button-control about__button--next"></button>
+            <button class="about__button-control about__button--next" aria-label="Следующий слайд"></button>
           </div>
         </div>
       </section>
@@ -90,42 +90,42 @@
                   <img class="icon-service" src="./assets/screw.svg" alt="Гайка">
                 </div>
                 <p class="services__card-text">Ремонт насосов ВД</p>
-                <button class="services__card-button"></button>
+                <span class="services__card-button"></span>
               </li>
               <li class="services__card">
                 <div class="services__card-img">
                   <img class="icon-service magnifier" src="./assets/magnifier.svg" alt="Лупа">
                 </div>
                 <p class="services__card-text">Диагностика</p>
-                <button class="services__card-button"></button>
+                <span class="services__card-button"></span>
               </li>
               <li class="services__card">
                 <div class="services__card-img">
                   <img class="icon-service" src="./assets/wheel.svg" alt="Колесо">
                 </div>
                 <p class="services__card-text">Ремонт в собственной мастерской</p>
-                <button class="services__card-button"></button>
+                <span class="services__card-button"></span>
               </li>
               <li class="services__card">
                 <div class="services__card-img">
                   <img class="icon-service key" src="./assets/key.svg" alt="Ключ">
                 </div>
                 <p class="services__card-text">Ремонт на площадке заказчика</p>
-                <button class="services__card-button"></button>
+                <span class="services__card-button"></span>
               </li>
               <li class="services__card">
                 <div class="services__card-img">
                   <img class="icon-service" src="./assets/flash.svg" alt="Молния">
                 </div>
                 <p class="services__card-text">Подбор аналогов для бесперебойной работы</p>
-                <button class="services__card-button"></button>
+                <span class="services__card-button"></span>
               </li>
               <li class="services__card">
                 <div class="services__card-img">
                   <img class="icon-service arrows" src="./assets/arrows.svg" alt="Стрелки">
                 </div>
                 <p class="services__card-text">Замена изношенных деталей</p>
-                <button class="services__card-button"></button>
+                <span class="services__card-button"></span>
               </li>
             </ul>
             <button class="services__button">Заказать услугу</button>
@@ -145,8 +145,8 @@
               <div class="cards__item-box">
                 <img class="cards__item-img" src="./assets/products-1.jpg" alt="ОГН 200">
                 <div class="cards__item-switch">
-                  <button class="cards__item-button cards__item-button_left" type="button"></button>
-                  <button class="cards__item-button cards__item-button_right" type="button"></button>
+                  <button class="cards__item-button cards__item-button_left" type="button" aria-label="Предыдущее изображение"></button>
+                  <button class="cards__item-button cards__item-button_right" type="button" aria-label="Следующее изображение"></button>
                 </div>
               </div>
               <div class="cards__item-description">
@@ -160,8 +160,8 @@
               <div class="cards__item-box">
                 <img class="cards__item-img" src="./assets/products-2.jpg" alt="ОГН 300">
                 <div class="cards__item-switch">
-                  <button class="cards__item-button cards__item-button_left" type="button"></button>
-                  <button class="cards__item-button cards__item-button_right" type="button"></button>
+                  <button class="cards__item-button cards__item-button_left" type="button" aria-label="Предыдущее изображение"></button>
+                  <button class="cards__item-button cards__item-button_right" type="button" aria-label="Следующее изображение"></button>
                 </div>
               </div>
               <div class="cards__item-description">
@@ -175,8 +175,8 @@
               <div class="cards__item-box">
                 <img class="cards__item-img" src="./assets/products-3.jpg" alt="ОГН 400">
                 <div class="cards__item-switch">
-                  <button class="cards__item-button cards__item-button_left" type="button"></button>
-                  <button class="cards__item-button cards__item-button_right" type="button"></button>
+                  <button class="cards__item-button cards__item-button_left" type="button" aria-label="Предыдущее изображение"></button>
+                  <button class="cards__item-button cards__item-button_right" type="button" aria-label="Следующее изображение"></button>
                 </div>
               </div>
               <div class="cards__item-description">
@@ -187,9 +187,9 @@
               </div>
             </li>
           </ul>
-          <h4 class="products__subtitle">Мы производим</h4>
+          <h3 class="products__subtitle">Мы производим</h3>
           <p class="products__text products__text_big"><span class="text-red">качественное оборудование с высокой производительностью</span> позволяющие работать длительное время в сложных условиях. Если в процессе эксплуатации Вам понадобятся техническое обслуживание, замена компонента или ремонт наша команда решит эту задачу. В нас вы найдете надежного партнера для решения сложных задач.</p>
-          <h4 class="products__subtitle">Преимущества</h4>
+          <h3 class="products__subtitle">Преимущества</h3>
           <ul class="products__list-advantages">
             <li class="products__item-advantages">
               <div class="products__item-number">1</div>
@@ -497,16 +497,16 @@
         <nav class="footer__nav" aria-label="nav-footer">
           <ul class="footer__nav-list">
             <li class="footer__nav-item">
-              <h5 class="footer__nav-title">Телефоны</h5>
+              <h4 class="footer__nav-title">Телефоны</h4>
               <a class="footer__nav-link" href="tel:+79047358156">+7&nbsp;(904)&nbsp;735&#8209;81&#8209;56</a>
               <a class="footer__nav-link" href="tel:+73472578156">+7&nbsp;(347)&nbsp;257&#8209;81&#8209;56</a>
             </li>
             <li class="footer__nav-item">
-              <h5 class="footer__nav-title">Адрес</h5>
+              <h4 class="footer__nav-title">Адрес</h4>
               <a class="footer__nav-link" href="https://maps.google.com/?q=Уфа,+ул.+Юбилейная,+17/4">г.Уфа, ул. Юбилейная, 17/4</a>
             </li>
             <li class="footer__nav-item">
-              <h5 class="footer__nav-title">Email</h5>
+              <h4 class="footer__nav-title">Email</h4>
               <a class="footer__nav-link" href="mailto:info@ingolf.is">info@ingolf.is</a>
             </li>
           </ul>
