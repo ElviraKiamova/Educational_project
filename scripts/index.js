@@ -154,11 +154,11 @@ function updateCardImages() {
   const isMobileFooter = window.matchMedia('(max-width: 376px)').matches;
 
   if (isMobile) {
-    cardImage.src = './assets/portfolio1-mobile.jpg';
-    reviewImage.src = './assets/reviews-img-luk.jpg';
+    cardImage.src = './assets/portfolio1-mobile.webp';
+    reviewImage.src = './assets/reviews-img-luk.webp';
   } else {
     cardImage.src = './assets/portfolio1.webp';
-    reviewImage.src = './assets/reviews-carousel-img.jpg';
+    reviewImage.src = './assets/reviews-carousel-img.webp';
   }
 
   if (isMobileFooter) {
