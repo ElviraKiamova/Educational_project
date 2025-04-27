@@ -10,10 +10,10 @@
 
 .form.form_feedback {
   max-width: 1760px;
-  padding: 100px 0 99px;
+  padding: 100px 0 102px;
 }
 
-@media (max-width: 1920px) and (min-width: 769px) {
+@media (max-width: 1919px) and (min-width: 769px) {
   .form {
     max-width: 100%;
     padding: 5vw 4vw 14vw;

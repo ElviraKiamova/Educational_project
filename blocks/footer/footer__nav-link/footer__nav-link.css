@@ -16,3 +16,16 @@
     font-size: 1.9vw;
   }
 }
+
+@media (max-width: 768px) {
+  .footer__nav-link, .footer__nav-item:first-child .footer__nav-link {
+    max-width: 328px;
+    font-size: 28px;
+    white-space: normal;
+    text-align: center;
+    line-height: 120%;
+  }
+  .footer__nav-item:first-child .footer__nav-link:first-of-type {
+    order: 3;
+  }
+}

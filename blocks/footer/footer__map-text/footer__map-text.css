@@ -19,3 +19,10 @@
     font-size: 1vw;
   }
 }
+
+@media (max-width: 768px) {
+  .footer__map-text {
+    position: relative;
+    top: 5px;
+  }
+}

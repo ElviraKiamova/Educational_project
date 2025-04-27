@@ -40,7 +40,7 @@
   color: #A3A3A3;
 }
 
-@media (max-width: 1920px) and (min-width: 769px) {
+@media (max-width: 1919px) and (min-width: 769px) {
   .form__input {
     width: 100%;
     padding: 1vw 1.2vw;

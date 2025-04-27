@@ -14,3 +14,10 @@
     gap: 0.5vw;
   }
 }
+
+@media (max-width: 768px) {
+  .footer__map-block {
+    top: 49.5%;
+    left: 65%;
+  }
+}

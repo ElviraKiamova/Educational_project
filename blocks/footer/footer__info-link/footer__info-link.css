@@ -13,3 +13,9 @@
     left: -2.5vw;
   }
 }
+
+@media (max-width: 768px) {
+  .footer__info-link.confidentiality {
+    left: 0;
+  }
+}

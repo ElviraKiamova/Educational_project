@@ -11,3 +11,12 @@
     font-size: 1.1vw;
   }
 }
+
+@media (max-width: 768px) {
+  .footer__nav-list {
+    flex-direction: column;
+    justify-content: center;
+    gap: 34px;
+    max-width: 328px;
+  }
+}

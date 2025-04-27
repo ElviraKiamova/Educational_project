@@ -1,10 +1,21 @@
 .questions__faq-answer {
+  display: none;
   width: 100%;
   margin: 22px 0;
+}
+
+.questions__faq-item.active .questions__faq-answer {
+  display: block;
 }
 
 @media (max-width: 1900px) and (min-width: 769px) {
   .questions__faq-answer {
     margin: 1.2vw 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .questions__faq-answer {
+    margin: 17px 0 3px;
   }
 }

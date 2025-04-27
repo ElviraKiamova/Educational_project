@@ -8,3 +8,9 @@
     font-size: 1.1vw;
   }
 }
+
+@media (max-width: 768px) {
+  .footer__nav-title {
+    font-size: 16px;
+  }
+}

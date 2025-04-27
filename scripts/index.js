@@ -107,7 +107,6 @@ document.addEventListener('click', (evt) => {
 // открытия попапов форм заявок
 
 document.addEventListener('click', (event) => {
-  event.preventDefault(); 
   const target = event.target;
   if (
     target.closest('.header__button') ||
@@ -150,14 +149,18 @@ document.addEventListener('keydown', ({ key }) => {
 function updateCardImages() {
   const cardImage = document.querySelector('.offset');
   const reviewImage = document.querySelector('.domstroy');
+  const footerImage = document.querySelector('.footer__map-img');
 
   const isMobile = window.matchMedia('(max-width: 768px)').matches;
   if (isMobile) {
     cardImage.src = '../assets/portfolio1-mobile.jpg';
-    reviewImage.src = './assets/reviews-img-luk.jpg';
+    reviewImage.src = '../assets/reviews-img-luk.jpg';
+    footerImage.src = '../assets/footer-img-mobile.png';
+    
   } else {
     cardImage.src = '../assets/portfolio1.jpg';
     reviewImage.src = './assets/reviews-carousel-img.jpg';
+    footerImage.src = '../assets/footer-img.png';
   }
 }
 document.addEventListener('DOMContentLoaded', updateCardImages);
@@ -165,13 +168,30 @@ window.addEventListener('resize', updateCardImages);
 
 
 
+// аккардеон в секции Вопрос-Ответ
 
+document.querySelectorAll('.questions__faq-question').forEach(question => {
+  question.addEventListener('click', () => {
+    const faqItem = question.parentElement;
+    const switchIcon = question.querySelector('.questions__faq-switch');
+    const isOpen = faqItem.classList.contains('active');
 
+    document.querySelectorAll('.questions__faq-item').forEach(item => {
+      item.classList.remove('active');
+      const itemSwitch = item.querySelector('.questions__faq-switch');
+      if (itemSwitch) {
+        itemSwitch.classList.remove('questions__faq-switch_minus');
+        itemSwitch.classList.add('questions__faq-switch_plus');
+      }
+    });
 
-openReplyElements.forEach((item) => {
-  item.addEventListener('click', (evt) => {
-    item.classList.toggle('questions__faq-switch_plus');
-    item.classList.toggle('questions__faq-switch_minus');
+    if (!isOpen) {
+      faqItem.classList.add('active');
+      if (switchIcon) {
+        switchIcon.classList.remove('questions__faq-switch_plus');
+        switchIcon.classList.add('questions__faq-switch_minus');
+      }
+    }
   });
 });
 

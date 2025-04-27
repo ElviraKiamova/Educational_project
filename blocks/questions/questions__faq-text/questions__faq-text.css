@@ -10,3 +10,10 @@
     font-size: 1vw;
   }
 }
+
+@media (max-width: 768px) {
+  .questions__faq-text {
+    font-size: 14px;
+    line-height: 120%;
+  }
+}

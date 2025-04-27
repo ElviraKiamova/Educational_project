@@ -24,3 +24,11 @@
     margin-right: 11vw;
   }
 }
+
+@media (max-width: 768px) {
+  .footer__nav-item, .footer__nav-item:nth-child(1), .footer__nav-item:nth-child(2) {
+    margin-right: 0;
+    flex-direction: column-reverse;
+    gap: 13px;
+  }
+}

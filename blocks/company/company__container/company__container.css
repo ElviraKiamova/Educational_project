@@ -3,7 +3,7 @@
   flex-direction: column;
   width: 100%;
   max-width: 1760px;
-  margin: 115px 0;
+  margin: 117px 0;
 }
 
 @media (max-width: 1900px) and (min-width: 769px) {

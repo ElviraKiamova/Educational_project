@@ -63,7 +63,7 @@
   height: 22px;
 }
 
-@media (max-width: 1920px) and (min-width: 769px) {
+@media (max-width: 1919px) and (min-width: 769px) {
   .form__label {
     width: calc((100% - 2vw) / 3);
   }

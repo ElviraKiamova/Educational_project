@@ -5,7 +5,7 @@
   margin: 50px 0 15px;
 }
 
-@media (max-width: 1920px) and (min-width: 769px) {
+@media (max-width: 1919px) and (min-width: 769px) {
   .form__box-input {
     gap: 1vw;
     margin: 2.5vw 0 0.8vw;

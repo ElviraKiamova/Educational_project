@@ -9,3 +9,11 @@
     margin-top: 2vw;
   }
 }
+
+@media (max-width: 768px) {
+  .footer__info {
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 20px;
+  }
+}

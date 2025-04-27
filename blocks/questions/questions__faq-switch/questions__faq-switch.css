@@ -28,9 +28,12 @@
 
 @media (max-width: 768px) {
   .questions__faq-switch {
-    top: -2px;
+    top: 0;
     width: 30px;
     height: 30px;
     background-size: 30px 30px;
+  }
+  .questions__faq-switch_minus {
+    background-size: 24px 24px;
   }
 }

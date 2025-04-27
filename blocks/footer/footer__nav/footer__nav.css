@@ -1,6 +1,5 @@
 .footer__nav {
   width: 100%;
-  /* max-width: 1511px; */
   max-width: 1535px;
   margin-bottom: 36px;
 }
@@ -9,5 +8,11 @@
   .footer__nav {
     max-width: 80vw;
     margin-bottom: 2vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer__nav {
+    max-width: 328px;
   }
 }

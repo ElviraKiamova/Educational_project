@@ -11,3 +11,10 @@
     margin: 4vw 0 0;
   }
 }
+
+@media (max-width: 768px) {
+  .footer__container {
+    margin: 55px 0 30px; 
+    overflow: hidden;
+  }
+}

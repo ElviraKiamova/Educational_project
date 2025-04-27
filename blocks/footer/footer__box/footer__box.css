@@ -10,3 +10,10 @@
     padding: 3.5vw 0 2vw;
   }
 }
+
+@media (max-width: 768px) {
+  .footer__box {
+    width: 90%;
+    padding: 25px 0 0;
+  }
+}

@@ -10,3 +10,10 @@
     padding-bottom: 2vw;
   }
 }
+
+@media (max-width: 768px) {
+  .footer__branding {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
