@@ -1,7 +1,14 @@
 .about__picture-img {
-  width: 100%;
-  height: auto;
+  width: 787px;
+  height: 759px;
   border-radius: 20px;
+}
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .about__picture-img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 @media (max-width: 768px) {

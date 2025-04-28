@@ -651,3 +651,40 @@ document.addEventListener('DOMContentLoaded', () => {
     page.classList.add('visible');
   }
 });
+
+
+// Всплывающее окно при отправке данных формы
+
+document.addEventListener('DOMContentLoaded', () => {
+  const popup = document.querySelector('.popup-gratitude');
+  const header = document.querySelector('.header');
+  const closeButton = document.querySelector('.popup-gratitude__button');
+  const forms = document.querySelectorAll('.form_feedback, .form_popup-application');
+
+  function adjustPopup() {
+    if (header && popup) {
+      const headerHeight = header.offsetHeight;
+      popup.style.top = `${headerHeight}px`;
+      popup.style.height = `calc(100vh - ${headerHeight}px)`;
+    }
+  }
+  adjustPopup();
+  window.addEventListener('resize', adjustPopup);
+
+  forms.forEach(form => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (popup) {
+        popup.classList.add('active');
+        document.body.classList.add('no-scroll');
+      }
+    });
+  });
+
+  if (closeButton && popup) {
+    closeButton.addEventListener('click', () => {
+      popup.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    });
+  }
+});
