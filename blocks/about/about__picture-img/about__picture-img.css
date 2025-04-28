@@ -2,6 +2,7 @@
   width: 787px;
   height: 759px;
   border-radius: 20px;
+  object-fit: cover;
 }
 
 @media (max-width: 1900px) and (min-width: 769px) {
