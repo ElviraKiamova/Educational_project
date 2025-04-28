@@ -660,6 +660,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('.header');
   const closeButton = document.querySelector('.popup-gratitude__button');
   const forms = document.querySelectorAll('.form_feedback, .form_popup-application');
+  const popupApplicationElement = document.querySelector('.popup-application');
+  const popupModelElement = document.querySelector('.popup-model');
 
   function adjustPopup() {
     if (header && popup) {
@@ -677,6 +679,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (popup) {
         popup.classList.add('active');
         document.body.classList.add('no-scroll');
+        
+        if (popupApplicationElement && popupApplicationElement.style.display === 'flex') {
+          popupApplicationElement.style.display = 'none';
+        }
+        if (popupModelElement && popupModelElement.style.display === 'flex') {
+          popupModelElement.style.display = 'none';
+        }
       }
     });
   });
@@ -685,6 +694,13 @@ document.addEventListener('DOMContentLoaded', () => {
     closeButton.addEventListener('click', () => {
       popup.classList.remove('active');
       document.body.classList.remove('no-scroll');
+    });
+
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) {
+        popup.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+      }
     });
   }
 });
