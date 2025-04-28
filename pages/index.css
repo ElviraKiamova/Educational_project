@@ -1,5 +1,9 @@
 @import url("../styles/normalize.css");
 
+@import url("../blocks/popup-logo/popup-logo.css");
+@import url("../blocks/popup-logo/popup-logo__img/popup-logo__img.css");
+
+
 @import url("../blocks/page/page.css");
 @import url("../blocks/content/content.css");
 

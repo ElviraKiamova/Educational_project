@@ -627,3 +627,27 @@ const cleanupReviews = initCarousel({
   parentContainerSelector: '.reviews__container',
   visibleItems: 4
 });
+
+
+
+// Всплывающее окно с логотипом компании при открытии сайта
+
+document.addEventListener('DOMContentLoaded', () => {
+  const popup = document.querySelector('.popup-logo');
+  const page = document.querySelector('.page');
+  const hasSeenPopup = localStorage.getItem('hasSeenPopup');
+
+  if (popup && !hasSeenPopup) {
+    popup.classList.add('active');
+
+    setTimeout(() => {
+      popup.classList.remove('active');
+      if (page) {
+        page.classList.add('visible');
+      }
+      localStorage.setItem('hasSeenPopup', 'true');
+    }, 2000);
+  } else if (page) {
+    page.classList.add('visible');
+  }
+});

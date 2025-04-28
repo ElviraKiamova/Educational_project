@@ -1,0 +1,33 @@
+.popup-logo__img {
+  width: 280px;
+  height: 112px;
+  object-fit: contain;
+}
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .popup-logo__img {
+    width: 14.58vw;
+    height: 5.83vw;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 500px) {
+  .popup-logo__img {
+    width: 200px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 499px) and (min-width: 376px) {
+  .popup-logo__img {
+    width: 180px;
+    height: 72px;
+  }
+}
+
+@media (max-width: 375px) {
+  .popup-logo__img {
+    width: 160px;
+    height: 64px;
+  }
+}

@@ -29,6 +29,19 @@ scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
   box-sizing: border-box;
   scroll-behavior: smooth;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.page.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+body {
+  position: relative;
 }
 
 .no-scroll {
