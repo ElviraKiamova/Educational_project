@@ -12,7 +12,7 @@
 
 @media (max-width: 1900px) and (min-width: 769px) {
   .company__list-info {
-    gap: 4vw;
+    gap: 1vw;
     margin: 0 1vw 0 0;
     font-size: 1.2vw;
     line-height: 1.2vw;

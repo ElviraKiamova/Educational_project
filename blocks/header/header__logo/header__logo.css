@@ -11,6 +11,8 @@
 @media (max-width: 1900px) and (min-width: 769px) {
   .header__logo {
     gap: 5px;
+    width: 7.81vw;
+    height: 3.124vw;
     margin-right: 2vw;
   }
 }
