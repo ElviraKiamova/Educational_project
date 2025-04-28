@@ -17,13 +17,13 @@
 
 .cards__item-button_left::before {
   top: 50%;
-  left: -50%;
+  left: 7px;
   transform: translate(-70%, -50%);
 }
 
 .cards__item-button_right::before {
   top: 50%;
-  right: -7px;
+  right: -50px;
   transform: translate(-65%, -50%);
 }
 
@@ -37,12 +37,4 @@
 
 .cards__item-button.inactive {
   background-color: #BBBBBB;
-}
-
-
-@media (max-width: 1900px) and (min-width: 769px) {
-  .cards__item-button {
-    width: 1vw;
-    height: 0.3vw;
-  }
 }
