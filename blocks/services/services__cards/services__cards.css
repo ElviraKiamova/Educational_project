@@ -20,10 +20,16 @@
 
 @media (max-width: 768px) {
   .services__cards {
-    grid-template-columns: repeat(1, 335px);
-    grid-template-rows: repeat(auto-fill, 153px);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(auto-fill ,153px);
     gap: 9px;
     margin-top: 20px;
     margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .services__cards {
+    grid-template-columns: repeat(1, 335px);
   }
 }

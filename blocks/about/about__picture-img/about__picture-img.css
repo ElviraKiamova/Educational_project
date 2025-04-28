@@ -5,14 +5,14 @@
   object-fit: cover;
 }
 
-@media (max-width: 1900px) and (min-width: 769px) {
+@media (max-width: 1900px) and (min-width: 401px) {
   .about__picture-img {
     width: 100%;
     height: auto;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 400px) {
   .about__picture-img {
     width: 335px;
     height: 323px;

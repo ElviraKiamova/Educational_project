@@ -30,3 +30,10 @@
     linear-gradient(270deg, #18191E 0%, rgba(24, 25, 30, 0) 100%) right/190px 100%;
   background-repeat: no-repeat;
 }
+
+@media (max-width: 768px) {
+  .footer__map-box::before,
+  .footer__map-box::after {
+    content: none;
+  }
+}

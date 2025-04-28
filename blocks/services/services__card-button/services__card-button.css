@@ -16,11 +16,8 @@
 
 @media (max-width: 999px) and (min-width: 769px) {
   .services__card-button {
-    top: 1vw;
-    right: 1vw;
-    width: 0.3vw;
-    height: 0.3vw;
-    min-width: 5px;
-    min-height: 5px;
+    width: 10px;
+    height: 10px;
+    border: 3px solid #B4100D;
   }
 }

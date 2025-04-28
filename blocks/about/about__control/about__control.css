@@ -35,14 +35,14 @@
 }
 
 
-@media (max-width: 900px) and (min-width: 769px) {
+@media (max-width: 900px) and (min-width: 401px) {
   .about__control {
     top: 80%;
     bottom: auto;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 400px) {
   .about__control {
     top: 253px;
   }

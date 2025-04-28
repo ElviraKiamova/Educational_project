@@ -12,16 +12,7 @@
   }
 }
 
-@media (max-width: 768px) {
-  .about__box {
-    text-align: center;
-  }
-}
-
 @media (max-width: 376px) {
-  .about__box {
-    text-align: start;
-  }
   .about__box.slide {
     margin-bottom: 5px;
   }
