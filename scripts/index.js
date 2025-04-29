@@ -50,7 +50,7 @@ selectHeaderElement.addEventListener('click', (evt) => {
 });
 
 itemSelectEnElement.addEventListener('click', (evt) => {
-  evt.stopPropagation();
+  // evt.stopPropagation();
   const contentRu = itemSelectRuElement.textContent;
   itemSelectRuElement.textContent = itemSelectEnElement.textContent;
   itemSelectEnElement.textContent = contentRu;
@@ -88,7 +88,7 @@ dotElements.forEach((dot, index) => {
 });
 
 
-
+// Открытие/закрытие бургер-меню
 burgerElement.addEventListener('click', () => {
   containerElement.classList.toggle('header__container_active');
   burgerElement.classList.toggle('active');
@@ -99,6 +99,13 @@ document.addEventListener('click', (evt) => {
     containerElement.classList.remove('header__container_active');
     burgerElement.classList.remove('active');
   }
+});
+
+document.querySelectorAll('.header__nav-link').forEach(link => {
+  link.addEventListener('click', (evt) => {
+    containerElement.classList.remove('header__container_active');
+    burgerElement.classList.remove('active');
+  });
 });
 
 
@@ -650,55 +657,3 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-
-// Всплывающее окно при отправке данных формы
-
-document.addEventListener('DOMContentLoaded', () => {
-  const popup = document.querySelector('.popup-gratitude');
-  const header = document.querySelector('.header');
-  const closeButton = document.querySelector('.popup-gratitude__button');
-  const forms = document.querySelectorAll('.form_feedback, .form_popup-application');
-  const popupApplicationElement = document.querySelector('.popup-application');
-  const popupModelElement = document.querySelector('.popup-model');
-
-  function adjustPopup() {
-    if (header && popup) {
-      const headerHeight = header.offsetHeight;
-      popup.style.top = `${headerHeight}px`;
-      popup.style.height = `calc(100vh - ${headerHeight}px)`;
-    }
-  }
-  adjustPopup();
-  window.addEventListener('resize', adjustPopup);
-
-  forms.forEach(form => {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (popup) {
-        popup.classList.add('active');
-        document.body.classList.add('no-scroll');
-        
-        if (popupApplicationElement && popupApplicationElement.style.display === 'flex') {
-          popupApplicationElement.style.display = 'none';
-        }
-        if (popupModelElement && popupModelElement.style.display === 'flex') {
-          popupModelElement.style.display = 'none';
-        }
-      }
-    });
-  });
-
-  if (closeButton && popup) {
-    closeButton.addEventListener('click', () => {
-      popup.classList.remove('active');
-      document.body.classList.remove('no-scroll');
-    });
-
-    popup.addEventListener('click', (e) => {
-      if (e.target === popup) {
-        popup.classList.remove('active');
-        document.body.classList.remove('no-scroll');
-      }
-    });
-  }
-});
