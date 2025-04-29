@@ -6,8 +6,7 @@ const formFeedbackElement = document.querySelector('.form_feedback');
 const prevButtonElement = document.querySelector('.about__button--prev');
 const nextButtonElement = document.querySelector('.about__button--next');
 const dotElements = document.querySelectorAll('.about__dot');
-const imgElement = document.querySelector('.about__picture img');
-const sourceElement = document.querySelector('.about__picture source');
+const imgElement = document.querySelector('.about__picture-img');
 const selectHeaderElement = document.querySelector('.header__select');
 const itemSelectRuElement = document.querySelector('.header__select-item_ru');
 const itemSelectEnElement = document.querySelector('.header__select-item_en');
@@ -22,14 +21,14 @@ const closeButtonElements = document.querySelectorAll('.form__close');
 
 let currentSlide = 0;
 const desktopImages = [
-    './assets/about-desktop-image1.jpg',
-    './assets/about-desktop-image2.jpg',
-    './assets/about-desktop-image3.jpg'
+    './assets/about-desktop-image1.webp',
+    './assets/about-desktop-image2.webp',
+    './assets/about-desktop-image3.webp'
 ];
 const mobileImages = [
-    './assets/about-mobile-image1.jpg',
-    './assets/about-mobile-image2.jpg',
-    './assets/about-mobile-image3.jpg'
+    './assets/about-mobile-image1.webp',
+    './assets/about-mobile-image2.webp',
+    './assets/about-mobile-image3.webp'
 ];
 
 function toggleActive(form) {
@@ -65,7 +64,6 @@ document.addEventListener('click', () => {
 
 function updateSlide(index) {
   imgElement.src = desktopImages[index];
-  sourceElement.srcset = mobileImages[index];
   dotElements.forEach(dot => dot.classList.remove('about__dot_active'));
   dotElements[index].classList.add('about__dot_active');
   currentSlide = index;

@@ -19,22 +19,22 @@
     aspect-ratio: 560 / 746;
   }
   .company__img-carousel_big {
-    width: auto; /* Ширина будет рассчитываться автоматически */
-    height: 25vw; /* Такая же высота как у обычных */
+    width: auto;
+    height: 25vw;
     aspect-ratio: 995 / 746;
   }
 }
 
 @media (max-width: 768px) {
   .company__img-carousel {
-    width: 274px; /* Фиксированная ширина */
-    height: 365px; /* Фиксированная высота */
-    aspect-ratio: unset; /* Отключаем динамический расчет */
+    width: 274px;
+    height: 365px;
+    aspect-ratio: unset;
   }
   
   .company__img-carousel_big {
-    width: 487px; /* Фиксированная ширина */
-    height: 365px; /* Фиксированная высота */
-    aspect-ratio: unset; /* Отключаем динамический расчет */
+    width: 487px;
+    height: 365px;
+    aspect-ratio: unset;
   }
 }
