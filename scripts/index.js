@@ -410,25 +410,21 @@ function initCarousel({
     const totalContentWidth = calculatedWidth;
     let translateX;
 
-    const naturalMaxIndex = Math.max(0, totalItems - 1);
-    const maxIndex = containerSelector === '.cards-portfolio' ? Math.min(naturalMaxIndex, itemsPerView - 1) : naturalMaxIndex;
+    const maxIndex = Math.max(0, totalItems - itemsPerView);
     if (currentIndex > maxIndex) currentIndex = maxIndex;
     if (currentIndex < 0) currentIndex = 0;
 
     const step = itemWidth + gap + itemMarginLeft + itemMarginRight;
     let baseTranslateX = -(currentIndex * step);
-    if (containerSelector === '.reviews__carousel' && isMobile) {
-      translateX = baseTranslateX;
+    const remainingItems = totalItems - (currentIndex + 1);
+    const isLastCard = currentIndex >= totalItems - 1;
+    const shouldAlignRight = remainingItems < itemsPerView || isLastCard;
+
+    if (shouldAlignRight && totalContentWidth > parentWidth) {
+    translateX = -(totalContentWidth - parentWidth);
+    translateX += parentPaddingLeft;
     } else {
-      const remainingItems = totalItems - (currentIndex + 1);
-      const isLastCard = currentIndex >= totalItems - 1;
-      const shouldAlignRight = remainingItems < itemsPerView || isLastCard;
-      if (shouldAlignRight) {
-        translateX = -(totalContentWidth - parentWidth);
-        translateX += parentPaddingLeft;
-      } else {
-        translateX = baseTranslateX;
-      }
+      translateX = baseTranslateX;
     }
 
     if (translateX > 0) translateX = 0;
@@ -491,10 +487,14 @@ function initCarousel({
       if (!isDragging) return;
       touchCurrentX = e.touches[0].clientX;
       const deltaX = touchCurrentX - touchStartX;
-      const { itemWidth, gap, itemMarginLeft, itemMarginRight } = getDimensions();
-      const step = itemWidth + gap + itemMarginLeft + itemMarginRight;
-      const currentTranslateX = -(currentIndex * step);
-      container.style.transform = `translateX(${currentTranslateX + deltaX}px)`;
+
+      let newTranslateX = currentTranslateX + deltaX;
+      if (newTranslateX > 0) newTranslateX = 0;
+      const { calculatedWidth, parentWidth } = getDimensions();
+      if (Math.abs(newTranslateX) > calculatedWidth - parentWidth) {
+        newTranslateX = -(calculatedWidth - parentWidth);
+      }
+      container.style.transform = `translateX(${newTranslateX}px)`;
     });
 
     container.addEventListener('touchend', () => {
@@ -507,7 +507,7 @@ function initCarousel({
 
       if (deltaX > threshold && currentIndex > 0) {
         currentIndex--;
-      } else if (deltaX < -threshold && currentIndex < Math.max(0, totalItems - 1)) {
+      } else if (deltaX < -threshold && currentIndex < Math.max(0, totalItems - itemsPerView)) {
         currentIndex++;
       }
       updateCarousel();
