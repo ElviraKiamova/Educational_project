@@ -348,6 +348,7 @@ function initCarousel({
   let touchStartX = 0;
   let touchCurrentX = 0;
   let isDragging = false;
+  let currentTranslateX = 0;
 
   function getDimensions() {
     const itemWidth = items[0]?.offsetWidth || 0;
@@ -429,6 +430,7 @@ function initCarousel({
     if (translateX > 0) translateX = 0;
     if (Math.abs(translateX) > totalContentWidth) translateX = -totalContentWidth;
 
+    currentTranslateX = translateX;
     container.style.transform = `translateX(${translateX}px)`;
 
     if (backButton) backButton.disabled = currentIndex === 0;
