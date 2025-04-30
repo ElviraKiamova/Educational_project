@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   padding-bottom: 40px;
-  border-bottom: 1px solid #DFE0E9;
+  border-bottom: 1px solid rgba(223, 224, 233, 0.15);
 }
 
 @media (max-width: 1900px) and (min-width: 769px) {
