@@ -620,21 +620,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// открытия попапов форм заявок
 
-let scrollPosition = 0;
+
+// Открытие попапов форм заявок
+  
 const popups = {
   application: document.querySelector('.popup-application'),
   model: document.querySelector('.popup-model'),
   gratitude: document.querySelector('.popup-gratitude')
 };
 
-// Проверка существования попапов
-if (!popups.gratitude) {
-  console.error('Popup gratitude not found in DOM');
-}
-
-// Управление скроллом
 function togglePageScroll(enable) {
   const html = document.documentElement;
   const savedScrollBehavior = html.style.scrollBehavior;
@@ -655,12 +650,15 @@ function togglePageScroll(enable) {
   }, 100);
 }
 
-// Управление попапами
 function togglePopup(popup, show) {
   if (show) {
     togglePageScroll(false);
     popup.style.display = 'flex';
     setTimeout(() => popup.classList.add('active'), 10);
+  } else if (popup) {
+    popup.classList.remove('active');
+    setTimeout(() => popup.style.display = 'none', 300);
+    togglePageScroll(true);
   } else {
     document.querySelectorAll('.popup').forEach(p => {
       p.classList.remove('active');
@@ -670,86 +668,7 @@ function togglePopup(popup, show) {
   }
 }
 
-
-
-// Обработчики событий
-
-
-  // const formsApplication = document.querySelectorAll('.form_popup-application');
-  // formsApplication.forEach((form)=> {
-  //   if (form) {
-  //     form.addEventListener('submit', function(e) {
-  //       e.preventDefault();
-  //       togglePopup(popups.application, false);
-  //       togglePopup(popups.gratitude, true);
-  //       this.reset();
-  //       history.replaceState(null, '', window.location.pathname);
-  //     });
-  //   }
-  // });
-
-  
-  // const formFeedback = document.querySelector('.form_feedback');
-  //   if (formFeedback) {
-  //     formFeedback.addEventListener('submit', function(e) {
-  //       e.preventDefault();
-  //       togglePopup(popups.gratitude, true);
-  //       this.reset();
-  //       history.replaceState(null, '', window.location.pathname);
-  //     });
-  //   }
-  
-
-const popups = {
-  application: document.querySelector('.popup-application'),
-  model: document.querySelector('.popup-model'),
-  gratitude: document.querySelector('.popup-gratitude')
-};
-
-// Проверка существования попапов
-if (!popups.gratitude) {
-  console.error('Popup gratitude not found in DOM');
-}
-
-// Управление скроллом
-function togglePageScroll(enable) {
-  const html = document.documentElement;
-  const savedScrollBehavior = html.style.scrollBehavior;
-  html.style.scrollBehavior = 'auto';
-  
-  if (enable) {
-    document.body.classList.remove('no-scroll');
-    window.scrollTo(0, scrollPosition);
-    document.body.style.top = '';
-  } else {
-    scrollPosition = window.pageYOffset;
-    document.body.classList.add('no-scroll');
-    document.body.style.top = `-${scrollPosition}px`;
-  }
-  
-  setTimeout(() => {
-    html.style.scrollBehavior = savedScrollBehavior || 'smooth';
-  }, 100);
-}
-
-// Управление попапами
-function togglePopup(popup, show) {
-  if (show) {
-    togglePageScroll(false);
-    popup.style.display = 'flex';
-    setTimeout(() => popup.classList.add('active'), 10);
-  } else {
-    document.querySelectorAll('.popup').forEach(p => {
-      p.classList.remove('active');
-      setTimeout(() => p.style.display = 'none', 300);
-    });
-    togglePageScroll(true);
-  }
-}
-
-// Обработчики событий
 function setupEventListeners() {
-  // Открытие попапов
   document.addEventListener('click', (event) => {
     const target = event.target;
     
@@ -767,8 +686,7 @@ function setupEventListeners() {
     }
   });
 
-  // Закрытие попапов
-  document.querySelectorAll('[data-popup-close], .form__close').forEach(button => {
+  document.querySelectorAll('.form__close').forEach(button => {
     button.addEventListener('click', (e) => {
       e.preventDefault();
       togglePopup(null, false);
@@ -776,7 +694,6 @@ function setupEventListeners() {
     });
   });
 
-  // Закрытие по ESC
   document.addEventListener('keydown', ({ key }) => {
     if (key === 'Escape') {
       togglePopup(null, false);
@@ -784,7 +701,6 @@ function setupEventListeners() {
     }
   });
 
-  // Закрытие по клику вне попапа
   document.querySelectorAll('.popup').forEach(popup => {
     popup.addEventListener('click', (e) => {
       if (e.target === popup) {
@@ -794,31 +710,31 @@ function setupEventListeners() {
     });
   });
 
-  // Обработка формы
-  const form = document.querySelector('.form_popup-application');
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      console.log('Form submitted'); // Для отладки
 
-      // Закрываем форму заявки
-      togglePopup(popups.application, false);
-
-      // Показываем попап благодарности с задержкой
-      setTimeout(() => {
-        console.log('Showing gratitude popup'); // Для отладки
+  const formsApplication = document.querySelectorAll('.form_popup-application');
+  formsApplication.forEach((form)=> {
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        togglePopup(popups.application, false);
         togglePopup(popups.gratitude, true);
-      }, 350); // Задержка для завершения анимации закрытия
+        this.reset();
+        history.replaceState(null, '', window.location.pathname);
+      });
+    }
+  });
 
-      // Очищаем форму
-      this.reset();
+  
+  const formFeedback = document.querySelector('.form_feedback');
+    if (formFeedback) {
+      formFeedback.addEventListener('submit', function(e) {
+        e.preventDefault();
+        togglePopup(popups.gratitude, true);
+        this.reset();
+        history.replaceState(null, '', window.location.pathname);
+      });
+    }
 
-      // Убираем хеш из URL
-      history.replaceState(null, '', window.location.pathname);
-    });
-  }
-
-  // Кнопка "На главную"
   const gratitudeBtn = document.querySelector('.popup-gratitude__button');
   if (gratitudeBtn) {
     gratitudeBtn.addEventListener('click', () => {
@@ -828,9 +744,7 @@ function setupEventListeners() {
   }
 }
 
-// Инициализация
 document.addEventListener('DOMContentLoaded', () => {
-  // Сбрасываем все попапы
   document.querySelectorAll('.popup').forEach(popup => {
     popup.style.display = 'none';
     popup.classList.remove('active');
