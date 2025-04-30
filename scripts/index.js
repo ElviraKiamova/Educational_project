@@ -319,6 +319,7 @@ updateCarousel();
 
 // подключение каруселей в секцииях portfolio и reviews
 
+
 function initCarousel({
    containerSelector,
    itemsSelector,
@@ -332,9 +333,9 @@ function initCarousel({
    const forwardButton = document.querySelector(forwardButtonSelector);
    const parentContainer = document.querySelector(parentContainerSelector);
  
-   if (!container || !backButton || !forwardButton || !parentContainer) {
+   if (!container || !parentContainer) {
      console.error('Carousel initialization failed: missing elements', {
-       container, backButton, forwardButton, parentContainer
+       container, parentContainer
      });
      return;
    }
@@ -343,8 +344,13 @@ function initCarousel({
    let items = document.querySelectorAll(effectiveItemsSelector);
    let totalItems = items.length;
    let currentIndex = 0;
+   const isMobile = window.innerWidth <= 768;
+   const itemsPerView = isMobile && containerSelector === '.reviews__carousel' ? 1 : visibleItems || 1;
  
-   const itemsPerView = visibleItems || 1;
+   let touchStartX = 0;
+   let touchCurrentX = 0;
+   let isDragging = false;
+   let currentTranslateX = 0;
  
    function getDimensions() {
      const itemWidth = items[0]?.offsetWidth || 0;
@@ -353,15 +359,11 @@ function initCarousel({
      const parentComputedStyle = getComputedStyle(parentContainer);
      const parentPaddingLeft = parseFloat(parentComputedStyle.paddingLeft) || 0;
      const parentPaddingRight = parseFloat(parentComputedStyle.paddingRight) || 0;
-     const parentMarginLeft = parseFloat(parentComputedStyle.marginLeft) || 0;
-     const parentMarginRight = parseFloat(parentComputedStyle.marginRight) || 0;
      const parentWidthRaw = parentContainer.getBoundingClientRect().width;
      const parentWidth = parentWidthRaw - parentPaddingLeft - parentPaddingRight;
      const itemComputedStyle = items[0] ? getComputedStyle(items[0]) : {};
      const itemMarginLeft = parseFloat(itemComputedStyle.marginLeft) || 0;
      const itemMarginRight = parseFloat(itemComputedStyle.marginRight) || 0;
-     const containerMarginLeft = parseFloat(computedStyle.marginLeft) || 0;
-     const containerMarginRight = parseFloat(computedStyle.marginRight) || 0;
      const calculatedWidth = (totalItems * (itemWidth + itemMarginLeft + itemMarginRight)) + ((totalItems - 1) * gap);
      return {
        itemWidth,
@@ -370,152 +372,168 @@ function initCarousel({
        parentWidthRaw,
        parentPaddingLeft,
        parentPaddingRight,
-       parentMarginLeft,
-       parentMarginRight,
        itemMarginLeft,
        itemMarginRight,
-       containerMarginLeft,
-       containerMarginRight,
        calculatedWidth,
        itemsPerView
      };
    }
  
    function updateCarousel(activeButton = null) {
-     items = document.querySelectorAll(effectiveItemsSelector);
-     const newTotalItems = items.length;
- 
-     if (newTotalItems === 0 && totalItems > 0) {
-       console.warn('Items temporarily unavailable, preserving last state', { containerSelector, totalItems });
-       return;
-     }
-     totalItems = newTotalItems;
- 
-     if (totalItems === 0) {
-       console.warn('No items in carousel, resetting to initial state', { containerSelector });
-       currentIndex = 0;
-       container.style.transform = `translateX(0px)`;
-       backButton.disabled = true;
-       forwardButton.disabled = true;
-       return;
-     }
- 
-     const {
-       itemWidth,
-       gap,
-       parentWidth,
-       parentWidthRaw,
-       parentPaddingLeft,
-       parentPaddingRight,
-       parentMarginLeft,
-       parentMarginRight,
-       itemMarginLeft,
-       itemMarginRight,
-       containerMarginLeft,
-       containerMarginRight,
-       calculatedWidth,
-       itemsPerView
-     } = getDimensions();
-     const totalContentWidth = calculatedWidth;
-     let translateX;
- 
-     const naturalMaxIndex = Math.max(0, totalItems - itemsPerView);
-     const maxIndex = containerSelector === '.cards-portfolio' ? Math.min(naturalMaxIndex, itemsPerView - 1) : naturalMaxIndex;
-     if (currentIndex > maxIndex) {
-       currentIndex = maxIndex;
-     }
-     if (currentIndex < 0) {
-       currentIndex = 0;
-     }
- 
-     const step = itemWidth + gap + itemMarginLeft + itemMarginRight;
-     let baseTranslateX = -(currentIndex * step);
-     const remainingItems = totalItems - (currentIndex + 1);
-     const isLastCard = currentIndex >= totalItems - 1;
-     const shouldAlignRight = remainingItems < itemsPerView || isLastCard;
- 
-     if (shouldAlignRight) {
-       translateX = -(totalContentWidth - parentWidth);
-       translateX += parentPaddingLeft;
-     } else {
-       translateX = baseTranslateX;
+    items = document.querySelectorAll(effectiveItemsSelector);
+    const newTotalItems = items.length;
+
+    if (newTotalItems === 0 && totalItems > 0) {
+      console.warn('Items temporarily unavailable, preserving last state', { containerSelector, totalItems });
+      return;
+    }
+    totalItems = newTotalItems;
+
+    if (totalItems === 0) {
+      console.warn('No items in carousel, resetting to initial state', { containerSelector });
+      currentIndex = 0;
+      container.style.transform = `translateX(0px)`;
+      if (backButton) backButton.disabled = true;
+      if (forwardButton) forwardButton.disabled = true;
+      return;
+    }
+
+    const {
+      itemWidth,
+      gap,
+      parentWidth,
+      parentPaddingLeft,
+      itemMarginLeft,
+      itemMarginRight,
+      calculatedWidth,
+      itemsPerView
+    } = getDimensions();
+    const totalContentWidth = calculatedWidth;
+    let translateX;
+
+    const maxIndex = Math.max(0, totalItems - itemsPerView);
+    if (currentIndex > maxIndex) currentIndex = maxIndex;
+    if (currentIndex < 0) currentIndex = 0;
+
+    const step = itemWidth + gap + itemMarginLeft + itemMarginRight;
+    let baseTranslateX = -(currentIndex * step);
+    
+    const remainingItems = totalItems - (currentIndex + 1);
+    const isLastCard = currentIndex >= totalItems - 1;
+    const shouldAlignRight = remainingItems < itemsPerView || isLastCard;
+
+    if (shouldAlignRight && totalContentWidth > parentWidth) {
+    translateX = -(totalContentWidth - parentWidth);
+    translateX += parentPaddingLeft;
+    } else {
+    translateX = baseTranslateX;
      }
  
-     if (translateX > 0) {
-       translateX = 0;
-     }
-     if (Math.abs(translateX) > totalContentWidth) {
-       translateX = -totalContentWidth;
-     }
+     if (translateX > 0) translateX = 0;
+     if (Math.abs(translateX) > totalContentWidth) translateX = -totalContentWidth;
  
+     currentTranslateX = translateX;
      container.style.transform = `translateX(${translateX}px)`;
-     backButton.disabled = currentIndex === 0;
-     forwardButton.disabled = totalItems <= itemsPerView || currentIndex >= maxIndex;
  
-     backButton.classList.remove('active');
-     forwardButton.classList.remove('active');
+     if (backButton) backButton.disabled = currentIndex === 0;
+     if (forwardButton) forwardButton.disabled = totalItems <= itemsPerView || currentIndex >= maxIndex;
  
-     if (activeButton === 'back' && !backButton.disabled) {
-       backButton.classList.add('active');
-     } else if (activeButton === 'forward' && !forwardButton.disabled) {
-       forwardButton.classList.add('active');
-     } else {
-       if (!backButton.disabled) {
+     if (backButton && forwardButton) {
+       backButton.classList.remove('active');
+       forwardButton.classList.remove('active');
+       if (activeButton === 'back' && !backButton.disabled) {
          backButton.classList.add('active');
-       } else if (!forwardButton.disabled) {
+       } else if (activeButton === 'forward' && !forwardButton.disabled) {
          forwardButton.classList.add('active');
+       } else {
+         if (!backButton.disabled) backButton.classList.add('active');
+         else if (!forwardButton.disabled) forwardButton.classList.add('active');
        }
      }
+   }
  
-     console.log({
-       containerSelector,
-       currentIndex,
-       totalItems,
-       itemWidth,
-       gap,
-       itemMarginLeft,
-       itemMarginRight,
-       containerMarginLeft,
-       containerMarginRight,
-       parentPaddingLeft,
-       parentPaddingRight,
-       parentMarginLeft,
-       parentMarginRight,
-       totalContentWidth,
-       calculatedWidth,
-       scrollWidth: container.scrollWidth,
-       parentWidth,
-       parentWidthRaw,
-       translateX,
-       isLastCard,
-       itemsPerView,
-       remainingItems,
-       shouldAlignRight,
-       maxIndex,
-       backDisabled: backButton.disabled,
-       forwardDisabled: forwardButton.disabled,
-       backActive: backButton.classList.contains('active'),
-       forwardActive: forwardButton.classList.contains('active')
+   if (backButton) {
+     backButton.addEventListener('click', () => {
+       if (currentIndex > 0) {
+         currentIndex--;
+         updateCarousel('back');
+       }
      });
    }
  
-   backButton.addEventListener('click', () => {
-     if (currentIndex > 0) {
-       currentIndex--;
-       updateCarousel('back');
-     }
-   });
+   if (forwardButton) {
+     forwardButton.addEventListener('click', () => {
+       items = document.querySelectorAll(effectiveItemsSelector);
+       totalItems = items.length;
+       const naturalMaxIndex = Math.max(0, totalItems - itemsPerView);
+       const maxIndex = containerSelector === '.cards-portfolio' ? Math.min(naturalMaxIndex, itemsPerView - 1) : naturalMaxIndex;
+       if (currentIndex < maxIndex && totalItems > 0) {
+         currentIndex++;
+         updateCarousel('forward');
+       }
+     });
+   }
  
-   forwardButton.addEventListener('click', () => {
-     items = document.querySelectorAll(effectiveItemsSelector);
-     totalItems = items.length;
-     const naturalMaxIndex = Math.max(0, totalItems - itemsPerView);
-     const maxIndex = containerSelector === '.cards-portfolio' ? Math.min(naturalMaxIndex, itemsPerView - 1) : naturalMaxIndex;
-     if (currentIndex < maxIndex && totalItems > 0) {
-       currentIndex++;
-       updateCarousel('forward');
+   const isReviewsCarousel = containerSelector === '.reviews__carousel';
+   let touchListenersAdded = false;
+ 
+   function addTouchListeners() {
+     if (touchListenersAdded) return;
+     container.addEventListener('touchstart', (e) => {
+       touchStartX = e.touches[0].clientX;
+       isDragging = true;
+       container.style.transition = 'none';
+     });
+ 
+     container.addEventListener('touchmove', (e) => {
+       if (!isDragging) return;
+       touchCurrentX = e.touches[0].clientX;
+       const deltaX = touchCurrentX - touchStartX;
+let newTranslateX = currentTranslateX + deltaX;
+       if (newTranslateX > 0) newTranslateX = 0;
+       const { calculatedWidth, parentWidth } = getDimensions();
+       if (Math.abs(newTranslateX) > calculatedWidth - parentWidth) {
+         newTranslateX = -(calculatedWidth - parentWidth);
+       }
+       container.style.transform = `translateX(${newTranslateX}px)`;
+     });
+ 
+     container.addEventListener('touchend', () => {
+       if (!isDragging) return;
+       isDragging = false;
+       container.style.transition = 'transform 0.3s ease';
+       const deltaX = touchCurrentX - touchStartX;
+       const { itemWidth } = getDimensions();
+       const threshold = itemWidth * 0.3;
+ 
+       if (deltaX > threshold && currentIndex > 0) {
+         currentIndex--;
+ } else if (deltaX < -threshold && currentIndex < Math.max(0, totalItems - itemsPerView)) {
+         currentIndex++;
+       }
+       updateCarousel();
+     });
+     touchListenersAdded = true;
+   }
+ 
+   function removeTouchListeners() {
+     if (!touchListenersAdded) return;
+     container.removeEventListener('touchstart', () => {});
+     container.removeEventListener('touchmove', () => {});
+     container.removeEventListener('touchend', () => {});
+     touchListenersAdded = false;
+   }
+ 
+   function checkMobileAndSwipe() {
+     const isMobile = window.innerWidth <= 768;
+     if (isReviewsCarousel && isMobile) {
+       addTouchListeners();
+     } else {
+       removeTouchListeners();
      }
-   });
+   }
+ 
+   checkMobileAndSwipe();
  
    window.addEventListener('resize', () => {
      items = document.querySelectorAll(effectiveItemsSelector);
@@ -526,6 +544,7 @@ function initCarousel({
        const maxIndex = containerSelector === '.cards-portfolio' ? Math.min(naturalMaxIndex, itemsPerView - 1) : naturalMaxIndex;
        currentIndex = Math.min(currentIndex, Math.max(0, maxIndex));
      }
+     checkMobileAndSwipe();
      updateCarousel();
    });
  
@@ -538,6 +557,7 @@ function initCarousel({
        const maxIndex = containerSelector === '.cards-portfolio' ? Math.min(naturalMaxIndex, itemsPerView - 1) : naturalMaxIndex;
        currentIndex = Math.min(currentIndex, Math.max(0, maxIndex));
      }
+     checkMobileAndSwipe();
      updateCarousel();
    });
  
@@ -570,10 +590,11 @@ function initCarousel({
  
    return () => {
      observer.disconnect();
-     backButton.removeEventListener('click', updateCarousel);
-     forwardButton.removeEventListener('click', updateCarousel);
+     if (backButton) backButton.removeEventListener('click', updateCarousel);
+     if (forwardButton) forwardButton.removeEventListener('click', updateCarousel);
      window.removeEventListener('resize', updateCarousel);
      window.removeEventListener('load', updateCarousel);
+     removeTouchListeners();
    };
  }
  
@@ -592,8 +613,282 @@ function initCarousel({
    backButtonSelector: '.reviews .switch__button.back',
    forwardButtonSelector: '.reviews .switch__button.forward',
    parentContainerSelector: '.reviews__container',
-   visibleItems: 4
  });
+
+
+// function initCarousel({
+//    containerSelector,
+//    itemsSelector,
+//    backButtonSelector,
+//    forwardButtonSelector,
+//    parentContainerSelector,
+//    visibleItems
+//  }) {
+//    const container = document.querySelector(containerSelector);
+//    const backButton = document.querySelector(backButtonSelector);
+//    const forwardButton = document.querySelector(forwardButtonSelector);
+//    const parentContainer = document.querySelector(parentContainerSelector);
+ 
+//    if (!container || !backButton || !forwardButton || !parentContainer) {
+//      console.error('Carousel initialization failed: missing elements', {
+//        container, backButton, forwardButton, parentContainer
+//      });
+//      return;
+//    }
+ 
+//    const effectiveItemsSelector = containerSelector + ' ' + itemsSelector;
+//    let items = document.querySelectorAll(effectiveItemsSelector);
+//    let totalItems = items.length;
+//    let currentIndex = 0;
+ 
+//    const itemsPerView = visibleItems || 1;
+ 
+//    function getDimensions() {
+//      const itemWidth = items[0]?.offsetWidth || 0;
+//      const computedStyle = getComputedStyle(container);
+//      const gap = parseFloat(computedStyle.gap) || 0;
+//      const parentComputedStyle = getComputedStyle(parentContainer);
+//      const parentPaddingLeft = parseFloat(parentComputedStyle.paddingLeft) || 0;
+//      const parentPaddingRight = parseFloat(parentComputedStyle.paddingRight) || 0;
+//      const parentMarginLeft = parseFloat(parentComputedStyle.marginLeft) || 0;
+//      const parentMarginRight = parseFloat(parentComputedStyle.marginRight) || 0;
+//      const parentWidthRaw = parentContainer.getBoundingClientRect().width;
+//      const parentWidth = parentWidthRaw - parentPaddingLeft - parentPaddingRight;
+//      const itemComputedStyle = items[0] ? getComputedStyle(items[0]) : {};
+//      const itemMarginLeft = parseFloat(itemComputedStyle.marginLeft) || 0;
+//      const itemMarginRight = parseFloat(itemComputedStyle.marginRight) || 0;
+//      const containerMarginLeft = parseFloat(computedStyle.marginLeft) || 0;
+//      const containerMarginRight = parseFloat(computedStyle.marginRight) || 0;
+//      const calculatedWidth = (totalItems * (itemWidth + itemMarginLeft + itemMarginRight)) + ((totalItems - 1) * gap);
+//      return {
+//        itemWidth,
+//        gap,
+//        parentWidth,
+//        parentWidthRaw,
+//        parentPaddingLeft,
+//        parentPaddingRight,
+//        parentMarginLeft,
+//        parentMarginRight,
+//        itemMarginLeft,
+//        itemMarginRight,
+//        containerMarginLeft,
+//        containerMarginRight,
+//        calculatedWidth,
+//        itemsPerView
+//      };
+//    }
+ 
+//    function updateCarousel(activeButton = null) {
+//      items = document.querySelectorAll(effectiveItemsSelector);
+//      const newTotalItems = items.length;
+ 
+//      if (newTotalItems === 0 && totalItems > 0) {
+//        return;
+//      }
+//      totalItems = newTotalItems;
+ 
+//      if (totalItems === 0) {
+//        currentIndex = 0;
+//        container.style.transform = `translateX(0px)`;
+//        backButton.disabled = true;
+//        forwardButton.disabled = true;
+//        return;
+//      }
+ 
+//      const {
+//        itemWidth,
+//        gap,
+//        parentWidth,
+//        parentWidthRaw,
+//        parentPaddingLeft,
+//        parentPaddingRight,
+//        parentMarginLeft,
+//        parentMarginRight,
+//        itemMarginLeft,
+//        itemMarginRight,
+//        containerMarginLeft,
+//        containerMarginRight,
+//        calculatedWidth,
+//        itemsPerView
+//      } = getDimensions();
+//      const totalContentWidth = calculatedWidth;
+//      let translateX;
+ 
+//      const naturalMaxIndex = Math.max(0, totalItems - itemsPerView);
+//      const maxIndex = containerSelector === '.cards-portfolio' ? Math.min(naturalMaxIndex, itemsPerView - 1) : naturalMaxIndex;
+//      if (currentIndex > maxIndex) {
+//        currentIndex = maxIndex;
+//      }
+//      if (currentIndex < 0) {
+//        currentIndex = 0;
+//      }
+ 
+//      const step = itemWidth + gap + itemMarginLeft + itemMarginRight;
+//      let baseTranslateX = -(currentIndex * step);
+//      const remainingItems = totalItems - (currentIndex + 1);
+//      const isLastCard = currentIndex >= totalItems - 1;
+//      const shouldAlignRight = remainingItems < itemsPerView || isLastCard;
+ 
+//      if (shouldAlignRight) {
+//        translateX = -(totalContentWidth - parentWidth);
+//        translateX += parentPaddingLeft;
+//      } else {
+//        translateX = baseTranslateX;
+//      }
+ 
+//      if (translateX > 0) {
+//        translateX = 0;
+//      }
+//      if (Math.abs(translateX) > totalContentWidth) {
+//        translateX = -totalContentWidth;
+//      }
+ 
+//      container.style.transform = `translateX(${translateX}px)`;
+//      backButton.disabled = currentIndex === 0;
+//      forwardButton.disabled = totalItems <= itemsPerView || currentIndex >= maxIndex;
+ 
+//      backButton.classList.remove('active');
+//      forwardButton.classList.remove('active');
+ 
+//      if (activeButton === 'back' && !backButton.disabled) {
+//        backButton.classList.add('active');
+//      } else if (activeButton === 'forward' && !forwardButton.disabled) {
+//        forwardButton.classList.add('active');
+//      } else {
+//        if (!backButton.disabled) {
+//          backButton.classList.add('active');
+//        } else if (!forwardButton.disabled) {
+//          forwardButton.classList.add('active');
+//        }
+//      }
+ 
+//      console.log({
+//        containerSelector,
+//        currentIndex,
+//        totalItems,
+//        itemWidth,
+//        gap,
+//        itemMarginLeft,
+//        itemMarginRight,
+//        containerMarginLeft,
+//        containerMarginRight,
+//        parentPaddingLeft,
+//        parentPaddingRight,
+//        parentMarginLeft,
+//        parentMarginRight,
+//        totalContentWidth,
+//        calculatedWidth,
+//        scrollWidth: container.scrollWidth,
+//        parentWidth,
+//        parentWidthRaw,
+//        translateX,
+//        isLastCard,
+//        itemsPerView,
+//        remainingItems,
+//        shouldAlignRight,
+//        maxIndex,
+//        backDisabled: backButton.disabled,
+//        forwardDisabled: forwardButton.disabled,
+//        backActive: backButton.classList.contains('active'),
+//        forwardActive: forwardButton.classList.contains('active')
+//      });
+//    }
+ 
+//    backButton.addEventListener('click', () => {
+//      if (currentIndex > 0) {
+//        currentIndex--;
+//        updateCarousel('back');
+//      }
+//    });
+ 
+//    forwardButton.addEventListener('click', () => {
+//      items = document.querySelectorAll(effectiveItemsSelector);
+//      totalItems = items.length;
+//      const naturalMaxIndex = Math.max(0, totalItems - itemsPerView);
+//      const maxIndex = containerSelector === '.cards-portfolio' ? Math.min(naturalMaxIndex, itemsPerView - 1) : naturalMaxIndex;
+//      if (currentIndex < maxIndex && totalItems > 0) {
+//        currentIndex++;
+//        updateCarousel('forward');
+//      }
+//    });
+ 
+//    window.addEventListener('resize', () => {
+//      items = document.querySelectorAll(effectiveItemsSelector);
+//      const newTotalItems = items.length;
+//      if (newTotalItems !== totalItems) {
+//        totalItems = newTotalItems;
+//        const naturalMaxIndex = Math.max(0, totalItems - itemsPerView);
+//        const maxIndex = containerSelector === '.cards-portfolio' ? Math.min(naturalMaxIndex, itemsPerView - 1) : naturalMaxIndex;
+//        currentIndex = Math.min(currentIndex, Math.max(0, maxIndex));
+//      }
+//      updateCarousel();
+//    });
+ 
+//    window.addEventListener('load', () => {
+//      items = document.querySelectorAll(effectiveItemsSelector);
+//      const newTotalItems = items.length;
+//      if (newTotalItems !== totalItems) {
+//        totalItems = newTotalItems;
+//        const naturalMaxIndex = Math.max(0, totalItems - itemsPerView);
+//        const maxIndex = containerSelector === '.cards-portfolio' ? Math.min(naturalMaxIndex, itemsPerView - 1) : naturalMaxIndex;
+//        currentIndex = Math.min(currentIndex, Math.max(0, maxIndex));
+//      }
+//      updateCarousel();
+//    });
+ 
+//    const observer = new MutationObserver((mutations) => {
+//      let itemsChanged = false;
+//      mutations.forEach((mutation) => {
+//        if (mutation.type === 'childList') {
+//          const newItems = document.querySelectorAll(effectiveItemsSelector);
+//          if (newItems.length !== totalItems) {
+//            itemsChanged = true;
+//            items = newItems;
+//            totalItems = items.length;
+//            const naturalMaxIndex = Math.max(0, totalItems - itemsPerView);
+//            const maxIndex = containerSelector === '.cards-portfolio' ? Math.min(naturalMaxIndex, itemsPerView - 1) : naturalMaxIndex;
+//            currentIndex = Math.min(currentIndex, Math.max(0, maxIndex));
+//          }
+//        }
+//      });
+//      if (itemsChanged) {
+//        updateCarousel();
+//      }
+//    });
+ 
+//    observer.observe(container, {
+//      childList: true,
+//      subtree: true
+//    });
+ 
+//    updateCarousel();
+ 
+//    return () => {
+//      observer.disconnect();
+//      backButton.removeEventListener('click', updateCarousel);
+//      forwardButton.removeEventListener('click', updateCarousel);
+//      window.removeEventListener('resize', updateCarousel);
+//      window.removeEventListener('load', updateCarousel);
+//    };
+//  }
+ 
+//  const cleanupPortfolio = initCarousel({
+//    containerSelector: '.cards-portfolio',
+//    itemsSelector: '.cards__item',
+//    backButtonSelector: '.portfolio .switch__button.back',
+//    forwardButtonSelector: '.portfolio .switch__button.forward',
+//    parentContainerSelector: '.portfolio__container',
+//    visibleItems: 3
+//  });
+ 
+//  const cleanupReviews = initCarousel({
+//    containerSelector: '.reviews__carousel',
+//    itemsSelector: '.reviews__item-carousel',
+//    backButtonSelector: '.reviews .switch__button.back',
+//    forwardButtonSelector: '.reviews .switch__button.forward',
+//    parentContainerSelector: '.reviews__container',
+//    visibleItems: 4
+//  });
 
 
 

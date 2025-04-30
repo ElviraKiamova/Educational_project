@@ -1,6 +1,6 @@
 .popup-gratitude__text {
   text-align: center;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 64px;
   line-height: 110%;
 }
@@ -12,24 +12,19 @@
   line-height: 130%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
   .popup-gratitude__text {
-    font-size: 20px;
+    font-size: clamp(25px, 6vw, 64px);
   }
   .popup-gratitude__text_min {
-    font-size: 14px;
-  }
-  .popup-gratitude__button {
-    font-size: 14px;
-    padding: 8px 16px;
+    font-size: clamp(14px, 2.2vw, 20px);
+    margin: clamp(15px, 3vh, 25px) 0 clamp(25px, 4vh, 40px);
   }
 }
 
 @media (max-width: 375px) {
-  .popup-gratitude__text {
-    font-size: 18px;
-  }
   .popup-gratitude__text_min {
-    font-size: 12px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }

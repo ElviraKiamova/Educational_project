@@ -33,9 +33,10 @@
     bottom: 0;
     width: 3vw;
   }
-  .reviews__icon-carousel .mvideo {
+  .reviews__icon-carousel.mvideo {
     bottom: 0.6vw;
     left: 45%;
     width: 3.5vw;
+    height: 40px;
   }
 }

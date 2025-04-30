@@ -9,12 +9,6 @@
 }
 
 @media (max-width: 768px) {
-  .popup-gratitude__text {
-    font-size: 20px;
-  }
-  .popup-gratitude__text_min {
-    font-size: 14px;
-  }
   .popup-gratitude__button {
     font-size: 14px;
     padding: 8px 16px;
