@@ -343,7 +343,8 @@ function initCarousel({
   let items = document.querySelectorAll(effectiveItemsSelector);
   let totalItems = items.length;
   let currentIndex = 0;
-  const itemsPerView = visibleItems || 1;
+  const isMobile = window.innerWidth <= 768;
+  const itemsPerView = isMobile && containerSelector === '.reviews__carousel' ? 1 : visibleItems || 1;
 
   let touchStartX = 0;
   let touchCurrentX = 0;
@@ -409,22 +410,25 @@ function initCarousel({
     const totalContentWidth = calculatedWidth;
     let translateX;
 
-    const naturalMaxIndex = Math.max(0, totalItems - itemsPerView);
+    const naturalMaxIndex = Math.max(0, totalItems - 1);
     const maxIndex = containerSelector === '.cards-portfolio' ? Math.min(naturalMaxIndex, itemsPerView - 1) : naturalMaxIndex;
     if (currentIndex > maxIndex) currentIndex = maxIndex;
     if (currentIndex < 0) currentIndex = 0;
 
     const step = itemWidth + gap + itemMarginLeft + itemMarginRight;
     let baseTranslateX = -(currentIndex * step);
-    const remainingItems = totalItems - (currentIndex + 1);
-    const isLastCard = currentIndex >= totalItems - 1;
-    const shouldAlignRight = remainingItems < itemsPerView || isLastCard;
-
-    if (shouldAlignRight) {
-      translateX = -(totalContentWidth - parentWidth);
-      translateX += parentPaddingLeft;
-    } else {
+    if (containerSelector === '.reviews__carousel' && isMobile) {
       translateX = baseTranslateX;
+    } else {
+      const remainingItems = totalItems - (currentIndex + 1);
+      const isLastCard = currentIndex >= totalItems - 1;
+      const shouldAlignRight = remainingItems < itemsPerView || isLastCard;
+      if (shouldAlignRight) {
+        translateX = -(totalContentWidth - parentWidth);
+        translateX += parentPaddingLeft;
+      } else {
+        translateX = baseTranslateX;
+      }
     }
 
     if (translateX > 0) translateX = 0;
@@ -503,7 +507,7 @@ function initCarousel({
 
       if (deltaX > threshold && currentIndex > 0) {
         currentIndex--;
-      } else if (deltaX < -threshold && currentIndex < Math.max(0, totalItems - itemsPerView)) {
+      } else if (deltaX < -threshold && currentIndex < Math.max(0, totalItems - 1)) {
         currentIndex++;
       }
       updateCarousel();
@@ -608,7 +612,6 @@ const cleanupReviews = initCarousel({
   backButtonSelector: '.reviews .switch__button.back',
   forwardButtonSelector: '.reviews .switch__button.forward',
   parentContainerSelector: '.reviews__container',
-  visibleItems: 4
 });
 
 
