@@ -713,9 +713,11 @@ function setupEventListeners() {
 
   const formsApplication = document.querySelectorAll('.form_popup-application');
   formsApplication.forEach((form)=> {
+    
     if (form) {
       form.addEventListener('submit', function(e) {
         e.preventDefault();
+        togglePopup(popups.model, false);
         togglePopup(popups.application, false);
         togglePopup(popups.gratitude, true);
         this.reset();
