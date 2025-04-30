@@ -4,12 +4,19 @@
   height: 702px;
   filter: grayscale(100%) brightness(50%);
   z-index: 1; 
+  object-fit: cover;
 }
 
 @media (max-width: 1900px) and (min-width: 769px) {
   .footer__map-img {
     width: 100vw;
     height: 36.56vw;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 377px) {
+  .footer__map-img {
+    height: clamp(456px, 60vw, 600px);
   }
 }
 

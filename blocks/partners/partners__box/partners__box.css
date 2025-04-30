@@ -2,6 +2,9 @@
   display: flex;
   gap: 104px;
   margin-top: 60px;
+  touch-action: pan-x;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 @media (max-width: 1900px) and (min-width: 769px) {

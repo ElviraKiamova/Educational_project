@@ -1,13 +1,43 @@
 .header__burger {
   display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 30px;
   height: 30px;
   padding: 0;
   background-color: transparent;
   border: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.header__burger::before,
+.header__burger::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: opacity 0.3s ease;
+}
+
+.header__burger::before {
+  background-image: url(../../../assets/header-burger.svg);
+  opacity: 1;
+}
+
+.header__burger::after {
+  background-image: url(../../../assets/header-cross.svg);
+  opacity: 0;
+}
+
+.header__burger.active::before {
+  opacity: 0;
+}
+
+.header__burger.active::after {
+  opacity: 1;
 }
 
 @media (max-width: 768px) {
