@@ -6,7 +6,7 @@
 
 @media (max-width: 1900px) and (min-width: 769px) {
   .feedback__container {
-    max-width: 90%;
+    padding: 0 5%;
   }
 }
 

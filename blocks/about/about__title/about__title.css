@@ -11,11 +11,19 @@
   color: #B4100D;
 }
 
-@media (max-width: 1900px) and (min-width: 769px) {
+@media (max-width: 1900px) and (min-width: 1001px) {
   .about__title {
     font-size: 3vw;
     letter-spacing: -2.5px;
-    margin: 5% 0 2%;
+    margin-top: 10%;
+  }
+}
+
+@media (max-width: 1000px) and (min-width: 769px) {
+  .about__title {
+    margin: 10% 0 25px;
+    font-size: 3vw;
+    letter-spacing: -2.5px;
   }
 }
 

@@ -15,12 +15,12 @@
 @media (max-width: 1900px) and (min-width: 769px) {
   .company__img-carousel {
     width: auto;
-    height: 25vw;
+    height: 50vw;
     aspect-ratio: 560 / 746;
   }
   .company__img-carousel_big {
     width: auto;
-    height: 25vw;
+    height: 50vw;
     aspect-ratio: 995 / 746;
   }
 }

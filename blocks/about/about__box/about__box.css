@@ -1,4 +1,6 @@
 .about__box {
+  display: flex;
+  flex-direction: column; 
   max-width: 875px;
 }
 
