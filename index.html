@@ -55,10 +55,10 @@
       <a href="tel:+79047358156" class="header__button-tel"></a>
     </header>
     <main class="content">
-      <div class="popup-gratitude">
+      <div class="popup-gratitude popup">
         <p class="popup-gratitude__text">Спасибо!<br>Мы получили ваш запрос</p>
         <p class="popup-gratitude__text popup-gratitude__text_min">Наши специалисты свяжутся с вами в ближайшее время!</p>
-        <button class="popup-gratitude__button" type="button" aria-label="Вернуться на главную страницу">На главную</button>
+        <button class="popup-gratitude__button" type="button" aria-label="Вернуться на главную страницу" data-popup-close>На главную</button>
       </div>
       <section class="about">
         <div class="about__box">
@@ -409,12 +409,12 @@
         <div class="partners__container">
           <h2 class="subtitle">Партнеры</h2>
           <div class="partners__box">
-            <img class="partners__img" src="./assets/partners1.svg" alt="Логотип компании Технониколь" loading="lazy">
-            <img class="partners__img" src="./assets/partners2.svg" alt="Логотип компании Лукойл" loading="lazy">
-            <img class="partners__img" src="./assets/partners3.svg" alt="Логотип компании ИЗТТ" loading="lazy">
-            <img class="partners__img" src="./assets/partners4.svg" alt="Логотип компании Beko" loading="lazy">
-            <img class="partners__img" src="./assets/partners5.svg" alt="Логотип компании Knauf" loading="lazy">
-            <img class="partners__img" src="./assets/partners6.svg" alt="Логотип компании MVideo" loading="lazy">
+            <img class="partners__img" src="./assets/partners1.svg" alt="Логотип компании Технониколь">
+            <img class="partners__img" src="./assets/partners2.svg" alt="Логотип компании Лукойл">
+            <img class="partners__img" src="./assets/partners3.svg" alt="Логотип компании ИЗТТ">
+            <img class="partners__img" src="./assets/partners4.svg" alt="Логотип компании Beko">
+            <img class="partners__img" src="./assets/partners5.svg" alt="Логотип компании Knauf">
+            <img class="partners__img" src="./assets/partners6.svg" alt="Логотип компании MVideo">
           </div>
         </div>
       </section>
@@ -540,7 +540,7 @@
       </div>
     </footer>
   </div>
-  <div class="popup-application">
+  <div class="popup-application popup">
     <form class="form form_popup-application" action="#" method="post">
     <button class="form__close" type="button" aria-label="Закрыть попап"></button>
     <h2 class="subtitle">Оставить заявку</h2>
@@ -569,7 +569,7 @@
     </div>
     </form>
   </div>
-  <div class="popup-model">
+  <div class="popup-model popup">
     <form class="form form_popup-application" action="#" method="post">
     <button class="form__close" type="button" aria-label="Закрыть попап"></button>
     <h2 class="subtitle">Заявка на ОГН 200</h2>

@@ -3,6 +3,7 @@
   max-width: 540px;
   max-height: 540px;
   overflow: hidden;
+  text-align: center;
 }
 
 @media (max-width: 1900px) and (min-width: 769px) {

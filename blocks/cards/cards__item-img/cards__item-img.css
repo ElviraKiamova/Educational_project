@@ -39,3 +39,10 @@
     height: 303px;
   }
 }
+
+@media (max-width: 374px) {
+  .cards__item-img.card-portfolio {
+    max-width: 100%;
+    height: auto;
+  }
+}

@@ -3,6 +3,7 @@
   height: 746px;
   object-fit: cover;
   flex-shrink: 0;
+  border-radius: 10px;
 }
 
 .company__img-carousel_big {

@@ -11,7 +11,7 @@
 .cards__item-text.card-portfolio {
   margin: 3px 0 0;
   color: #1F1F1F;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 20px;
   line-height: 130%;
   letter-spacing: -0.5px;

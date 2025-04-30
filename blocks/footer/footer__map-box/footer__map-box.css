@@ -32,8 +32,13 @@
 }
 
 @media (max-width: 768px) {
-  .footer__map-box::before,
-  .footer__map-box::after {
+  .footer__map-box::before {
     content: none;
+  }
+  .footer__map-box::after {
+    background: 
+      linear-gradient(180deg, #18191E 0%, rgba(24, 25, 30, 0) 100%) top/100% 100px,
+      linear-gradient(0deg, #18191E 0%, rgba(24, 25, 30, 0) 100%) bottom/100% 100px;
+    background-repeat: no-repeat;
   }
 }

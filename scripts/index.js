@@ -109,45 +109,7 @@ document.querySelectorAll('.header__nav-link').forEach(link => {
 });
 
 
-// открытия попапов форм заявок
 
-document.addEventListener('click', (event) => {
-  const target = event.target;
-  if (
-    target.closest('.header__button') ||
-    target.closest('.about__button') ||
-    target.closest('.services__button') ||
-    target.closest('.button-request_footer')
-  ) {
-    popupApplicationElement.style.display = 'flex';
-    document.body.classList.add('no-scroll');
-  }
-
-  if (target.closest('.button-request') && target.closest('.cards-products')) {
-    const card = target.closest('.cards__item');
-    const modelTitle = card.querySelector('.cards__item-title').textContent;
-    popupModelElement.querySelector('.subtitle').textContent = `Заявка на ${modelTitle}`;
-    popupModelElement.style.display = 'flex';
-    document.body.classList.add('no-scroll');
-  }
-});
-
-closeButtonElements.forEach((button) =>
-  button.addEventListener('click', () => {
-    popupApplicationElement.style.display = 'none';
-    popupModelElement.style.display = 'none';
-    document.body.classList.remove('no-scroll');
-    
-  })
-);
-
-document.addEventListener('keydown', ({ key }) => {
-  if (key === 'Escape') {
-    popupApplicationElement.style.display = 'none';
-    popupModelElement.style.display = 'none';
-    document.body.classList.remove('no-scroll');
-  }
-});
 
 // замена изображений на мобильных устройствах
 
@@ -657,3 +619,222 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+
+// открытия попапов форм заявок
+
+let scrollPosition = 0;
+const popups = {
+  application: document.querySelector('.popup-application'),
+  model: document.querySelector('.popup-model'),
+  gratitude: document.querySelector('.popup-gratitude')
+};
+
+// Проверка существования попапов
+if (!popups.gratitude) {
+  console.error('Popup gratitude not found in DOM');
+}
+
+// Управление скроллом
+function togglePageScroll(enable) {
+  const html = document.documentElement;
+  const savedScrollBehavior = html.style.scrollBehavior;
+  html.style.scrollBehavior = 'auto';
+  
+  if (enable) {
+    document.body.classList.remove('no-scroll');
+    window.scrollTo(0, scrollPosition);
+    document.body.style.top = '';
+  } else {
+    scrollPosition = window.pageYOffset;
+    document.body.classList.add('no-scroll');
+    document.body.style.top = `-${scrollPosition}px`;
+  }
+  
+  setTimeout(() => {
+    html.style.scrollBehavior = savedScrollBehavior || 'smooth';
+  }, 100);
+}
+
+// Управление попапами
+function togglePopup(popup, show) {
+  if (show) {
+    togglePageScroll(false);
+    popup.style.display = 'flex';
+    setTimeout(() => popup.classList.add('active'), 10);
+  } else {
+    document.querySelectorAll('.popup').forEach(p => {
+      p.classList.remove('active');
+      setTimeout(() => p.style.display = 'none', 300);
+    });
+    togglePageScroll(true);
+  }
+}
+
+
+
+// Обработчики событий
+
+
+  // const formsApplication = document.querySelectorAll('.form_popup-application');
+  // formsApplication.forEach((form)=> {
+  //   if (form) {
+  //     form.addEventListener('submit', function(e) {
+  //       e.preventDefault();
+  //       togglePopup(popups.application, false);
+  //       togglePopup(popups.gratitude, true);
+  //       this.reset();
+  //       history.replaceState(null, '', window.location.pathname);
+  //     });
+  //   }
+  // });
+
+  
+  // const formFeedback = document.querySelector('.form_feedback');
+  //   if (formFeedback) {
+  //     formFeedback.addEventListener('submit', function(e) {
+  //       e.preventDefault();
+  //       togglePopup(popups.gratitude, true);
+  //       this.reset();
+  //       history.replaceState(null, '', window.location.pathname);
+  //     });
+  //   }
+  
+
+const popups = {
+  application: document.querySelector('.popup-application'),
+  model: document.querySelector('.popup-model'),
+  gratitude: document.querySelector('.popup-gratitude')
+};
+
+// Проверка существования попапов
+if (!popups.gratitude) {
+  console.error('Popup gratitude not found in DOM');
+}
+
+// Управление скроллом
+function togglePageScroll(enable) {
+  const html = document.documentElement;
+  const savedScrollBehavior = html.style.scrollBehavior;
+  html.style.scrollBehavior = 'auto';
+  
+  if (enable) {
+    document.body.classList.remove('no-scroll');
+    window.scrollTo(0, scrollPosition);
+    document.body.style.top = '';
+  } else {
+    scrollPosition = window.pageYOffset;
+    document.body.classList.add('no-scroll');
+    document.body.style.top = `-${scrollPosition}px`;
+  }
+  
+  setTimeout(() => {
+    html.style.scrollBehavior = savedScrollBehavior || 'smooth';
+  }, 100);
+}
+
+// Управление попапами
+function togglePopup(popup, show) {
+  if (show) {
+    togglePageScroll(false);
+    popup.style.display = 'flex';
+    setTimeout(() => popup.classList.add('active'), 10);
+  } else {
+    document.querySelectorAll('.popup').forEach(p => {
+      p.classList.remove('active');
+      setTimeout(() => p.style.display = 'none', 300);
+    });
+    togglePageScroll(true);
+  }
+}
+
+// Обработчики событий
+function setupEventListeners() {
+  // Открытие попапов
+  document.addEventListener('click', (event) => {
+    const target = event.target;
+    
+    if (target.closest('.header__button, .about__button, .services__button, .button-request_footer')) {
+      event.preventDefault();
+      togglePopup(popups.application, true);
+    }
+
+    if (target.closest('.button-request') && target.closest('.cards-products')) {
+      event.preventDefault();
+      const card = target.closest('.cards__item');
+      const modelTitle = card.querySelector('.cards__item-title').textContent;
+      popups.model.querySelector('.subtitle').textContent = `Заявка на ${modelTitle}`;
+      togglePopup(popups.model, true);
+    }
+  });
+
+  // Закрытие попапов
+  document.querySelectorAll('[data-popup-close], .form__close').forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      togglePopup(null, false);
+      history.replaceState(null, '', window.location.pathname);
+    });
+  });
+
+  // Закрытие по ESC
+  document.addEventListener('keydown', ({ key }) => {
+    if (key === 'Escape') {
+      togglePopup(null, false);
+      history.replaceState(null, '', window.location.pathname);
+    }
+  });
+
+  // Закрытие по клику вне попапа
+  document.querySelectorAll('.popup').forEach(popup => {
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) {
+        togglePopup(null, false);
+        history.replaceState(null, '', window.location.pathname);
+      }
+    });
+  });
+
+  // Обработка формы
+  const form = document.querySelector('.form_popup-application');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      console.log('Form submitted'); // Для отладки
+
+      // Закрываем форму заявки
+      togglePopup(popups.application, false);
+
+      // Показываем попап благодарности с задержкой
+      setTimeout(() => {
+        console.log('Showing gratitude popup'); // Для отладки
+        togglePopup(popups.gratitude, true);
+      }, 350); // Задержка для завершения анимации закрытия
+
+      // Очищаем форму
+      this.reset();
+
+      // Убираем хеш из URL
+      history.replaceState(null, '', window.location.pathname);
+    });
+  }
+
+  // Кнопка "На главную"
+  const gratitudeBtn = document.querySelector('.popup-gratitude__button');
+  if (gratitudeBtn) {
+    gratitudeBtn.addEventListener('click', () => {
+      togglePopup(null, false);
+      history.replaceState(null, '', window.location.pathname);
+    });
+  }
+}
+
+// Инициализация
+document.addEventListener('DOMContentLoaded', () => {
+  // Сбрасываем все попапы
+  document.querySelectorAll('.popup').forEach(popup => {
+    popup.style.display = 'none';
+    popup.classList.remove('active');
+  });
+  
+  setupEventListeners();
+});

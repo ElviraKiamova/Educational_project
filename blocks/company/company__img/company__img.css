@@ -7,4 +7,23 @@
   border-radius: 50px;
   background-color: transparent;
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.arrow-icon {
+  padding-right: 6px;
+  box-sizing: content-box;
+}
+
+.company__img:hover .arrow {
+  transform: translateX(6px);
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.arrow-icon {
+  display: block;
+  overflow: visible;
 }

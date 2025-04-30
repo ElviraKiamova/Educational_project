@@ -1,9 +1,8 @@
 .about__title {
   margin: 100px 0 35px;
-  font-weight: 500;
   font-size: 64px;
   line-height: 110%;
-  letter-spacing: -3.5px;
+  letter-spacing: -7.5%;
   text-transform: uppercase;
 }
 
@@ -32,6 +31,5 @@
     margin: 0 0 15px;
     font-size: 24px;
     line-height: 115%;
-    letter-spacing: -1.2px;
   }
 }
