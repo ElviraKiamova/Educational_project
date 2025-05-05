@@ -17,7 +17,7 @@
 
 @media (max-width: 1900px) and (min-width: 769px) {
   .services__button {
-    width: 25vw;
+    width: calc(33.333% - (2 * 1.2vw) / 3);
     height: 4vw;
     font-size: 1vw;
   }

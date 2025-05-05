@@ -346,6 +346,7 @@ function initCarousel({
   let touchCurrentX = 0;
   let isDragging = false;
   let currentTranslateX = 0;
+  let initialTranslateX = 0;
 
   function getDimensions() {
     const isMobile = window.innerWidth <= 768;
@@ -410,23 +411,11 @@ function initCarousel({
       }
     }
 
-    let translateX;
-    if (fromDrag) {
-      translateX = currentTranslateX;
-      const maxTranslateX = totalContentWidth > parentWidth ? -(totalContentWidth - parentWidth) : 0;
-      translateX = Math.min(Math.max(translateX, maxTranslateX), 0);
-      currentTranslateX = translateX;
-
-      const step = itemWidth + gap + itemMarginLeft + itemMarginRight;
-      currentIndex = Math.round(-currentTranslateX / step);
-      currentIndex = Math.min(Math.max(currentIndex, 0), maxIndex);
-    } else {
-      const step = itemWidth + gap + itemMarginLeft + itemMarginRight;
-      translateX = -(currentIndex * step);
-      const maxTranslateX = totalContentWidth > parentWidth ? -(totalContentWidth - parentWidth) : 0;
-      translateX = Math.min(Math.max(translateX, maxTranslateX), 0);
-      currentTranslateX = translateX;
-    }
+    const step = itemWidth + gap + itemMarginLeft + itemMarginRight;
+    let translateX = -(currentIndex * step);
+    const maxTranslateX = totalContentWidth > parentWidth ? -(totalContentWidth - parentWidth) : 0;
+    translateX = Math.min(Math.max(translateX, maxTranslateX), 0);
+    currentTranslateX = translateX;
 
     container.style.transform = `translateX(${translateX}px)`;
 
@@ -485,22 +474,24 @@ function initCarousel({
       e.preventDefault();
       touchStartX = e.touches[0].clientX;
       touchCurrentX = touchStartX;
+      initialTranslateX = currentTranslateX;
       isDragging = true;
       container.style.transition = 'none';
-      console.log('Touch start', { touchStartX, currentIndex });
+      console.log('Touch start', { touchStartX, currentIndex, initialTranslateX });
     });
 
     container.addEventListener('touchmove', (e) => {
       if (!isDragging) return;
       e.preventDefault();
+      const prevX = touchCurrentX;
       touchCurrentX = e.touches[0].clientX;
-      const deltaX = touchCurrentX - touchStartX;
-      const dampedDeltaX = deltaX * 0.3; // Усиленное демпфирование
-      const { calculatedWidth, parentWidth } = getDimensions();
-      const maxTranslateX = calculatedWidth > parentWidth ? -(calculatedWidth - parentWidth) : 0;
-      currentTranslateX = Math.min(Math.max(currentTranslateX + dampedDeltaX, maxTranslateX), 0);
+      const deltaX = touchCurrentX - prevX;
+      const { totalContentWidth, parentWidth } = getDimensions();
+      const maxTranslateX = totalContentWidth > parentWidth ? -(totalContentWidth - parentWidth) : 0;
+      currentTranslateX = initialTranslateX + (touchCurrentX - touchStartX);
+      currentTranslateX = Math.min(Math.max(currentTranslateX, maxTranslateX), 0);
       container.style.transform = `translateX(${currentTranslateX}px)`;
-      console.log('Touch move', { deltaX, dampedDeltaX, currentTranslateX });
+      console.log('Touch move', { deltaX, currentTranslateX, maxTranslateX, totalContentWidth, parentWidth });
     });
 
     container.addEventListener('touchend', () => {
@@ -525,8 +516,8 @@ function initCarousel({
       currentIndex = Math.min(Math.max(currentIndex + indexChange, 0), maxIndex);
       newActiveButton = indexChange < 0 ? 'back' : indexChange > 0 ? 'forward' : null;
 
-      updateCarousel(newActiveButton, true, 'touchend');
-      console.log('Touch end', { deltaX, step, threshold, indexChange, currentIndex, newActiveButton });
+      updateCarousel(newActiveButton, false, 'touchend');
+      console.log('Touch end', { deltaX, step, threshold, indexChange, currentIndex, translateX: currentTranslateX, newActiveButton });
     });
 
     touchListenersAdded = true;

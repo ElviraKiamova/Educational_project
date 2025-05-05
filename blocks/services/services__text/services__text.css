@@ -5,8 +5,9 @@
 
 @media (max-width: 1900px) and (min-width: 769px) {
   .services__text {
-    margin-left: 10vw;
+    margin-left: 0;
     font-size: 1.2vw;
+    max-width: calc(66.666% - 2.4vw);
   }
 }
 
