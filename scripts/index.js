@@ -320,299 +320,131 @@ updateCarousel();
 
 
 
-// подключение каруселей в секцииях portfolio и reviews
-function initCarousel({
-  containerSelector,
-  itemsSelector,
-  backButtonSelector,
-  forwardButtonSelector,
-  parentContainerSelector,
-  visibleItems
-}) {
+// Подключение каруселей в секциииях portfolio и reviews
+
+function initCarousel(config) {
+  const { containerSelector, itemsSelector, backButtonSelector, forwardButtonSelector, parentContainerSelector, visibleItems } = config;
   const container = document.querySelector(containerSelector);
-  const backButton = document.querySelector(backButtonSelector);
-  const forwardButton = document.querySelector(forwardButtonSelector);
   const parentContainer = document.querySelector(parentContainerSelector);
-
-  if (!container || !parentContainer) {
-    console.error('Carousel initialization failed: missing elements', { container, parentContainer });
-    return;
-  }
-
-  const effectiveItemsSelector = containerSelector + ' ' + itemsSelector;
-  let items = document.querySelectorAll(effectiveItemsSelector);
-  let totalItems = items.length;
-  let currentIndex = 0;
-  let itemsPerView = visibleItems || 1;
-
-  let touchStartX = 0;
-  let touchCurrentX = 0;
-  let isDragging = false;
-  let currentTranslateX = 0;
-  let initialTranslateX = 0;
-
-  function getDimensions() {
-    const isMobile = window.innerWidth <= 768;
-    itemsPerView = isMobile && containerSelector === '.reviews__carousel' ? 1 : visibleItems || 1;
-    const itemWidth = items[0]?.offsetWidth || 0;
-    const computedStyle = getComputedStyle(container);
-    const gap = parseFloat(computedStyle.gap) || 0;
-    const parentComputedStyle = getComputedStyle(parentContainer);
-    const parentPaddingLeft = parseFloat(parentComputedStyle.paddingLeft) || 0;
-    const parentPaddingRight = parseFloat(parentComputedStyle.paddingRight) || 0;
-    const parentWidthRaw = parentContainer.getBoundingClientRect().width;
-    const parentWidth = parentWidthRaw - parentPaddingLeft - parentPaddingRight;
-    const itemComputedStyle = items[0] ? getComputedStyle(items[0]) : {};
-    const itemMarginLeft = parseFloat(itemComputedStyle.marginLeft) || 0;
-    const itemMarginRight = parseFloat(itemComputedStyle.marginRight) || 0;
-    const calculatedWidth = (totalItems * (itemWidth + itemMarginLeft + itemMarginRight)) + ((totalItems - 1) * gap);
-    return {
-      itemWidth,
-      gap,
-      parentWidth,
-      parentWidthRaw,
-      parentPaddingLeft,
-      parentPaddingRight,
-      itemMarginLeft,
-      itemMarginRight,
-      calculatedWidth,
-      itemsPerView
-    };
-  }
-
-  function updateCarousel(activeButton = null, fromDrag = false, eventType = 'unknown') {
-    items = document.querySelectorAll(effectiveItemsSelector);
-    totalItems = items.length;
-
-    if (totalItems === 0) {
-      console.warn('No items in carousel, resetting', { containerSelector });
-      currentIndex = 0;
-      currentTranslateX = 0;
-      container.style.transform = `translateX(0px)`;
-      if (backButton) backButton.disabled = true;
-      if (forwardButton) forwardButton.disabled = true;
-      return;
-    }
-
-    const { itemWidth, gap, parentWidth, itemMarginLeft, itemMarginRight, calculatedWidth, itemsPerView } = getDimensions();
-    const totalContentWidth = calculatedWidth;
-    const maxIndex = Math.max(0, totalItems - itemsPerView);
-    currentIndex = Math.min(Math.max(currentIndex, 0), maxIndex);
-
-    if (backButton) backButton.disabled = currentIndex === 0;
-    if (forwardButton) forwardButton.disabled = currentIndex >= maxIndex;
-
-    if (backButton && forwardButton) {
-      backButton.classList.remove('active');
-      forwardButton.classList.remove('active');
-      if (currentIndex === 0) {
-        forwardButton.classList.add('active');
-      } else if (currentIndex >= maxIndex) {
-        backButton.classList.add('active');
-      } else {
-        (activeButton === 'back' ? backButton : forwardButton).classList.add('active');
-      }
-    }
-
-    const step = itemWidth + gap + itemMarginLeft + itemMarginRight;
-    let translateX = -(currentIndex * step);
-    const maxTranslateX = totalContentWidth > parentWidth ? -(totalContentWidth - parentWidth) : 0;
-    translateX = Math.min(Math.max(translateX, maxTranslateX), 0);
-    currentTranslateX = translateX;
-
-    container.style.transform = `translateX(${translateX}px)`;
-
-    console.log({
-      containerSelector,
-      eventType,
-      currentIndex,
-      maxIndex,
-      totalItems,
-      itemsPerView,
-      totalContentWidth,
-      parentWidth,
-      translateX,
-      backDisabled: backButton?.disabled,
-      forwardDisabled: forwardButton?.disabled,
-      backActive: backButton?.classList.contains('active'),
-      forwardActive: forwardButton?.classList.contains('active'),
-      activeButton
-    });
-  }
-
-  if (backButton) {
-    backButton.addEventListener('click', () => {
-      items = document.querySelectorAll(effectiveItemsSelector);
-      totalItems = items.length;
-      const maxIndex = Math.max(0, totalItems - itemsPerView);
-      if (currentIndex > 0) {
-        currentIndex--;
-        updateCarousel('back', false, 'backButton_click');
-      } else {
-        updateCarousel('back', false, 'backButton_click');
-      }
-    });
-  }
-
-  if (forwardButton) {
-    forwardButton.addEventListener('click', () => {
-      items = document.querySelectorAll(effectiveItemsSelector);
-      totalItems = items.length;
-      const maxIndex = Math.max(0, totalItems - itemsPerView);
-      if (currentIndex < maxIndex) {
-        currentIndex++;
-        updateCarousel('forward', false, 'forwardButton_click');
-      } else {
-        updateCarousel('forward', false, 'forwardButton_click');
-      }
-    });
-  }
-
   const isReviewsCarousel = containerSelector === '.reviews__carousel';
-  let touchListenersAdded = false;
+  let swiper = null;
 
-  function addTouchListeners() {
-    if (touchListenersAdded) return;
-    container.addEventListener('touchstart', (e) => {
-      e.preventDefault();
-      touchStartX = e.touches[0].clientX;
-      touchCurrentX = touchStartX;
-      initialTranslateX = currentTranslateX;
-      isDragging = true;
-      container.style.transition = 'none';
-      console.log('Touch start', { touchStartX, currentIndex, initialTranslateX });
+  if (!container || !parentContainer) return;
+
+  function initSwiper() {
+    if (!isReviewsCarousel || window.innerWidth > 768) return;
+    
+    swiper = new Swiper('.reviews__swiper', {
+      slidesPerView: 'auto',
+      freeMode: true,
+      loop: true,
+      loopAdditionalSlides: 4,
+      centeredSlidesBounds: true,
+      resistanceRatio: 0,
+      slideToClickedSlide: true,
+      initialSlide: 0,
+      slidesOffsetBefore: 20,
     });
 
-    container.addEventListener('touchmove', (e) => {
-      if (!isDragging) return;
-      e.preventDefault();
-      const prevX = touchCurrentX;
-      touchCurrentX = e.touches[0].clientX;
-      const deltaX = touchCurrentX - prevX;
-      const { totalContentWidth, parentWidth } = getDimensions();
-      const maxTranslateX = totalContentWidth > parentWidth ? -(totalContentWidth - parentWidth) : 0;
-      currentTranslateX = initialTranslateX + (touchCurrentX - touchStartX);
-      currentTranslateX = Math.min(Math.max(currentTranslateX, maxTranslateX), 0);
-      container.style.transform = `translateX(${currentTranslateX}px)`;
-      console.log('Touch move', { deltaX, currentTranslateX, maxTranslateX, totalContentWidth, parentWidth });
-    });
+    setTimeout(() => swiper.slideTo(0, 0), 100);
+  }
 
-    container.addEventListener('touchend', () => {
-      if (!isDragging) return;
-      isDragging = false;
-      container.style.transition = 'transform 0.3s ease';
-      const deltaX = touchCurrentX - touchStartX;
-      const { itemWidth, gap, itemMarginLeft, itemMarginRight } = getDimensions();
-      const step = itemWidth + gap + itemMarginLeft + itemMarginRight;
-      const threshold = itemWidth * 0.3;
+  function initDesktopCarousel() {
+    const items = document.querySelectorAll(`${containerSelector} ${itemsSelector}`);
+    let currentIndex = 0;
+    const itemsPerView = visibleItems || 1;
 
-      items = document.querySelectorAll(effectiveItemsSelector);
-      totalItems = items.length;
-      const maxIndex = Math.max(0, totalItems - itemsPerView);
-      let newActiveButton = null;
-
-      let indexChange = 0;
-      if (Math.abs(deltaX) > threshold) {
-        indexChange = deltaX < 0 ? 1 : -1;
+    function updateCarousel() {
+      const itemWidth = items[0]?.offsetWidth || 0;
+      const gap = parseFloat(getComputedStyle(container).gap) || 0;
+      const parentWidth = parentContainer.offsetWidth;
+      const maxIndex = Math.max(0, items.length - itemsPerView);
+      
+      currentIndex = Math.min(Math.max(currentIndex, 0), maxIndex);
+      const translateX = -currentIndex * (itemWidth + gap);
+      
+      container.style.transform = `translateX(${translateX}px)`;
+      
+      if (backButtonSelector && forwardButtonSelector) {
+        const backButton = document.querySelector(backButtonSelector);
+        const forwardButton = document.querySelector(forwardButtonSelector);
+        
+        backButton.classList.toggle('active', currentIndex > 0);
+        forwardButton.classList.toggle('active', currentIndex < maxIndex);
       }
-
-      currentIndex = Math.min(Math.max(currentIndex + indexChange, 0), maxIndex);
-      newActiveButton = indexChange < 0 ? 'back' : indexChange > 0 ? 'forward' : null;
-
-      updateCarousel(newActiveButton, false, 'touchend');
-      console.log('Touch end', { deltaX, step, threshold, indexChange, currentIndex, translateX: currentTranslateX, newActiveButton });
-    });
-
-    touchListenersAdded = true;
-  }
-
-  function removeTouchListeners() {
-    if (!touchListenersAdded) return;
-    container.removeEventListener('touchstart', () => {});
-    container.removeEventListener('touchmove', () => {});
-    container.removeEventListener('touchend', () => {});
-    touchListenersAdded = false;
-  }
-
-  function checkMobileAndSwipe() {
-    const isMobile = window.innerWidth <= 768;
-    if (isReviewsCarousel && isMobile) {
-      addTouchListeners();
-    } else {
-      removeTouchListeners();
     }
-  }
 
-  checkMobileAndSwipe();
-
-  window.addEventListener('resize', () => {
-    items = document.querySelectorAll(effectiveItemsSelector);
-    totalItems = items.length;
-    const maxIndex = Math.max(0, totalItems - itemsPerView);
-    currentIndex = Math.min(currentIndex, maxIndex);
-    checkMobileAndSwipe();
-    updateCarousel(null, false, 'resize');
-  });
-
-  window.addEventListener('load', () => {
-    items = document.querySelectorAll(effectiveItemsSelector);
-    totalItems = items.length;
-    const maxIndex = Math.max(0, totalItems - itemsPerView);
-    currentIndex = Math.min(currentIndex, maxIndex);
-    checkMobileAndSwipe();
-    updateCarousel(null, false, 'load');
-  });
-
-  const observer = new MutationObserver((mutations) => {
-    let itemsChanged = false;
-    mutations.forEach((mutation) => {
-      if (mutation.type === 'childList') {
-        const newItems = document.querySelectorAll(effectiveItemsSelector);
-        if (newItems.length !== totalItems) {
-          itemsChanged = true;
-          items = newItems;
-          totalItems = items.length;
-          const maxIndex = Math.max(0, totalItems - itemsPerView);
-          currentIndex = Math.min(currentIndex, maxIndex);
+    if (backButtonSelector) {
+      document.querySelector(backButtonSelector).addEventListener('click', () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateCarousel();
         }
-      }
-    });
-    if (itemsChanged) {
-      updateCarousel(null, false, 'mutation');
+      });
     }
-  });
 
-  observer.observe(container, { childList: true, subtree: true });
+    if (forwardButtonSelector) {
+      document.querySelector(forwardButtonSelector).addEventListener('click', () => {
+        const maxIndex = Math.max(0, items.length - itemsPerView);
+        if (currentIndex < maxIndex) {
+          currentIndex++;
+          updateCarousel();
+        }
+      });
+    }
 
-  updateCarousel(null, false, 'init');
+    updateCarousel();
+    window.addEventListener('resize', updateCarousel);
+    return () => window.removeEventListener('resize', updateCarousel);
+  }
 
+  function handleResize() {
+    if (isReviewsCarousel) {
+      if (window.innerWidth <= 768 && !swiper) {
+        initSwiper();
+      } else if (window.innerWidth > 768 && swiper) {
+        swiper.destroy();
+        swiper = null;
+        container.style.transform = 'translateX(0)';
+      }
+    }
+  }
+
+  if (isReviewsCarousel && window.innerWidth <= 768) {
+    initSwiper();
+  } else {
+    const cleanup = initDesktopCarousel();
+  }
+
+  window.addEventListener('resize', handleResize);
   return () => {
-    observer.disconnect();
-    if (backButton) backButton.removeEventListener('click', () => {});
-    if (forwardButton) forwardButton.removeEventListener('click', () => {});
-    window.removeEventListener('resize', () => {});
-    window.removeEventListener('load', () => {});
-    removeTouchListeners();
+    if (swiper) swiper.destroy();
+    window.removeEventListener('resize', handleResize);
   };
 }
 
-const cleanupPortfolio = initCarousel({
-  containerSelector: '.cards-portfolio',
-  itemsSelector: '.cards__item',
-  backButtonSelector: '.portfolio .switch__button.back',
-  forwardButtonSelector: '.portfolio .switch__button.forward',
-  parentContainerSelector: '.portfolio__container',
-  visibleItems: 3
+document.addEventListener('DOMContentLoaded', () => {
+  initCarousel({
+    containerSelector: '.cards-portfolio',
+    itemsSelector: '.cards__item',
+    backButtonSelector: '.portfolio .switch__button.back',
+    forwardButtonSelector: '.portfolio .switch__button.forward',
+    parentContainerSelector: '.portfolio__container',
+    visibleItems: 3
+  });
+
+  initCarousel({
+    containerSelector: '.reviews__carousel',
+    itemsSelector: '.reviews__item-carousel',
+    backButtonSelector: '.reviews .switch__button.back',
+    forwardButtonSelector: '.reviews .switch__button.forward',
+    parentContainerSelector: '.reviews__container',
+    visibleItems: 4
+  });
 });
 
-const cleanupReviews = initCarousel({
-  containerSelector: '.reviews__carousel',
-  itemsSelector: '.reviews__item-carousel',
-  backButtonSelector: '.reviews .switch__button.back',
-  forwardButtonSelector: '.reviews .switch__button.forward',
-  parentContainerSelector: '.reviews__container',
-  visibleItems: 4
-});
+
+
 
 
 
@@ -777,7 +609,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 //  Карусель секции partners
-
 document.addEventListener('DOMContentLoaded', function() {
   const partnersSwiper = new Swiper('.partners__box', {
     slidesPerView: 'auto',
