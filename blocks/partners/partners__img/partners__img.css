@@ -1,32 +1,31 @@
-/* @media (max-width: 1900px) and (min-width: 769px) {
-  .partners__img {
-    width: 18vw;
-    height: auto;
-  }
-} */
+.partners__img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
 
 @media (max-width: 768px) {
-  .partners__img:nth-child(1) {
+  .partners__img.technonicol {
     width: 228px;
     height: 39px;
   }
-  .partners__img:nth-child(2) {
+  .partners__img.lukoil {
     width: 61px;
     height: 61px;
   }
-  .partners__img:nth-child(3) {
-    width: 229px;
-    height: 75px;
+  .partners__img.iztt {
+    width: 170px;
+    height: 70px;
   }
-  .partners__img:nth-child(4) {
+  .partners__img.beko {
     width: 121px;
     height: 68px;
   }
-  .partners__img:nth-child(5) {
+  .partners__img.knauf {
     width: 94px;
     height: 60px;
   }
-  .partners__img:nth-child(6) {
+  .partners__img.mvideo {
     width: 145px;
     height: 45px;
   }

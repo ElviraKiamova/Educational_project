@@ -15,6 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="pages/index.css">
   <link rel="preload" href="./assets/about-desktop-image1.webp" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
   <title>Ingolf — ремонт насосов высокого давления в Уфе</title>
 </head>
 <body>
@@ -72,7 +73,7 @@
             <p class="about__text">Ваш надежный партнер <br>в решении сложных задач</p>
           </div>
         </div>
-        <div class="about__box slide">
+        <div class="about__box slide swiper">
             <img class="about__picture-img" src="./assets/about-desktop-image1.webp" alt="Процесс обслуживания" loading="lazy">
           <div class="about__control">
             <button class="about__button-control about__button--prev" aria-label="Предыдущий слайд"></button>
@@ -89,7 +90,7 @@
         <div class="services__container">
           <div class="services__box">
             <div class="services__box-title">
-              <h2 class="subtitle">Услуги</h2>
+              <h2 class="subtitle subtitle_services">Услуги</h2>
               <p class="services__text">Наша компания осуществляет профессиональный ремонт, обслуживание и восстановление <span class="text-red">насосов высокого давления.</span></p>
             </div>
             <ul class="services__cards">
@@ -408,37 +409,52 @@
       <section class="partners">
         <div class="partners__container">
           <h2 class="subtitle">Партнеры</h2>
-          <div class="partners__box">
-            <picture>
-              <source srcset="./assets/partners1.webp" type="image/webp">
-              <source srcset="./assets/partners1.png" type="image/png">
-              <img class="partners__img" src="./assets/partners1.svg" alt="Логотип компании Технониколь">
-            </picture>
-            <picture>
-              <source srcset="./assets/partners2.webp" type="image/webp">
-              <source srcset="./assets/partners2.png" type="image/png">
-              <img class="partners__img" src="./assets/partners2.svg" alt="Логотип компании Лукойл">
-            </picture>
-            <picture>
-              <source srcset="./assets/partners3.webp" type="image/webp">
-              <source srcset="./assets/partners3.png" type="image/png">
-              <img class="partners__img" src="./assets/partners3.svg" alt="Логотип компании ИЗТТ">
-            </picture>
-            <picture>
-              <source srcset="./assets/partners4.webp" type="image/webp">
-              <source srcset="./assets/partners4.png" type="image/png">
-              <img class="partners__img" src="./assets/partners4.svg" alt="Логотип компании Beko">
-            </picture>
-            <picture>
-              <source srcset="./assets/partners5.webp" type="image/webp">
-              <source srcset="./assets/partners5.png" type="image/png">
-              <img class="partners__img" src="./assets/partners5.svg" alt="Логотип компании Knauf">
-            </picture>
-            <picture>
-              <source srcset="./assets/partners6.webp" type="image/webp">
-              <source srcset="./assets/partners6.png" type="image/png">
-              <img class="partners__img" src="./assets/partners6.svg" alt="Логотип компании MVideo">
-            </picture>
+
+          <div class="swiper partners__box">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <picture>
+                  <source srcset="./assets/partners1.webp" type="image/webp">
+                  <source srcset="./assets/partners1.png" type="image/png">
+                  <img class="partners__img technonicol" src="./assets/partners1.svg" alt="Логотип компании Технониколь">
+                </picture>
+              </div>
+              <div class="swiper-slide">
+                <picture>
+                  <source srcset="./assets/partners2.webp" type="image/webp">
+                  <source srcset="./assets/partners2.png" type="image/png">
+                  <img class="partners__img lukoil" src="./assets/partners2.svg" alt="Логотип компании Лукойл">
+                </picture>
+              </div>
+              <div class="swiper-slide">
+                <picture>
+                <source srcset="./assets/partners3.webp" type="image/webp">
+                <source srcset="./assets/partners3.png" type="image/png">
+                <img class="partners__img iztt" src="./assets/partners3.svg" alt="Логотип компании ИЗТТ">
+              </picture>
+              </div>
+              <div class="swiper-slide">
+                <picture>
+                <source srcset="./assets/partners4.webp" type="image/webp">
+                <source srcset="./assets/partners4.png" type="image/png">
+                <img class="partners__img beko" src="./assets/partners4.svg" alt="Логотип компании Beko">
+              </picture>
+              </div>
+              <div class="swiper-slide">
+                <picture>
+                  <source srcset="./assets/partners5.webp" type="image/webp">
+                  <source srcset="./assets/partners5.png" type="image/png">
+                  <img class="partners__img knauf" src="./assets/partners5.svg" alt="Логотип компании Knauf">
+                </picture>
+              </div>
+              <div class="swiper-slide">
+                <picture>
+                  <source srcset="./assets/partners6.webp" type="image/webp">
+                  <source srcset="./assets/partners6.png" type="image/png">
+                  <img class="partners__img mvideo" src="./assets/partners6.svg" alt="Логотип компании MVideo">
+                </picture>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -580,6 +596,7 @@
     </div>
     </form>
   </div>
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
 </html>

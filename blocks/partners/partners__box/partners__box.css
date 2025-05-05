@@ -1,15 +1,31 @@
 .partners__box {
   display: flex;
-  gap: 104px;
   margin-top: 60px;
   touch-action: pan-x;
   user-select: none;
   -webkit-user-select: none;
+  align-items: center;
+}
+
+.partners__box.swiper {
+  width: 100%;
+  overflow: visible;
+}
+
+.partners__box .swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.partners__box .swiper-slide {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 1900px) and (min-width: 769px) {
   .partners__box {
-    gap: 5vw;
     margin-top: 3vw;
   }
 }
@@ -17,7 +33,6 @@
 @media (max-width: 768px) {
   .partners__box {
     align-items: center;
-    gap: 25px;
-    margin-top: 38px;
+    margin-top: 42px;
   }
 }

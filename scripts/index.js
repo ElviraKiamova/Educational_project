@@ -31,6 +31,10 @@ const mobileImages = [
     './assets/about-mobile-image3.webp'
 ];
 
+
+
+// Отзывчивость в форме для инпутов
+
 function toggleActive(form) {
   form.querySelectorAll('.form__input, .form__textarea').forEach(element => {
     element.addEventListener('click', function(evt) {
@@ -44,6 +48,8 @@ toggleActive(formPopupElement);
 toggleActive(formFeedbackElement);
 
 
+
+// Переключение языка сайта в шапке проекта
 selectHeaderElement.addEventListener('click', (evt) => {
   evt.stopPropagation();
   selectHeaderElement.classList.toggle('active');
@@ -62,6 +68,9 @@ document.addEventListener('click', () => {
 });
 
 
+
+
+// Карусель в секции about 
 function updateSlide(index) {
   imgElement.src = desktopImages[index];
   dotElements.forEach(dot => dot.classList.remove('about__dot_active'));
@@ -88,6 +97,7 @@ dotElements.forEach((dot, index) => {
 });
 
 
+
 // Открытие/закрытие бургер-меню
 burgerElement.addEventListener('click', () => {
   containerElement.classList.toggle('header__container_active');
@@ -112,7 +122,6 @@ document.querySelectorAll('.header__nav-link').forEach(link => {
 
 
 // замена изображений на мобильных устройствах
-
 function updateCardImages() {
   const cardImage = document.querySelector('.offset');
   const reviewImage = document.querySelector('.domstroy');
@@ -139,8 +148,8 @@ window.addEventListener('resize', updateCardImages);
 
 
 
-// аккардеон в секции Вопрос-Ответ
 
+// аккардеон в секции Вопрос-Ответ
 document.querySelectorAll('.questions__faq-question').forEach(question => {
   question.addEventListener('click', () => {
     const faqItem = question.parentElement;
@@ -166,9 +175,6 @@ document.querySelectorAll('.questions__faq-question').forEach(question => {
   });
 });
 
-
-
-
 itemElements.forEach(item => {
   const leftButton = item.querySelector('.cards__item-button_left');
   const rightButton = item.querySelector('.cards__item-button_right');
@@ -192,8 +198,8 @@ itemElements.forEach(item => {
 });
 
 
-// прокрутка карусели в секции Company
 
+// прокрутка карусели в секции Company
 const totalCards = cardsCompanyElements.length;
 const cardWidths = Array.from(cardsCompanyElements).map(card => card.offsetWidth + 20);
 const totalWidth = cardWidths.reduce((sum, width) => sum + width, 0);
@@ -309,9 +315,6 @@ carouselCompanyElement.addEventListener('touchend', () => {
   handleInfiniteScroll();
 }, { passive: true });
 updateCarousel();
-
-
-
 
 
 
@@ -616,7 +619,6 @@ const cleanupReviews = initCarousel({
 
 
 // Всплывающее окно с логотипом компании при открытии сайта
-
 document.addEventListener('DOMContentLoaded', () => {
   const popup = document.querySelector('.popup-logo');
   const page = document.querySelector('.page');
@@ -641,7 +643,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Открытие попапов форм заявок
-  
 const popups = {
   application: document.querySelector('.popup-application'),
   model: document.querySelector('.popup-model'),
@@ -777,144 +778,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //  Карусель секции partners
 
-function initPartnersCarousel() {
-  const container = document.querySelector('.partners__box');
-  const parentContainer = document.querySelector('.partners__container');
-  const items = document.querySelectorAll('.partners__img');
-  let totalItems = items.length;
-  let currentTranslateX = 0;
-  let startX = 0;
-  let currentX = 0;
-  let isDragging = false;
-  const isMobile = window.innerWidth <= 768;
+document.addEventListener('DOMContentLoaded', function() {
+  const partnersSwiper = new Swiper('.partners__box', {
+    slidesPerView: 'auto',
+    spaceBetween: 104,
+    loop: true,
+    freeMode: true,
+    grabCursor: true,
+    initialSlide: 0,
 
-  if (!container || !parentContainer || totalItems === 0) {
-    console.error('Partners carousel init failed', { container, parentContainer, totalItems });
-    return;
-  }
-
-  function getDimensions() {
-    const itemWidths = Array.from(items).map(item => item.offsetWidth || 0);
-    const averageItemWidth = itemWidths.reduce((sum, w) => sum + w, 0) / totalItems;
-    const gap = parseFloat(getComputedStyle(container).gap) || 0;
-    const parentWidthRaw = parentContainer.getBoundingClientRect().width;
-    const parentPaddingLeft = parseFloat(getComputedStyle(parentContainer).paddingLeft) || 0;
-    const parentPaddingRight = parseFloat(getComputedStyle(parentContainer).paddingRight) || 0;
-    const parentWidth = parentWidthRaw - parentPaddingLeft - parentPaddingRight;
-    let totalContentWidth = 0;
-    for (let i = 0; i < totalItems; i++) {
-      totalContentWidth += itemWidths[i];
-      if (i < totalItems - 1) totalContentWidth += gap;
-    }
-    const itemsPerView = isMobile ? 1 : Math.max(1, Math.floor(parentWidth / (averageItemWidth + gap)));
-
-    return { itemWidths, averageItemWidth, gap, parentWidth, parentWidthRaw, totalContentWidth, itemsPerView };
-  }
-
-  function updateCarousel() {
-    const { totalContentWidth, parentWidth, parentWidthRaw } = getDimensions();
-    const maxTranslateX = totalContentWidth > parentWidth ? -(totalContentWidth - (isMobile ? parentWidthRaw : parentWidth)) : 0;
-    if (currentTranslateX < maxTranslateX) currentTranslateX = maxTranslateX;
-    if (currentTranslateX > 0) currentTranslateX = 0;
-
-    container.style.transform = `translateX(${currentTranslateX}px)`;
-
-    console.log({
-      totalContentWidth,
-      parentWidth,
-      parentWidthRaw,
-      currentTranslateX,
-      maxTranslateX
-    });
-  }
-
-  container.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX;
-    currentX = startX;
-    isDragging = true;
-    container.style.transition = 'none';
+    breakpoints: {
+      320: {
+        spaceBetween: 25,
+        freeMode: false
+      },
+      768: {
+        spaceBetween: 104,
+      },
+    },
+    
+    resistance: true,
+    resistanceRatio: 0.5,
+    on: {
+      init: function() {
+        this.slideTo(0, 0);
+      }
+    },
+    navigation: false,
+    pagination: false,
+    scrollbar: false
   });
 
-  container.addEventListener('touchmove', (e) => {
-    if (!isDragging) return;
-    currentX = e.touches[0].clientX;
-    const deltaX = currentX - startX;
-    let newTranslateX = currentTranslateX + deltaX;
-    const { totalContentWidth, parentWidth, parentWidthRaw } = getDimensions();
-    const maxTranslateX = totalContentWidth > parentWidth ? -(totalContentWidth - (isMobile ? parentWidthRaw : parentWidth)) : 0;
-    if (newTranslateX > 0) newTranslateX = 0;
-    if (newTranslateX < maxTranslateX) newTranslateX = maxTranslateX;
-    container.style.transform = `translateX(${newTranslateX}px)`;
+  window.addEventListener('resize', function() {
+    partnersSwiper.update();
   });
-
-  container.addEventListener('touchend', () => {
-    if (!isDragging) return;
-    isDragging = false;
-    container.style.transition = 'transform 0.3s ease';
-    const deltaX = currentX - startX;
-    const { totalContentWidth, parentWidth, parentWidthRaw } = getDimensions();
-    let newTranslateX = currentTranslateX + deltaX;
-    const maxTranslateX = totalContentWidth > parentWidth ? -(totalContentWidth - (isMobile ? parentWidthRaw : parentWidth)) : 0;
-    if (newTranslateX > 0) newTranslateX = 0;
-    if (newTranslateX < maxTranslateX) newTranslateX = maxTranslateX;
-
-    currentTranslateX = newTranslateX;
-
-    console.log({ deltaX, newTranslateX, currentTranslateX, direction: deltaX > 0 ? 'right' : 'left' });
-
-    updateCarousel();
-  });
-
-  container.addEventListener('mousedown', (e) => {
-    startX = e.clientX;
-    currentX = startX;
-    isDragging = true;
-    container.style.transition = 'none';
-    e.preventDefault();
-  });
-
-  container.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-    currentX = e.clientX;
-    const deltaX = currentX - startX;
-    let newTranslateX = currentTranslateX + deltaX;
-    const { totalContentWidth, parentWidth, parentWidthRaw } = getDimensions();
-    const maxTranslateX = totalContentWidth > parentWidth ? -(totalContentWidth - (isMobile ? parentWidthRaw : parentWidth)) : 0;
-    if (newTranslateX > 0) newTranslateX = 0;
-    if (newTranslateX < maxTranslateX) newTranslateX = maxTranslateX;
-    container.style.transform = `translateX(${newTranslateX}px)`;
-  });
-
-  container.addEventListener('mouseup', () => {
-    if (!isDragging) return;
-    isDragging = false;
-    container.style.transition = 'transform 0.3s ease';
-    const deltaX = currentX - startX;
-    const { totalContentWidth, parentWidth, parentWidthRaw } = getDimensions();
-    let newTranslateX = currentTranslateX + deltaX;
-    const maxTranslateX = totalContentWidth > parentWidth ? -(totalContentWidth - (isMobile ? parentWidthRaw : parentWidth)) : 0;
-    if (newTranslateX > 0) newTranslateX = 0;
-    if (newTranslateX < maxTranslateX) newTranslateX = maxTranslateX;
-
-    currentTranslateX = newTranslateX;
-
-    console.log({ deltaX, newTranslateX, currentTranslateX, direction: deltaX > 0 ? 'right' : 'left' });
-
-    updateCarousel();
-  });
-
-  container.addEventListener('mouseleave', () => {
-    if (isDragging) {
-      isDragging = false;
-      container.style.transition = 'transform 0.3s ease';
-      updateCarousel();
-    }
-  });
-
-  window.addEventListener('resize', updateCarousel);
-  window.addEventListener('load', updateCarousel);
-
-  updateCarousel();
-}
-
-initPartnersCarousel();
+});

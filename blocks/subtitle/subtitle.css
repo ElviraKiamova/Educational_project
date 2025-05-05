@@ -7,9 +7,11 @@
 
 @media (max-width: 1900px) and (min-width: 769px) {
   .subtitle {
-    width: calc(33.333% - (2 * 1.2vw) / 3 + 2.4vw);
     font-size: 4.5vw;
     letter-spacing: -0.2vw;
+  }
+  .subtitle_services {
+    width: calc(33.333% - (2 * 1.2vw) / 3 + 2.4vw);
   }
 }
 

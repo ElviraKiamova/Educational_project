@@ -1,4 +1,5 @@
 .partners__container {
+  position: relative;
   max-width: 1760px;
   margin: 100px 0 140px;
   overflow: hidden;
