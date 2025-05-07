@@ -250,9 +250,20 @@
             </ul>
           </div>
           <div class="company__carousel">
-            <img class="company__img-carousel" src="./assets/company-img1.webp" alt="Проверка оборудования" loading="lazy">
-            <img class="company__img-carousel company__img-carousel_big" src="./assets/company-img2.webp" alt="Разбор" loading="lazy">
-            <img class="company__img-carousel" src="./assets/company-img3.webp" alt="Ремонт оборкдования" loading="lazy">
+            <picture class="company__img-carousel">
+              <source srcset="./assets/company-img1.jpg" type="image/jpeg">
+              <img src="./assets/company-img1.webp" alt="Проверка оборудования" loading="lazy">
+            </picture>
+            <picture class="company__img-carousel company__img-carousel_big">
+              <source srcset="./assets/company-img2.webp" type="image/webp">
+              <source srcset="./assets/company-img2.jpg" type="image/jpeg">
+              <img src="./assets/company-img2.jpg" alt="Разбор" loading="lazy">
+            </picture>
+            <picture class="company__img-carousel">
+              <source srcset="./assets/company-img3.webp" type="image/webp">
+              <source srcset="./assets/company-img3.jpg" type="image/jpeg">
+              <img src="./assets/company-img3.jpg" alt="Ремонт оборудования" loading="lazy">
+            </picture>
           </div>
           <div class="company__switch-carousel">
             <button class="company__img" aria-label="Переключить изображение карусели">
@@ -283,7 +294,10 @@
           <ul class="cards cards-portfolio">
             <li class="cards__item cards-portfolio">
               <div class="cards__item-box">
-                <img class="cards__item-img card-portfolio offset" src="./assets/portfolio1.webp" alt="До и После" loading="lazy">
+                <picture>
+                  <source srcset="./assets/portfolio1.webp" type="image/webp">
+                  <img class="cards__item-img card-portfolio offset" src="./assets/portfolio1.jpeg" alt="До и После" loading="lazy">
+                </picture>
               </div>
               <div class="cards__item-description card-portfolio">
                 <p class="cards__item-text card-portfolio">Выполнено: изготовление бронзовых втулок для насоса высокого давления</p>
@@ -292,7 +306,10 @@
             </li>
             <li class="cards__item cards-portfolio">
               <div class="cards__item-box">
-                <img class="cards__item-img card-portfolio" src="./assets/portfolio2.webp" alt="Ремонт техники" loading="lazy">
+                <picture>
+                  <source srcset="./assets/portfolio2.webp" type="image/webp">
+                  <img class="cards__item-img card-portfolio" src="./assets/portfolio2.jpeg" alt="Ремонт техники" loading="lazy">
+                </picture>
               </div>
               <div class="cards__item-description card-portfolio">
                 <p class="cards__item-text card-portfolio">Выполнено: техническое обслуживание вакуумной машины</p>
@@ -301,7 +318,10 @@
             </li>
             <li class="cards__item cards-portfolio">
               <div class="cards__item-box">
-                <img class="cards__item-img card-portfolio" src="./assets/portfolio3.webp" alt="Ремнот станка" loading="lazy">
+                <picture>
+                  <source srcset="./assets/portfolio3.webp" type="image/webp">
+                  <img class="cards__item-img card-portfolio" src="./assets/portfolio3.jpeg" alt="Ремнот станка" loading="lazy">
+                </picture>
               </div>
               <div class="cards__item-description card-portfolio">
                 <p class="cards__item-text card-portfolio">Выполнено: сборка насосного агрегата</p>
