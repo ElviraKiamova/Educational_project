@@ -1,20 +1,16 @@
-/* normalize.scss v0.2.0 | MIT License | Optimized for modern browsers */
 
-/* 1. Set default font family and prevent iOS text size adjustment */
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
 
-/* 2. Remove default margins and set box-sizing */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* 3. Ensure images are responsive and block-level */
 img {
   max-width: 100%;
   height: auto;
@@ -22,9 +18,8 @@ img {
   border: 0;
 }
 
-/* 4. Normalize links */
 a {
-  color: #1F1F1F; /* Ваш стиль */
+  color: #1F1F1F;
   text-decoration: none;
   background-color: transparent;
 }
@@ -34,7 +29,6 @@ a:hover {
   outline: 0;
 }
 
-/* 5. Normalize headings and paragraphs */
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
@@ -43,12 +37,11 @@ h1 {
   font-size: 2em;
 }
 
-/* 6. Normalize HTML5 elements */
+
 article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
   display: block;
 }
 
-/* 7. Normalize forms */
 button, input, select, textarea {
   font: inherit;
   margin: 0;
@@ -57,21 +50,27 @@ button, input, select, textarea {
 
 button, input[type="button"], input[type="reset"], input[type="submit"] {
   cursor: pointer;
-  -webkit-appearance: button;
 }
 
 button[disabled], input[disabled] {
   cursor: default;
 }
 
-/* 8. Normalize lists */
 ul, ol {
   margin: 0;
   padding: 0;
 }
 
-/* 9. Ensure body takes full height */
 body {
   min-height: 100%;
   line-height: 1;
+}
+
+@media (hover: none), (pointer: coarse) {  
+  button, 
+  input[type="button"], 
+  input[type="submit"], 
+  input[type="reset"] {
+    cursor: default;
+  }
 }

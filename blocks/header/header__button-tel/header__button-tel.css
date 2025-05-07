@@ -6,6 +6,9 @@
   background-image: url(../../../assets/menu_mobile.svg);
   background-repeat: no-repeat;
   border: none;
+  @media (hover: hover) {
+    cursor: pointer;
+  }
 }
 
 @media (max-width: 768px) {

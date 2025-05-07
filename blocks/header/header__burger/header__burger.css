@@ -6,7 +6,9 @@
   background-color: transparent;
   border: none;
   position: relative;
-  cursor: pointer;
+  @media (hover: hover) {
+    cursor: pointer;
+  }
 }
 
 .header__burger::before,
