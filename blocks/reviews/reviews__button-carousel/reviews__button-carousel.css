@@ -13,10 +13,20 @@
   background-position: center;
   z-index: 10;
   opacity: 0;
-  transition: opacity 0.3s ease;
   cursor: pointer;
+  @media (hover: hover) {
+    transition: opacity 0.3s ease;
+  }
 }
 
-.reviews__item-carousel:hover .reviews__button-carousel {
-  opacity: 1;
+@media (hover: hover) {  
+  .reviews__item-carousel:hover .reviews__button-carousel {
+    opacity: 1;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {  
+  .reviews__item-carousel:active .reviews__button-carousel {
+    opacity: 1;
+  }
 }

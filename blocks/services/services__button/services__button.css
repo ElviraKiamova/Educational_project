@@ -15,6 +15,14 @@
   cursor: pointer;
 }
 
+@media (hover: none), (pointer: coarse) {
+  .services__button:hover {
+    background-color: transparent;
+    color: #B4100D;
+    cursor: default;
+  }
+}
+
 @media (max-width: 1900px) and (min-width: 769px) {
   .services__button {
     width: calc(33.333% - (2 * 1.2vw) / 3);

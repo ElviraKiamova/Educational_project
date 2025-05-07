@@ -7,12 +7,16 @@
   background-size: 15px 15px;
   background-repeat: no-repeat;
   background-position: center;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  @media (hover: hover) {
+    transition: background-color 0.3s ease;
+  }
 }
 
-.about__button-control:hover {
-  background-color: #B4100D;
-  cursor: pointer;
+@media (hover: hover) {
+  .about__button-control:hover {
+    background-color: #B4100D;
+    cursor: pointer;
+  }
 }
 
 .about__button-control.about__button--prev {

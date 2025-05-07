@@ -175,6 +175,8 @@ document.querySelectorAll('.questions__faq-question').forEach(question => {
   });
 });
 
+
+// Переключение изображений в секции products
 itemElements.forEach(item => {
   const leftButton = item.querySelector('.cards__item-button_left');
   const rightButton = item.querySelector('.cards__item-button_right');

@@ -12,7 +12,13 @@
 
 .form__box-button a {
   color: #FFF;
+  cursor: default;
+  @media (hover: hover) {
+    cursor: pointer;
+  }
 }
+
+
 
 @media (max-width: 1900px) and (min-width: 769px) {
   .form__box-button {

@@ -18,6 +18,13 @@
   transition: scale 0.3s ease;
 }
 
+@media (hover: none), (pointer: coarse) {
+  .cards.cards-products .cards__item:hover .cards__item-img {
+    scale: 1;
+    transition: none;
+  }
+}
+
 @media (max-width: 1900px) and (min-width: 769px) {
   .cards__item-img {
     width: 27vw;

@@ -17,6 +17,15 @@
   cursor: pointer;
 }
 
+@media (hover: none), (pointer: coarse) {
+  .button-request_white:hover {
+    color: #1F1F1F;
+    border: 2px solid #1F1F1F;
+    background-color: inherit;
+    cursor: default;
+  }
+}
+
 @media (max-width: 1900px) and (min-width: 769px) {
   .button-request_white {
     width: 22vw;

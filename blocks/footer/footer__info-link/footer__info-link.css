@@ -1,6 +1,9 @@
 .footer__info-link {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: underline;
+  @media (hover: hover) {
+    cursor: pointer;
+  }
 }
 
 .footer__info-link.confidentiality {

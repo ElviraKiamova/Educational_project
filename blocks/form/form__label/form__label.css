@@ -8,15 +8,25 @@
   border: 2px dashed #464646;
   border-radius: 10px;
   color: #464646;
-  transition: color 0.3s ease, border 0.3s ease;
   box-sizing: border-box;
+  cursor: default;
+  @media (hover: hover) {
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
 }
 
-.form__label.file:hover {
-  border: 2px dashed #FFF;
-  color: #FFF;
-  cursor:default;
-  transition: border-color 0.3s ease, color 0.3s ease;
+@media (hover: hover) {
+  .form__label.file:hover {
+    border-color: #FFF;
+    color: #FFF;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .form__label.file:active {
+    border-color: #FFF;
+    color: #FFF;
+  }
 }
 
 .form__label.file span {

@@ -15,6 +15,14 @@
   cursor: default;
 }
 
+@media (hover: none), (pointer: coarse) {
+  .services__card:hover {
+    box-shadow: none;
+    transform: none;
+    cursor: default;
+  }
+}
+
 @media (max-width: 1900px) and (min-width: 769px) {
   .services__card {
     gap: 1.2vw;

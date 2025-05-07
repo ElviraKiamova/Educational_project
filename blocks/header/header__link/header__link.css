@@ -19,3 +19,18 @@
   height: 44px;
   z-index: 1;
 }
+
+.header__link.header__email::before, .header__link.header__tel:first-child:before {
+  top: 30%;
+}
+
+.header__link.header__adress::before, .header__link.header__tel:last-child:before {
+  top: 80%;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .header__link:hover {
+    color: inherit;
+    cursor: default;
+  }
+}

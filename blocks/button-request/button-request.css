@@ -17,6 +17,18 @@
   cursor: pointer;
 }
 
+
+@media (hover: none), (pointer: coarse) {
+  .cards.cards-products .cards__item:hover .button-request {
+    border: 2px solid #B4100D;
+    background-color: #FFF;
+    color: #B4100D;
+    cursor: default;
+    transition: none;
+  }
+}
+
+
 @media (max-width: 1900px) and (min-width: 769px) {
   .button-request {
     width: 25vw;

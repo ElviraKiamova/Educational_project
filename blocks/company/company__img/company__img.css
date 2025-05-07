@@ -7,7 +7,10 @@
   border-radius: 50px;
   background-color: transparent;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  @media (hover: hover) {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
 }
 
 .arrow-icon {
@@ -15,8 +18,16 @@
   box-sizing: content-box;
 }
 
-.company__img:hover .arrow {
-  transform: translateX(6px);
+@media (hover: hover) {
+  .company__img:hover .arrow {
+    transform: translateX(6px);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .company__img:active .arrow {
+    transform: translateX(6px);
+  }
 }
 
 .arrow {

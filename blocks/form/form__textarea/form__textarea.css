@@ -12,8 +12,10 @@
   letter-spacing: 0%;
   caret-color: transparent;
   outline: none;
-  transition: border 0.3s ease, background-color 0.3s ease;
   cursor: default;
+  @media (hover: hover) {
+    transition: border 0.3s ease, background-color 0.3s ease;
+  }
 }
 
 .form__textarea::placeholder {
@@ -23,8 +25,10 @@
   transition: font-size 0.3s ease, transform 0.3s ease, color 0.3s ease;
 }
 
-.form__textarea:hover::placeholder {
-  color: #FFF;
+@media (hover: hover) {
+  .form__textarea:hover::placeholder {
+    color: #FFF;
+  }
 }
 
 .form__textarea.active {
