@@ -4,6 +4,10 @@
   object-fit: contain;
 }
 
+.partners__img.iztt {
+  margin: 0 32px 10px 0;
+}
+
 @media (max-width: 768px) {
   .partners__img.technonicol {
     width: 228px;
@@ -16,6 +20,7 @@
   .partners__img.iztt {
     width: 170px;
     height: 70px;
+    margin: 0;
   }
   .partners__img.beko {
     width: 121px;

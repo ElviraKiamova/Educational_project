@@ -344,6 +344,12 @@ function initCarousel(config) {
       slideToClickedSlide: true,
       initialSlide: 0,
       slidesOffsetBefore: 20,
+      spaceBetween: 104,
+      breakpoints: {
+        768: {
+          spaceBetween: 25
+        }
+      }
     });
 
     setTimeout(() => swiper.slideTo(0, 0), 100);
