@@ -29,7 +29,11 @@
         <span class="header__burger-line"></span>
         <span class="header__burger-line"></span>
       </button>
-      <img class="header__logo" src="./assets/logo-header.svg" alt="Логотип компании Ингольф">
+      <picture>
+        <source srcset="./assets/logo-header.webp" type="image/webp">
+        <source srcset="./assets/logo-header.png" type="image/png">
+        <img class="header__logo" src="./assets/logo-header.svg" alt="Логотип компании Ингольф" loading="lazy">
+      </picture>
       <div class="header__container">
         <ul class="header__select">
           <li class="header__select-item header__select-item_ru">RU</li>
@@ -68,13 +72,19 @@
           <button class="about__button" aria-label="Подробнее о компании">Подробнее</button>
           <div class="about__box-shield">
             <div class="services__card-img about__img">
-              <img class="icon-service about__img" src="./assets/shield-tick.svg" alt="Щит">
+              <picture>
+                <source srcset="./assets/shield-tick.webp" type="image/webp">
+                <img class="icon-service about__img" src="./assets/shield-tick.svg" alt="Щит" loading="lazy">
+              </picture>
             </div>
             <p class="about__text">Ваш надежный партнер <br>в решении сложных задач</p>
           </div>
         </div>
         <div class="about__box slide swiper">
+          <picture>
+            <source srcset="./assets/about-desktop-image1.jpg" type="image/jpg">
             <img class="about__picture-img" src="./assets/about-desktop-image1.webp" alt="Процесс обслуживания" loading="lazy">
+          </picture>
           <div class="about__control">
             <button class="about__button-control about__button--prev" aria-label="Предыдущий слайд"></button>
             <div class="about__dots">

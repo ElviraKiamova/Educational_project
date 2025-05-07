@@ -350,6 +350,9 @@ function initCarousel(config) {
       breakpoints: {
         768: {
           spaceBetween: 25
+        }, 
+        320: {
+          spaceBetween: 25
         }
       }
     });
