@@ -587,7 +587,11 @@
           </ul>
         </nav>
         <div class="footer__map-box">
-          <img class="footer__map-img" src="./assets/footer-img.webp" alt="Карта" loading="lazy">
+          <picture>
+            <source srcset="./assets/footer-img.webp" type="image/webp">
+            <source srcset="./assets/footer-img.jpg" type="image/jpeg">
+            <img class="footer__map-img" src="./assets/footer-img.png" alt="Карта" loading="lazy">
+          </picture>
           <div class="footer__map-block">
             <button class="footer__map-btn" aria-label="Открыть карту с адресом"></button>
             <p class="footer__map-text">Юбилейная, 17/4</p>
