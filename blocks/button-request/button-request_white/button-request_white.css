@@ -31,10 +31,16 @@
     width: 22vw;
     font-size: 1vw;
   }
+  .button-request_white.form_feedback, .button-request_footer {
+     height: 4vw;
+  }
 }
 
 @media (max-width: 768px) {
   .button-request_white {
     width: 100%;
+  }
+  .button-request_white.form_feedback, .button-request_footer {
+    height: 69px;
   }
 }

@@ -7,7 +7,7 @@
   height: 80px;
   background-color: #B4100D;
   border: none;
-  border-radius: 50px;
+  border-radius: 50%;
   background-image: url(../../../assets/reviews-magnifier.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -28,5 +28,13 @@
 @media (hover: none), (pointer: coarse) {  
   .reviews__item-carousel:active .reviews__button-carousel {
     opacity: 1;
+  }
+}
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .reviews__button-carousel {
+    width: 6vw;
+    height: 6vw;
+    background-size: 1.5vw 1.5vw;
   }
 }

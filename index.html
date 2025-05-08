@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="pages/index.css">
   <link rel="preload" href="./assets/about-desktop-image1.webp" as="image" fetchpriority="high">
   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
   <title>Ingolf — ремонт насосов высокого давления в Уфе</title>
 </head>
 <body>
@@ -81,9 +82,9 @@
           </div>
         </div>
         <div class="about__box slide swiper">
-          <picture>
+          <picture class="about__picture-img">
             <source srcset="./assets/about-desktop-image1.webp" type="image/jpeg">
-            <img class="about__picture-img" src="./assets/about-desktop-image1.jpg" alt="Процесс обслуживания" loading="lazy">
+            <img src="./assets/about-desktop-image1.jpg" alt="Процесс обслуживания" loading="lazy">
           </picture>
           <div class="about__control">
             <button class="about__button-control about__button--prev" aria-label="Предыдущий слайд"></button>
@@ -404,14 +405,26 @@
                   <source srcset="./assets/reviews-carousel-img.webp" type="image/webp">
                   <img class="reviews__img-carousel domstroy" src="./assets/reviews-carousel-img.png" alt="Отзыв компании Домстрой" loading="lazy">
                 </picture>
-                <button class="reviews__button-carousel" aria-label="Открыть отзыв"></button>
+                <button 
+                  type="button"
+                  class="reviews__button-carousel" 
+                  aria-label="Открыть отзыв" 
+                  data-fancybox="reviews-gallery" 
+                  data-src="./assets/reviews-carousel-img.png">
+                </button>
               </li>
               <li class="reviews__item-carousel swiper-slide">
                 <picture>
                   <source srcset="./assets/reviews-img-luk.webp" type="image/webp">
                   <img class="reviews__img-carousel domstroy" src="./assets/reviews-img-luk.png" alt="Отзыв компании Лукойл" loading="lazy">
                 </picture>
-                <button class="reviews__button-carousel" aria-label="Открыть отзыв"></button>
+                <button 
+                  type="button"
+                  class="reviews__button-carousel" 
+                  aria-label="Открыть отзыв" 
+                  data-fancybox="reviews-gallery" 
+                  data-src="./assets/reviews-img-luk.png">
+                </button>
               </li>
               <li class="reviews__item-carousel swiper-slide">
                 <div class="reviews__icon-carousel">
@@ -421,7 +434,13 @@
                   <source srcset="./assets/reviews-img-luk.webp" type="image/webp">
                   <img class="reviews__img-carousel domstroy" src="./assets/reviews-img-luk.png" alt="Отзыв компании Кнауф" loading="lazy">
                 </picture>
-                <button class="reviews__button-carousel" aria-label="Открыть отзыв"></button>
+                <button 
+                  type="button"
+                  class="reviews__button-carousel" 
+                  aria-label="Открыть отзыв" 
+                  data-fancybox="reviews-gallery" 
+                  data-src="./assets/reviews-img-luk.png">
+                </button>
               </li>
               <li class="reviews__item-carousel swiper-slide">
                 <div class="reviews__icon-carousel">
@@ -431,21 +450,39 @@
                   <source srcset="./assets/reviews-img-luk.webp" type="image/webp">
                   <img class="reviews__img-carousel domstroy" src="./assets/reviews-img-luk.png" alt="Отзыв компании МВидео" loading="lazy">
                 </picture>
-                <button class="reviews__button-carousel" aria-label="Открыть отзыв"></button>
+                <button 
+                  type="button"
+                  class="reviews__button-carousel" 
+                  aria-label="Открыть отзыв" 
+                  data-fancybox="reviews-gallery" 
+                  data-src="./assets/reviews-img-luk.png">
+                </button>
               </li>
               <li class="reviews__item-carousel swiper-slide">
                 <picture>
                   <source srcset="./assets/reviews-carousel-img.webp" type="image/webp">
                   <img class="reviews__img-carousel domstroy" src="./assets/reviews-carousel-img.png" alt="Отзыв компании Домстрой" loading="lazy">
                 </picture>
-                <button class="reviews__button-carousel" aria-label="Открыть отзыв"></button>
+                <button 
+                  type="button"
+                  class="reviews__button-carousel" 
+                  aria-label="Открыть отзыв" 
+                  data-fancybox="reviews-gallery" 
+                  data-src="./assets/reviews-carousel-img.png">
+                </button>
               </li>
               <li class="reviews__item-carousel swiper-slide">
                 <picture>
                   <source srcset="./assets/reviews-img-luk.webp" type="image/webp">
                   <img class="reviews__img-carousel domstroy" src="./assets/reviews-img-luk.png" alt="Отзыв компании Лукойл" loading="lazy">
                 </picture>
-                <button class="reviews__button-carousel" aria-label="Открыть отзыв"></button>
+                <button 
+                  type="button"
+                  class="reviews__button-carousel" 
+                  aria-label="Открыть отзыв" 
+                  data-fancybox="reviews-gallery" 
+                  data-src="./assets/reviews-img-luk.png">
+                </button>
               </li>
               <li class="reviews__item-carousel swiper-slide">
                 <div class="reviews__icon-carousel">
@@ -455,7 +492,13 @@
                   <source srcset="./assets/reviews-img-luk.webp" type="image/webp">
                   <img class="reviews__img-carousel domstroy" src="./assets/reviews-img-luk.png" alt="Отзыв компании Кнауф" loading="lazy">
                 </picture>
-                <button class="reviews__button-carousel" aria-label="Открыть отзыв"></button>
+                <button 
+                  type="button"
+                  class="reviews__button-carousel" 
+                  aria-label="Открыть отзыв" 
+                  data-fancybox="reviews-gallery" 
+                  data-src="./assets/reviews-img-luk.png">
+                </button>
               </li>
               <li class="reviews__item-carousel swiper-slide">
                 <div class="reviews__icon-carousel">
@@ -465,7 +508,13 @@
                   <source srcset="./assets/reviews-img-luk.webp" type="image/webp">
                   <img class="reviews__img-carousel domstroy" src="./assets/reviews-img-luk.png" alt="Отзыв компании МВидео" loading="lazy">
                 </picture>
-                <button class="reviews__button-carousel" aria-label="Открыть отзыв"></button>
+                <button 
+                  type="button"
+                  class="reviews__button-carousel" 
+                  aria-label="Открыть отзыв" 
+                  data-fancybox="reviews-gallery" 
+                  data-src="./assets/reviews-img-luk.png">
+                </button>
               </li>
             </ul>
           </div>
@@ -665,6 +714,7 @@
     </div>
     </form>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   <script src="./scripts/index.js"></script>
 </body>

@@ -3,6 +3,7 @@
   justify-content: center;
   width: 100%;
   max-width: 2560px;
+  overflow: hidden;
 }
 
 @media (max-width: 1900px) and (min-width: 769px) {

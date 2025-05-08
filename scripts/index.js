@@ -655,3 +655,15 @@ document.addEventListener('DOMContentLoaded', function() {
     partnersSwiper.update();
   });
 });
+
+
+
+// Открытие большого изображания в секции reviews
+document.addEventListener('DOMContentLoaded', function() {
+  Fancybox.bind("[data-fancybox]", {
+    Thumbs: false,
+    Toolbar: true,
+  });
+});
+
+
