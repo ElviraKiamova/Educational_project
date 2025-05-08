@@ -176,7 +176,7 @@
                 <h3 class="cards__item-title">ОГН 200</h3>
                 <p class="cards__item-text"><span>Рабочее давление:</span> 1100 бр </p>
                 <p class="cards__item-text"><span>Объемный расход:</span> 200 л/мин </p>
-                <button class="button-request" type="button" aria-label="Оставьте заявку на обслуживание">Оставить заявку</button>
+                <button class="button-request" type="button" aria-label="Оставьте заявку на обслуживание" data-fancybox data-src="#product-popup" data-product="ОГН 200" data-product-data='{"pressure":"1100 бр","flow":"200 л/мин"}'>Оставить заявку</button>
               </div>
             </li>
             <li class="cards__item">
@@ -194,7 +194,7 @@
                 <h3 class="cards__item-title">ОГН 300</h3>
                 <p class="cards__item-text"><span>Рабочее давление:</span> 1200 бр </p>
                 <p class="cards__item-text"><span>Объемный расход:</span> 300 л/мин </p>
-                <button class="button-request" type="button" aria-label="Оставьте заявку на обслуживание">Оставить заявку</button>
+                <button class="button-request" type="button" aria-label="Оставьте заявку на обслуживание" data-fancybox data-src="#product-popup" data-product="ОГН 300" data-product-data='{"pressure":"1200 бр","flow":"300 л/мин"}'>Оставить заявку</button>
               </div>
             </li>
             <li class="cards__item">
@@ -212,7 +212,7 @@
                 <h3 class="cards__item-title">ОГН 400</h3>
                 <p class="cards__item-text"><span>Рабочее давление:</span> 1300 бр </p>
                 <p class="cards__item-text"><span>Объемный расход:</span> 400 л/мин </p>
-                <button class="button-request" type="button" aria-label="Оставьте заявку на обслуживание">Оставить заявку</button>
+                <button class="button-request" type="button" aria-label="Оставьте заявку на обслуживание" data-fancybox data-src="#product-popup" data-product="ОГН 400" data-product-data='{"pressure":"1300 бр","flow":"400 л/мин"}'>Оставить заявку</button>
               </div>
             </li>
           </ul>
@@ -689,20 +689,21 @@
     </div>
     </form>
   </div>
-  <div class="popup-model popup">
+  <div class="popup-model popup" id="product-popup">
     <form class="form form_popup-application" action="#" method="post">
-    <button class="form__close" type="button" aria-label="Закрыть попап"></button>
-    <h2 class="subtitle">Заявка на ОГН 200</h2>
+    <input type="hidden" name="product" value="">
+    <button class="form__close" type="button" aria-label="Закрыть попап" data-fancybox-close></button>
+    <h2 class="subtitle">Заявка на <span class="product-name"></span></h2>
     <p class="form__text form__text_top">Для получения подробной информации просим заполнить форму обратной связи</p>
     <div class="form__box-input">
       <label class="form__label">
-        <input class="form__input" type="text" name="name" placeholder="Имя *" required>
+        <input class="form__input" type="text" name="name" placeholder="Имя *" required autocomplete="off">
       </label>
       <label class="form__label">
-        <input class="form__input" type="tel" name="phone" placeholder="Телефон *" required>
+        <input class="form__input" type="tel" name="phone" placeholder="Телефон *" required autocomplete="off">
       </label>
       <label class="form__label">
-        <input class="form__input email" type="email" name="email" placeholder="Email *" required>
+        <input class="form__input email" type="email" name="email" placeholder="Email *" required autocomplete="off">
       </label>
     </div>
     <label class="form__label textarea">

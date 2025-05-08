@@ -16,7 +16,6 @@ const carouselCompanyElement = document.querySelector('.company__carousel');
 const buttonSwitchCompanyElement = document.querySelector('.company__switch-carousel button');
 const cardsCompanyElements = document.querySelectorAll('.company__img-carousel'); 
 const popupApplicationElement = document.querySelector('.popup-application');
-const popupModelElement = document.querySelector('.popup-model');
 const closeButtonElements = document.querySelectorAll('.form__close');
 
 let currentSlide = 0;
@@ -488,7 +487,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Открытие попапов форм заявок
 const popups = {
   application: document.querySelector('.popup-application'),
-  model: document.querySelector('.popup-model'),
+  // model: document.querySelector('.popup-model'),
   gratitude: document.querySelector('.popup-gratitude')
 };
 
@@ -543,8 +542,8 @@ function setupEventListeners() {
       event.preventDefault();
       const card = target.closest('.cards__item');
       const modelTitle = card.querySelector('.cards__item-title').textContent;
-      popups.model.querySelector('.subtitle').textContent = `Заявка на ${modelTitle}`;
-      togglePopup(popups.model, true);
+      // popups.model.querySelector('.subtitle').textContent = `Заявка на ${modelTitle}`;
+      // togglePopup(popups.model, true);
     }
   });
 
@@ -579,7 +578,7 @@ function setupEventListeners() {
     if (form) {
       form.addEventListener('submit', function(e) {
         e.preventDefault();
-        togglePopup(popups.model, false);
+        // togglePopup(popups.model, false);
         togglePopup(popups.application, false);
         togglePopup(popups.gratitude, true);
         this.reset();
@@ -658,12 +657,87 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
+
 // Открытие большого изображания в секции reviews
 document.addEventListener('DOMContentLoaded', function() {
+  let formData = {};
   Fancybox.bind("[data-fancybox]", {
-    Thumbs: false,
-    Toolbar: true,
+    dragToClose: false,
+    closeButton: false,
+    mainClass: "fancybox-custom",
+    animated: true,
+    animationDuration: 100,
+    transitionEffect: "fade",
+    height: "auto",
+    protect: true,
+    on: {
+      done: (fancybox, slide) => {
+        const trigger = slide.triggerEl;
+        if (!trigger) return;
+
+        const productNameEl = document.querySelector('#product-popup .product-name');
+        const productInputEl = document.querySelector('#product-popup input[name="product"]');
+        const firstInputEl = document.querySelector('#product-popup .form__input');
+
+        if (!productNameEl || !productInputEl || !firstInputEl) {
+          return;
+        }
+
+        const productName = trigger.dataset.product || '';
+        productNameEl.textContent = productName;
+        productInputEl.value = productName;
+
+        setTimeout(() => firstInputEl.focus(), 100);
+        initFormInputs();
+      },
+      closing: () => {
+        const form = document.querySelector('#product-popup form');
+        if (form) {
+          form.reset();
+        }
+
+        const inputs = document.querySelectorAll('#product-popup .form__input, #product-popup textarea');
+        inputs.forEach(input => {
+          input.classList.remove('active');
+        });
+
+        formData = {};
+      }
+    }
   });
+
+  const form = document.querySelector('#product-popup form');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      form.reset();
+      const inputs = document.querySelectorAll('#product-popup .form__input, #product-popup textarea');
+      inputs.forEach(input => {
+        input.classList.remove('active');
+      });
+      formData = {};
+      Fancybox.close();
+    });
+  }
+
+  const initFormInputs = () => {
+    const inputs = document.querySelectorAll('.form__input, textarea');
+    inputs.forEach(input => {
+      input.addEventListener('focus', function() {
+        this.classList.add('active');
+        this.removeAttribute('readonly');
+        this.style.caretColor = '';
+      });
+
+      input.addEventListener('blur', function() {
+        if (!this.value) {
+          this.classList.remove('active');
+        }
+      });
+      if (input.value) {
+        input.classList.add('active');
+      }
+    });
+  };
 });
-
-
