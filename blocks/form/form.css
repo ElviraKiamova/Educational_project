@@ -6,6 +6,12 @@
   background-color: #18191E;
   color: #F4F4F4;
   box-sizing: border-box;
+  min-height: 100vh;
+    overflow-y: auto;
+}
+
+.form.form_popup-application {
+  max-height: 100vh;
 }
 
 .form.form_feedback {
