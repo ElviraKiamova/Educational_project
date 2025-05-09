@@ -56,21 +56,21 @@
           <a class="header__link header__tel" href="tel:+79047358156">+7&nbsp;(904)&nbsp;735&#8209;81&#8209;56</a>
           <a class="header__link header__tel" href="tel:+73472578156">+7&nbsp;(347)&nbsp;257&#8209;81&#8209;56</a>
         </div>
-        <button class="header__button" type="button" aria-label="Оставьте заявку на обслуживание">Оставить заявку</button>
+        <button class="header__button" type="button" aria-label="Оставьте заявку на обслуживание" data-fancybox data-src="#application-popup">Оставить заявку</button>
       </div>
       <a href="tel:+79047358156" class="header__button-tel"></a>
     </header>
     <main class="content">
-      <div class="popup-gratitude active popup">
+      <div class="popup-gratitude popup fancybox-custom" id="gratitude-popup">
         <p class="popup-gratitude__text">Спасибо!<br>Мы получили ваш запрос</p>
         <p class="popup-gratitude__text popup-gratitude__text_min">Наши специалисты свяжутся с вами в ближайшее время!</p>
-        <button class="popup-gratitude__button" type="button" aria-label="Вернуться на главную страницу" data-popup-close>На главную</button>
+        <button class="popup-gratitude__button" type="button" aria-label="Вернуться на главную страницу" data-fancybox-close>На главную</button>
       </div>
       <section class="about">
         <div class="about__box">
           <h1 class="about__title">Профессиональный ремонт и обслуживание <span>промышленных насосов высокого давления</span></h1>
           <p class="about__text">А также изготовление орбитальных гидродинамических насадок.</p>
-          <button class="about__button" aria-label="Подробнее о компании">Подробнее</button>
+          <button class="about__button" aria-label="Подробнее о компании" data-fancybox data-src="#application-popup">Подробнее</button>
           <div class="about__box-shield">
             <div class="services__card-img about__img">
               <picture>
@@ -148,7 +148,7 @@
                 <span class="services__card-button"></span>
               </li>
             </ul>
-            <button class="services__button" aria-label="Оставьте заявку на обслуживание">Заказать услугу</button>
+            <button class="services__button" aria-label="Оставьте заявку на обслуживание" data-fancybox data-src="#application-popup">Заказать услугу</button>
           </div>
           <div class="services__box">
             <p class="services__warranty">Мы гарантируем, что насосы будут работать!</p>
@@ -366,13 +366,13 @@
             <p class="form__text form__text_top">Для получения подробной информации просим заполнить форму обратной связи</p>
             <div class="form__box-input">
               <label class="form__label">
-                <input class="form__input" type="text" name="name" placeholder="Имя *" required>
+                <input class="form__input" type="text" name="name" placeholder="Имя *" required autocomplete="off">
               </label>
               <label class="form__label">
-                <input class="form__input" type="tel" name="phone" placeholder="Телефон *" required>
+                <input class="form__input" type="tel" name="phone" placeholder="Телефон *" required autocomplete="off">
               </label>
               <label class="form__label">
-                <input class="form__input email" type="email" name="email" placeholder="Email *" required>
+                <input class="form__input email" type="email" name="email" placeholder="Email *" required autocomplete="off">
               </label>
             </div>
             <label class="form__label textarea">
@@ -649,7 +649,7 @@
         <div class="footer__box">
           <div class="footer__branding">
             <img class="footer__logo" src="./assets/logo-footer.svg" alt="Логотип компании Ингольф" loading="lazy">
-            <button class="button-request button-request_white button-request_footer" type="submit" aria-label="Оставьте заявку на обслуживание">Оставить заявку</button>
+            <button class="button-request button-request_white button-request_footer" type="submit" aria-label="Оставьте заявку на обслуживание" data-fancybox data-src="#application-popup">Оставить заявку</button>
           </div>
           <div class="footer__info">
             <p class="footer__copyright">© Ингольф Индастриал Сервисез 2025</p>
@@ -660,9 +660,9 @@
       </div>
     </footer>
   </div>
-  <div class="popup-application popup">
+  <div class="popup-application popup" id="application-popup">
     <form class="form form_popup-application" action="#" method="post">
-    <button class="form__close" type="button" aria-label="Закрыть попап"></button>
+    <button class="form__close" type="button" aria-label="Закрыть попап" data-fancybox-close></button>
     <h2 class="subtitle">Оставить заявку</h2>
     <p class="form__text form__text_top">Для получения подробной информации просим заполнить форму обратной связи</p>
     <div class="form__box-input">

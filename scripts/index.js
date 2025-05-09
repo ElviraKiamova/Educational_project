@@ -42,7 +42,6 @@ function toggleActive(form) {
     });
   });
 }
-
 toggleActive(formPopupElement);
 toggleActive(formFeedbackElement);
 
@@ -432,7 +431,6 @@ function initCarousel(config) {
     window.removeEventListener('resize', handleResize);
   };
 }
-
 document.addEventListener('DOMContentLoaded', () => {
   initCarousel({
     containerSelector: '.cards-portfolio',
@@ -484,140 +482,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// Открытие попапов форм заявок
-const popups = {
-  application: document.querySelector('.popup-application'),
-  // model: document.querySelector('.popup-model'),
-  gratitude: document.querySelector('.popup-gratitude')
-};
-
-function togglePageScroll(enable) {
-  const html = document.documentElement;
-  const savedScrollBehavior = html.style.scrollBehavior;
-  html.style.scrollBehavior = 'auto';
-  
-  if (enable) {
-    document.body.classList.remove('no-scroll');
-    window.scrollTo(0, scrollPosition);
-    document.body.style.top = '';
-  } else {
-    scrollPosition = window.pageYOffset;
-    document.body.classList.add('no-scroll');
-    document.body.style.top = `-${scrollPosition}px`;
-  }
-  
-  setTimeout(() => {
-    html.style.scrollBehavior = savedScrollBehavior || 'smooth';
-  }, 100);
-}
-
-function togglePopup(popup, show) {
-  if (show) {
-    togglePageScroll(false);
-    popup.style.display = 'flex';
-    setTimeout(() => popup.classList.add('active'), 10);
-  } else if (popup) {
-    popup.classList.remove('active');
-    setTimeout(() => popup.style.display = 'none', 300);
-    togglePageScroll(true);
-  } else {
-    document.querySelectorAll('.popup').forEach(p => {
-      p.classList.remove('active');
-      setTimeout(() => p.style.display = 'none', 300);
-    });
-    togglePageScroll(true);
-  }
-}
-
-function setupEventListeners() {
-  document.addEventListener('click', (event) => {
-    const target = event.target;
-    
-    if (target.closest('.header__button, .about__button, .services__button, .button-request_footer')) {
-      event.preventDefault();
-      togglePopup(popups.application, true);
-    }
-
-    if (target.closest('.button-request') && target.closest('.cards-products')) {
-      event.preventDefault();
-      const card = target.closest('.cards__item');
-      const modelTitle = card.querySelector('.cards__item-title').textContent;
-      // popups.model.querySelector('.subtitle').textContent = `Заявка на ${modelTitle}`;
-      // togglePopup(popups.model, true);
-    }
-  });
-
-  document.querySelectorAll('.form__close').forEach(button => {
-    button.addEventListener('click', (e) => {
-      e.preventDefault();
-      togglePopup(null, false);
-      history.replaceState(null, '', window.location.pathname);
-    });
-  });
-
-  document.addEventListener('keydown', ({ key }) => {
-    if (key === 'Escape') {
-      togglePopup(null, false);
-      history.replaceState(null, '', window.location.pathname);
-    }
-  });
-
-  document.querySelectorAll('.popup').forEach(popup => {
-    popup.addEventListener('click', (e) => {
-      if (e.target === popup) {
-        togglePopup(null, false);
-        history.replaceState(null, '', window.location.pathname);
-      }
-    });
-  });
-
-
-  const formsApplication = document.querySelectorAll('.form_popup-application');
-  formsApplication.forEach((form)=> {
-    
-    if (form) {
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        // togglePopup(popups.model, false);
-        togglePopup(popups.application, false);
-        togglePopup(popups.gratitude, true);
-        this.reset();
-        history.replaceState(null, '', window.location.pathname);
-      });
-    }
-  });
-
-  
-  const formFeedback = document.querySelector('.form_feedback');
-    if (formFeedback) {
-      formFeedback.addEventListener('submit', function(e) {
-        e.preventDefault();
-        togglePopup(popups.gratitude, true);
-        this.reset();
-        history.replaceState(null, '', window.location.pathname);
-      });
-    }
-
-  const gratitudeBtn = document.querySelector('.popup-gratitude__button');
-  if (gratitudeBtn) {
-    gratitudeBtn.addEventListener('click', () => {
-      togglePopup(null, false);
-      history.replaceState(null, '', window.location.pathname);
-    });
-  }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.popup').forEach(popup => {
-    popup.style.display = 'none';
-    popup.classList.remove('active');
-  });
-  
-  setupEventListeners();
-});
-
-
-
 //  Карусель секции partners
 document.addEventListener('DOMContentLoaded', function() {
   const partnersSwiper = new Swiper('.partners__box', {
@@ -658,8 +522,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
 // Открытие большого изображания в секции reviews
+document.addEventListener('DOMContentLoaded', function() {
+  Fancybox.bind("[data-fancybox]", {
+    Thumbs: false,
+    Toolbar: true,
+  });
+});
+
+
+// Попап секции products
 document.addEventListener('DOMContentLoaded', function() {
   let formData = {};
   Fancybox.bind("[data-fancybox]", {
@@ -681,7 +553,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const firstInputEl = document.querySelector('#product-popup .form__input');
 
         if (!productNameEl || !productInputEl || !firstInputEl) {
-          return;
+            return;
         }
 
         const productName = trigger.dataset.product || '';
@@ -699,7 +571,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const inputs = document.querySelectorAll('#product-popup .form__input, #product-popup textarea');
         inputs.forEach(input => {
-          input.classList.remove('active');
+            input.classList.remove('active');
         });
 
         formData = {};
@@ -717,7 +589,32 @@ document.addEventListener('DOMContentLoaded', function() {
         input.classList.remove('active');
       });
       formData = {};
-      Fancybox.close();
+      const gratitudePopup = document.querySelector('#gratitude-popup');
+      if (gratitudePopup) {
+        try {
+          Fancybox.close();
+          setTimeout(() => {
+            Fancybox.show([{ src: "#gratitude-popup", type: "inline" }], {
+              dragToClose: false,
+              closeButton: false,
+              mainClass: "fancybox-custom",
+              animated: true,
+              animationDuration: 100,
+              transitionEffect: "fade",
+              height: "auto",
+              protect: true,
+              hideOnClose: false,
+              on: {
+                init: (fancybox, slide) => {
+                  gratitudePopup.classList.add('active');
+                }
+              }
+            });
+          }, 200);
+        } catch (error) {
+          console.error(error);
+        }
+      }
     });
   }
 
@@ -740,4 +637,189 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   };
+});
+
+
+// Попап отправки заявки 
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.popup').forEach(popup => {
+    popup.style.display = 'none';
+    popup.classList.remove('active');
+  });
+
+  const clearForm = (formSelector, inputSelector) => {
+    const form = document.querySelector(formSelector);
+    if (form) {
+      form.reset();
+      const inputs = document.querySelectorAll(inputSelector);
+      inputs.forEach(input => {
+        input.classList.remove('active');
+      });
+    }
+  };
+
+  Fancybox.bind("[data-src='#application-popup']", {
+    dragToClose: false,
+    closeButton: false,
+    mainClass: "fancybox-custom",
+    animated: true,
+    animationDuration: 100,
+    transitionEffect: "fade",
+    height: "auto",
+    protect: true,
+    hideOnClose: false,
+    on: {
+      done: (fancybox, slide) => {
+        const firstInputEl = document.querySelector('#application-popup .form__input');
+        if (firstInputEl) {
+          setTimeout(() => firstInputEl.focus(), 100);
+        }
+      },
+      closing: () => {
+          clearForm('#application-popup form', '#application-popup .form__input, #application-popup textarea');
+      }
+    }
+  });
+
+  Fancybox.bind("[data-src='#gratitude-popup']", {
+    dragToClose: false,
+    closeButton: false,
+    mainClass: "fancybox-custom",
+    animated: true,
+    animationDuration: 100,
+    transitionEffect: "fade",
+    height: "auto",
+    protect: true,
+    hideOnClose: false,
+  });
+
+  const applicationForm = document.querySelector('#application-popup form');
+  if (applicationForm) {
+    applicationForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const gratitudePopup = document.querySelector('#gratitude-popup');
+      if (gratitudePopup) {
+          try {
+            Fancybox.close();
+            setTimeout(() => {
+              Fancybox.show([{ src: "#gratitude-popup", type: "inline" }], {
+                dragToClose: false,
+                closeButton: false,
+                mainClass: "fancybox-custom",
+                animated: true,
+                animationDuration: 100,
+                transitionEffect: "fade"
+              });
+            }, 200);
+          } catch (error) {
+            console.error(error);
+          }
+      }
+      const inputs = document.querySelectorAll('#application-popup .form__input, #application-popup textarea');
+        inputs.forEach(input => {
+          input.classList.remove('active');
+        });
+      clearForm('#application-popup form', '#application-popup .form__input, #application-popup textarea');
+    });
+  }
+
+  const formFeedback = document.querySelector('.form_feedback');
+  if (formFeedback) {
+    formFeedback.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const gratitudePopup = document.querySelector('#gratitude-popup');
+      if (gratitudePopup) {
+        try {
+          Fancybox.close();
+          setTimeout(() => {
+            Fancybox.show([{ src: "#gratitude-popup", type: "inline" }], {
+              dragToClose: false,
+              closeButton: false,
+              mainClass: "fancybox-custom",
+              animated: true,
+              animationDuration: 100,
+              transitionEffect: "fade"
+            });
+          }, 200);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+      clearForm('.form_feedback', '.form_feedback .form__input, .form_feedback textarea');
+    });
+  }
+
+  const gratitudeBtn = document.querySelector('.popup-gratitude__button');
+  if (gratitudeBtn) {
+    gratitudeBtn.addEventListener('click', () => {
+      Fancybox.close();
+      history.replaceState(null, '', window.location.pathname);
+    });
+  }
+
+  const gratitudePopup = document.querySelector('#gratitude-popup');
+  if (gratitudePopup) {
+    gratitudePopup.addEventListener('click', (e) => {
+      if (e.target === gratitudePopup) {
+        Fancybox.close();
+        history.replaceState(null, '', window.location.pathname);
+      }
+    });
+  }
+
+
+  const initFormInputs = () => {
+    const forms = [
+      { formSelector: '#application-popup form', inputSelector: '#application-popup .form__input, #application-popup textarea' },
+      { formSelector: '.form_feedback', inputSelector: '.form_feedback .form__input, .form_feedback textarea' }
+    ];
+
+    forms.forEach(({ formSelector, inputSelector }) => {
+      const inputs = document.querySelectorAll(inputSelector);
+      inputs.forEach(input => {
+        input.removeEventListener('focus', handleFocus);
+        input.removeEventListener('blur', handleBlur);
+        input.addEventListener('focus', handleFocus);
+        input.addEventListener('blur', handleBlur);
+
+        if (input.value) {
+          input.classList.add('active');
+        } else {
+          input.classList.remove('active');
+        }
+      });
+    });
+  };
+
+  function handleFocus() {
+    const form = this.closest('form');
+    if (form) {
+      const inputs = form.querySelectorAll('.form__input, .form__textarea');
+      inputs.forEach(input => {
+        if (input !== this) {
+          input.classList.remove('active');
+        }
+      });
+    }
+    this.classList.add('active');
+    this.removeAttribute('readonly');
+    this.style.caretColor = '';
+  }
+
+  function handleBlur() {
+    if (!this.value) {
+      this.classList.remove('active');
+    }
+  }
+
+  initFormInputs();
+
+  document.addEventListener('keydown', ({ key }) => {
+    if (key === 'Escape') {
+      clearForm('#application-popup form', '#application-popup .form__input, #application-popup textarea');
+      clearForm('.form_feedback', '.form_feedback .form__input, .form_feedback textarea');
+      Fancybox.close();
+      history.replaceState(null, '', window.location.pathname);
+    }
+  });
 });

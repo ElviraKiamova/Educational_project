@@ -16,20 +16,6 @@
   overflow-y: auto;
 }
 
-.fancybox__container {
-   background: transparent !important;
-  --fancybox-bg: transparent !important;
-}
-
-.fancybox__slide {
-  padding: 0 !important;
-}
-
-.fancybox__content {
-  padding: 0 !important;
-  background: rgb(9%, 10%, 12%, 0.5) !important;
-}
-
 @media (max-width: 1900px) and (min-width: 769px) {
   .popup-model {
     font-size: 1.2vw;

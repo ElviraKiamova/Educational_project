@@ -4,13 +4,13 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #F4F4F4;
-  display: none;
+
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  opacity: 0;
-  visibility: hidden;
+  opacity: 1;
+  visibility: visible;
   transition: opacity 0.3s, visibility 0.3s;
   z-index: 30;
 }
@@ -19,4 +19,13 @@
   display: flex;
   opacity: 1;
   visibility: visible;
+}
+
+.fancybox-custom .fancybox__content {
+  padding: 0;
+  background: #F4F4F4;
+}
+
+.fancybox-custom .fancybox__slide {
+    padding: 0;
 }
