@@ -667,12 +667,13 @@ document.addEventListener('DOMContentLoaded', function() {
     transitionEffect: "fade",
     height: "auto",
     protect: true,
+    hideScrollbar: false,
     hideOnClose: false,
     on: {
       done: (fancybox, slide) => {
         const firstInputEl = document.querySelector('#application-popup .form__input');
         if (firstInputEl) {
-          setTimeout(() => firstInputEl.focus(), 100);
+          setTimeout(() => firstInputEl.focus(), 300);
         }
       },
       closing: () => {
@@ -769,48 +770,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   const initFormInputs = () => {
-    const forms = [
-      { formSelector: '#application-popup form', inputSelector: '#application-popup .form__input, #application-popup textarea' },
-      { formSelector: '.form_feedback', inputSelector: '.form_feedback .form__input, .form_feedback textarea' }
-    ];
+    const inputs = document.querySelectorAll('.form__input, textarea');
+    inputs.forEach(input => {
+      input.addEventListener('focus', function() {
+        this.classList.add('active');
+        this.removeAttribute('readonly');
+        this.style.caretColor = '';
+      });
 
-    forms.forEach(({ formSelector, inputSelector }) => {
-      const inputs = document.querySelectorAll(inputSelector);
-      inputs.forEach(input => {
-        input.removeEventListener('focus', handleFocus);
-        input.removeEventListener('blur', handleBlur);
-        input.addEventListener('focus', handleFocus);
-        input.addEventListener('blur', handleBlur);
+      input.addEventListener('click', function() {
+        this.focus();
+        this.classList.add('active');
+      });
 
-        if (input.value) {
-          input.classList.add('active');
-        } else {
-          input.classList.remove('active');
+      input.addEventListener('blur', function() {
+        if (!this.value) {
+          this.classList.remove('active');
         }
       });
+
+      if (input.value) {
+        input.classList.add('active');
+      }
     });
   };
-
-  function handleFocus() {
-    const form = this.closest('form');
-    if (form) {
-      const inputs = form.querySelectorAll('.form__input, .form__textarea');
-      inputs.forEach(input => {
-        if (input !== this) {
-          input.classList.remove('active');
-        }
-      });
-    }
-    this.classList.add('active');
-    this.removeAttribute('readonly');
-    this.style.caretColor = '';
-  }
-
-  function handleBlur() {
-    if (!this.value) {
-      this.classList.remove('active');
-    }
-  }
 
   initFormInputs();
 
