@@ -5,6 +5,8 @@
   transform: translateX(-50%);
   display: flex;
   gap: 20px;
+  max-width: 170px;
+  z-index: 30;
 }
 
 @media (max-width: 1900px) and (min-width: 769px) {
@@ -37,8 +39,8 @@
 
 @media (max-width: 900px) and (min-width: 401px) {
   .about__control {
-    top: 80%;
-    bottom: auto;
+    top: auto;
+    bottom: 20px;
   }
 }
 

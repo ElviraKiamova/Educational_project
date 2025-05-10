@@ -18,18 +18,6 @@ const cardsCompanyElements = document.querySelectorAll('.company__img-carousel')
 const popupApplicationElement = document.querySelector('.popup-application');
 const closeButtonElements = document.querySelectorAll('.form__close');
 
-let currentSlide = 0;
-const desktopImages = [
-    './assets/about-desktop-image1.webp',
-    './assets/about-desktop-image2.webp',
-    './assets/about-desktop-image3.webp'
-];
-const mobileImages = [
-    './assets/about-mobile-image1.webp',
-    './assets/about-mobile-image2.webp',
-    './assets/about-mobile-image3.webp'
-];
-
 
 
 // Переключение языка сайта в шапке проекта
@@ -54,29 +42,20 @@ document.addEventListener('click', () => {
 
 
 // Карусель в секции about 
-function updateSlide(index) {
-  imgElement.src = desktopImages[index];
-  dotElements.forEach(dot => dot.classList.remove('about__dot_active'));
-  dotElements[index].classList.add('about__dot_active');
-  currentSlide = index;
-}
-
-prevButtonElement.addEventListener('click', () => {
-  let newIndex = currentSlide - 1;
-  if (newIndex < 0) newIndex = desktopImages.length - 1;
-  updateSlide(newIndex);
-});
-
-nextButtonElement.addEventListener('click', () => {
-  let newIndex = currentSlide + 1;
-  if (newIndex >= desktopImages.length) newIndex = 0;
-  updateSlide(newIndex);
-});
-
-dotElements.forEach((dot, index) => {
-  dot.addEventListener('click', () => {
-      updateSlide(index);
-  });
+const swiper = new Swiper('.about__box.swiper', {
+  centeredSlides: true,
+  loop: true,
+  slidesPerView: 1,
+  navigation: {
+    nextEl: '.about__button--next',
+    prevEl: '.about__button--prev',
+  },
+  pagination: {
+    el: '.about__dots',
+    clickable: true,
+    bulletClass: 'about__dot',
+    bulletActiveClass: 'about__dot_active',
+  },
 });
 
 

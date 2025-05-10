@@ -7,14 +7,11 @@
   padding: 16px 0 80px;
 }
 
-
-
 @media (max-width: 1900px) and (min-width: 769px) {
   .about {
     gap: 2%;
     padding: 2% 5%;
     max-width: none;
-    width: auto;
   }
 }
 

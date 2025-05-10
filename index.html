@@ -81,14 +81,30 @@
             <p class="about__text">Ваш надежный партнер <br>в решении сложных задач</p>
           </div>
         </div>
-        <div class="about__box slide swiper">
-          <picture class="about__picture-img">
-            <source srcset="./assets/about-desktop-image1.webp" type="image/jpeg">
-            <img src="./assets/about-desktop-image1.jpg" alt="Процесс обслуживания" loading="lazy">
-          </picture>
+        <div class="about__box swiper">
+          <div class="about__picture-box swiper-wrapper">
+            <div class="swiper-slide">
+              <picture>
+                <source srcset="./assets/about-desktop-image1.webp" type="image/jpeg">
+                <img class="about__picture-img" src="./assets/about-desktop-image1.jpg" alt="Процесс обслуживания" loading="lazy">
+              </picture>
+            </div>
+            <div class="swiper-slide">
+              <picture >
+                <source srcset="./assets/about-desktop-image2.webp" type="image/jpeg">
+                <img class="about__picture-img" src="./assets/about-desktop-image2.jpg" alt="Процесс обслуживания" loading="lazy">
+              </picture>
+            </div>
+            <div class="swiper-slide">
+              <picture>
+                <source srcset="./assets/about-desktop-image3.webp" type="image/jpeg">
+                <img class="about__picture-img" src="./assets/about-desktop-image3.jpg" alt="Процесс обслуживания" loading="lazy">
+              </picture>
+            </div>
+          </div>
           <div class="about__control">
             <button class="about__button-control about__button--prev" aria-label="Предыдущий слайд"></button>
-            <div class="about__dots">
+            <div class="about__dots swiper-pagination">
               <span class="about__dot about__dot_active"></span>
               <span class="about__dot"></span>
               <span class="about__dot"></span>

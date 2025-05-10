@@ -17,6 +17,6 @@
 @media (max-width: 400px) {
   .about__box-shield {
     gap: 17px;
-    padding: 11px 0;
+    padding: 0;
   }
 }
