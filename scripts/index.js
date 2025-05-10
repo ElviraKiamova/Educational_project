@@ -32,21 +32,6 @@ const mobileImages = [
 
 
 
-// Отзывчивость в форме для инпутов
-
-function toggleActive(form) {
-  form.querySelectorAll('.form__input, .form__textarea').forEach(element => {
-    element.addEventListener('click', function(evt) {
-      evt.preventDefault();
-      this.classList.toggle('active');
-    });
-  });
-}
-toggleActive(formPopupElement);
-toggleActive(formFeedbackElement);
-
-
-
 // Переключение языка сайта в шапке проекта
 selectHeaderElement.addEventListener('click', (evt) => {
   evt.stopPropagation();
@@ -54,7 +39,7 @@ selectHeaderElement.addEventListener('click', (evt) => {
 });
 
 itemSelectEnElement.addEventListener('click', (evt) => {
-  // evt.stopPropagation();
+  evt.stopPropagation();
   const contentRu = itemSelectRuElement.textContent;
   itemSelectRuElement.textContent = itemSelectEnElement.textContent;
   itemSelectEnElement.textContent = contentRu;
@@ -702,16 +687,14 @@ document.addEventListener('DOMContentLoaded', function() {
       if (gratitudePopup) {
           try {
             Fancybox.close();
-            setTimeout(() => {
-              Fancybox.show([{ src: "#gratitude-popup", type: "inline" }], {
-                dragToClose: false,
-                closeButton: false,
-                mainClass: "fancybox-custom",
-                animated: true,
-                animationDuration: 100,
-                transitionEffect: "fade"
-              });
-            }, 200);
+            Fancybox.show([{ src: "#gratitude-popup", type: "inline" }], {
+              dragToClose: false,
+              closeButton: false,
+              mainClass: "fancybox-custom",
+              animated: true,
+              animationDuration: 100,
+              transitionEffect: "fade"
+            });
           } catch (error) {
             console.error(error);
           }
