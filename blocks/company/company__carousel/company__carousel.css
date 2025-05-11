@@ -8,12 +8,22 @@
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  touch-action: pan-y;
+  touch-action: pan-x;
 }
 
 .company__carousel.dragging {
   cursor: grabbing;
   transition: none;
+}
+
+.swiper-wrapper.company {
+  display: flex;
+  transition-timing-function: linear;
+}
+
+.swiper-slide.company {
+  width: auto;
+  margin-right: 20px;
 }
 
 @media (max-width: 1900px) and (min-width: 769px) {

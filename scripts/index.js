@@ -12,7 +12,6 @@ const itemSelectRuElement = document.querySelector('.header__select-item_ru');
 const itemSelectEnElement = document.querySelector('.header__select-item_en');
 const openReplyElements = document.querySelectorAll('.questions__faq-switch');
 const itemElements = document.querySelectorAll('.cards.cards-products .cards__item');
-const carouselCompanyElement = document.querySelector('.company__carousel');
 const buttonSwitchCompanyElement = document.querySelector('.company__switch-carousel button');
 const cardsCompanyElements = document.querySelectorAll('.company__img-carousel'); 
 const popupApplicationElement = document.querySelector('.popup-application');
@@ -164,128 +163,180 @@ itemElements.forEach(item => {
 
 
 // прокрутка карусели в секции Company
-const totalCards = cardsCompanyElements.length;
-const cardWidths = Array.from(cardsCompanyElements).map(card => card.offsetWidth + 20);
-const totalWidth = cardWidths.reduce((sum, width) => sum + width, 0);
+document.addEventListener('DOMContentLoaded', () => {
+  const carouselCompanyElement = document.querySelector('.company__carousel .swiper-wrapper');
+  const originalSlideElements = document.querySelectorAll('.company__carousel .swiper-slide:not(.clone)');
+  
+  let cardWidths = [];
+  let totalOriginalWidth = 0;
+  const totalOriginalCards = originalSlideElements.length;
+  let currentIndex = 0;
+  let translateX = 0;
+  let isAnimating = false;
+  let isDragging = false;
+  let startX = 0;
+  let currentTranslate = 0;
 
-for (let i = 0; i < totalCards * 2; i++) {
-  const clone = cardsCompanyElements[i % totalCards].cloneNode(true);
-  carouselCompanyElement.appendChild(clone);
-}
+  function cloneSlides() {
+    const existingClones = document.querySelectorAll('.company__carousel .swiper-slide.clone');
+    existingClones.forEach(clone => clone.remove());
+    
+    for (let i = 0; i < 2; i++) {
+      const clone = originalSlideElements[i].cloneNode(true);
+      clone.classList.add('clone');
+      carouselCompanyElement.appendChild(clone);
+    }
+    
+    for (let i = totalOriginalCards - 2; i < totalOriginalCards; i++) {
+      const clone = originalSlideElements[i].cloneNode(true);
+      clone.classList.add('clone');
+      carouselCompanyElement.insertBefore(clone, carouselCompanyElement.firstChild);
+    }
+    
+    updateCardWidths();
 
-let translateX = 0;
-let isAnimating = false;
-let isDragging = false;
-let startX = 0;
-let currentTranslate = 0;
-
-function updateCarousel() {
-  carouselCompanyElement.style.transform = `translateX(${translateX}px)`;
-}
-
-function handleInfiniteScroll() {
-  while (Math.abs(translateX) >= totalWidth) {
-    const firstCard = carouselCompanyElement.firstElementChild;
-    carouselCompanyElement.appendChild(firstCard);
-    translateX += cardWidths[0];
-    carouselCompanyElement.style.transition = 'none';
-    updateCarousel();
-    cardWidths.push(cardWidths.shift());
+    goToSlide(0, false);
   }
-  while (translateX > 0) {
-    const lastCard = carouselCompanyElement.lastElementChild;
-    carouselCompanyElement.insertBefore(lastCard, carouselCompanyElement.firstElementChild);
-    translateX -= cardWidths[cardWidths.length - 1];
-    carouselCompanyElement.style.transition = 'none';
-    updateCarousel();
-    cardWidths.unshift(cardWidths.pop());
+
+  function updateCardWidths() {
+    const allSlides = document.querySelectorAll('.company__carousel .swiper-slide');
+    cardWidths = Array.from(allSlides).map(slide => slide.offsetWidth + 20);
+    totalOriginalWidth = Array.from(originalSlideElements)
+      .map(slide => slide.offsetWidth + 20)
+      .reduce((sum, width) => sum + width, 0);
   }
-}
 
-buttonSwitchCompanyElement.addEventListener('click', () => {
-  if (isAnimating || isDragging) return;
-  isAnimating = true;
+  function goToSlide(index, animate = true) {
+    currentIndex = index;
+    const allSlides = document.querySelectorAll('.company__carousel .swiper-slide');
+    let position = 0;
+    for (let i = 0; i < index + 2; i++) {
+      if (allSlides[i]) {
+        position -= allSlides[i].offsetWidth + 20;
+      }
+    }
+    translateX = position;
+    carouselCompanyElement.style.transition = animate ? 'transform 0.5s ease' : 'none';
+    updateCarousel();
+  }
 
-  const nextIndex = carouselCompanyElement.children.length % totalCards || 0;
-  translateX -= cardWidths[nextIndex];
+  function updateCarousel() {
+    carouselCompanyElement.style.transform = `translateX(${translateX}px)`;
+  }
 
-  carouselCompanyElement.style.transition = 'transform 0.5s ease';
-  updateCarousel();
+  function checkInfiniteScroll() {
+    if (currentIndex >= totalOriginalCards) {
+      currentIndex = 0;
+      goToSlide(currentIndex, false);
+      setTimeout(() => {
+        carouselCompanyElement.style.transition = 'transform 0.5s ease';
+      }, 50);
+    }
+    else if (currentIndex < 0) {
+      currentIndex = totalOriginalCards - 1;
+      goToSlide(currentIndex, false);
+      setTimeout(() => {
+        carouselCompanyElement.style.transition = 'transform 0.5s ease';
+      }, 50);
+    }
+  }
 
-  setTimeout(() => {
-    if (Math.abs(translateX) >= totalWidth) {
-      const firstCard = carouselCompanyElement.firstElementChild;
-      carouselCompanyElement.appendChild(firstCard);
-      translateX += cardWidths[0];
+  function initCarousel() {
+    cloneSlides();
+    if (buttonSwitchCompanyElement) {
+      buttonSwitchCompanyElement.addEventListener('click', () => {
+        if (isAnimating || isDragging) return;
+        isAnimating = true;
+        currentIndex++;
+        goToSlide(currentIndex);
+        setTimeout(() => {
+          checkInfiniteScroll();
+          isAnimating = false;
+        }, 500);
+      });
+    }
+
+    carouselCompanyElement.addEventListener('mousedown', (e) => {
+      if (isAnimating) return;
+      isDragging = true;
+      startX = e.pageX;
+      currentTranslate = translateX;
+      carouselCompanyElement.classList.add('dragging');
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const deltaX = e.pageX - startX;
+      translateX = currentTranslate + deltaX;
       carouselCompanyElement.style.transition = 'none';
       updateCarousel();
-      cardWidths.push(cardWidths.shift());
-    }
-    isAnimating = false;
-  }, 500);
+    });
+
+    document.addEventListener('mouseup', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      carouselCompanyElement.classList.remove('dragging');
+    
+      const dragDistance = translateX - currentTranslate;
+      if (Math.abs(dragDistance) > 50) {
+        if (dragDistance > 0) {
+          currentIndex--;
+        } else {
+          currentIndex++;
+        }
+      }
+      
+      goToSlide(currentIndex);
+      setTimeout(() => checkInfiniteScroll(), 50);
+    });
+
+    carouselCompanyElement.addEventListener('touchstart', (e) => {
+      if (isAnimating) return;
+      isDragging = true;
+      startX = e.touches[0].pageX;
+      currentTranslate = translateX;
+      carouselCompanyElement.classList.add('dragging');
+    }, { passive: true });
+
+    document.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const deltaX = e.touches[0].pageX - startX;
+      translateX = currentTranslate + deltaX;
+      carouselCompanyElement.style.transition = 'none';
+      updateCarousel();
+    }, { passive: true });
+
+    document.addEventListener('touchend', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      carouselCompanyElement.classList.remove('dragging');
+      
+      const dragDistance = translateX - currentTranslate;
+      if (Math.abs(dragDistance) > 50) {
+        if (dragDistance > 0) {
+          currentIndex--;
+        } else {
+          currentIndex++;
+        }
+      }
+      
+      goToSlide(currentIndex);
+      setTimeout(() => checkInfiniteScroll(), 50);
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+      updateCardWidths();
+      goToSlide(currentIndex, false);
+    });
+  }
+
+  initCarousel();
 });
-
-carouselCompanyElement.addEventListener('mousedown', (e) => {
-  if (isAnimating) return;
-  isDragging = true;
-  startX = e.pageX;
-  currentTranslate = translateX;
-  carouselCompanyElement.classList.add('dragging');
-  e.preventDefault();
-});
-
-carouselCompanyElement.addEventListener('mousemove', (e) => {
-  if (!isDragging) return;
-  const deltaX = e.pageX - startX;
-  translateX = currentTranslate + deltaX;
-  carouselCompanyElement.style.transition = 'none';
-  updateCarousel();
-});
-
-carouselCompanyElement.addEventListener('mouseup', () => {
-  if (!isDragging) return;
-  isDragging = false;
-  carouselCompanyElement.classList.remove('dragging');
-  handleInfiniteScroll();
-});
-
-carouselCompanyElement.addEventListener('mouseleave', () => {
-  if (!isDragging) return;
-  isDragging = false;
-  carouselCompanyElement.classList.remove('dragging');
-  handleInfiniteScroll();
-});
-
-carouselCompanyElement.addEventListener('touchstart', (e) => {
-  if (isAnimating) return;
-  isDragging = true;
-  startX = e.touches[0].pageX;
-  currentTranslate = translateX;
-  carouselCompanyElement.classList.add('dragging');
-}, { passive: true });
-
-carouselCompanyElement.addEventListener('touchmove', (e) => {
-  if (!isDragging) return;
-  const deltaX = e.touches[0].pageX - startX;
-  translateX = currentTranslate + deltaX;
-  carouselCompanyElement.style.transition = 'none';
-  updateCarousel();
-}, { passive: true });
-
-carouselCompanyElement.addEventListener('touchend', () => {
-  if (!isDragging) return;
-  isDragging = false;
-  carouselCompanyElement.classList.remove('dragging');
-  handleInfiniteScroll();
-}, { passive: true });
-updateCarousel();
-
-
 
 
 
 // Подключение каруселей в секциииях portfolio и reviews
-
 function initCarousel(config) {
   const { containerSelector, itemsSelector, backButtonSelector, forwardButtonSelector, parentContainerSelector, visibleItems } = config;
   const container = document.querySelector(containerSelector);
@@ -417,11 +468,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
-
-
-
 // Всплывающее окно с логотипом компании при открытии сайта
 document.addEventListener('DOMContentLoaded', () => {
   const popup = document.querySelector('.popup-logo');
@@ -442,8 +488,6 @@ document.addEventListener('DOMContentLoaded', () => {
     page.classList.add('visible');
   }
 });
-
-
 
 
 //  Карусель секции partners

@@ -266,21 +266,29 @@
               </li>
             </ul>
           </div>
-          <div class="company__carousel">
-            <picture class="company__img-carousel">
-              <source srcset="./assets/company-img1.jpg" type="image/jpeg">
-              <img src="./assets/company-img1.webp" alt="Проверка оборудования" loading="lazy">
-            </picture>
-            <picture class="company__img-carousel company__img-carousel_big">
-              <source srcset="./assets/company-img2.webp" type="image/webp">
-              <source srcset="./assets/company-img2.jpg" type="image/jpeg">
-              <img src="./assets/company-img2.jpg" alt="Разбор" loading="lazy">
-            </picture>
-            <picture class="company__img-carousel">
-              <source srcset="./assets/company-img3.webp" type="image/webp">
-              <source srcset="./assets/company-img3.jpg" type="image/jpeg">
-              <img src="./assets/company-img3.jpg" alt="Ремонт оборудования" loading="lazy">
-            </picture>
+          <div class="company__carousel swiper">
+            <div class="swiper-wrapper carousel">
+              <div class="swiper-slide company">
+                <picture class="company__img-carousel">
+                  <source srcset="./assets/company-img1.jpg" type="image/jpeg">
+                  <img class="company__img-carousel" src="./assets/company-img1.webp" alt="Проверка оборудования" loading="lazy">
+                </picture>
+              </div>
+              <div class="swiper-slide company">
+                <picture class="company__img-carousel company__img-carousel_big">
+                  <source srcset="./assets/company-img2.webp" type="image/webp">
+                  <source srcset="./assets/company-img2.jpg" type="image/jpeg">
+                  <img class="company__img-carousel company__img-carousel_big" src="./assets/company-img2.jpg" alt="Разбор" loading="lazy">
+                </picture>
+              </div>
+              <div class="swiper-slide company">
+                <picture class="company__img-carousel">
+                  <source srcset="./assets/company-img3.webp" type="image/webp">
+                  <source srcset="./assets/company-img3.jpg" type="image/jpeg">
+                  <img class="company__img-carousel" src="./assets/company-img3.jpg" alt="Ремонт оборудования" loading="lazy">
+                </picture>
+              </div>
+            </div>
           </div>
           <div class="company__switch-carousel">
             <button class="company__img" aria-label="Переключить изображение карусели">
