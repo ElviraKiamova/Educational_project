@@ -1,6 +1,7 @@
 .switch {
   display: flex;
   gap: 15px;
+  width: 175px;
 }
 
 @media (max-width: 1900px) and (min-width: 769px) {

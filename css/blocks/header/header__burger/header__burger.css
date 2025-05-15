@@ -24,23 +24,16 @@
   transition: opacity 0.3s ease;
 }
 
-.header__burger::before {
-  background-image: url(../../../assets/header-burger.svg);
-  opacity: 1;
-}
-
 .header__burger::after {
-  background-image: url(../../../assets/header-cross.svg);
-  opacity: 0;
-}
-
-.header__burger.active::before {
-  opacity: 0;
+  background-image: url(../../../../assets/header-burger.svg);
+  opacity: 1;
 }
 
 .header__burger.active::after {
+  background-image: url(../../../../assets/header-cross.svg);
   opacity: 1;
 }
+
 
 @media (max-width: 768px) {
   .header__burger {

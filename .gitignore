@@ -1,3 +1,5 @@
 .vscode/
 # Optional REPL history
 .history
+
+node_modules/

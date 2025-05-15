@@ -12,6 +12,7 @@
 
 .form.form_feedback {
   max-width: 1760px;
+  min-height: 0;
   padding: 100px 0 102px;
 }
 
