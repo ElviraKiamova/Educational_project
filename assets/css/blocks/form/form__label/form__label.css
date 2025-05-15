@@ -1,0 +1,126 @@
+.form__label.file {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 120px;
+  margin: 20px 0 0;
+  border: 2px dashed #464646;
+  border-radius: 10px;
+  color: #464646;
+  box-sizing: border-box;
+  cursor: default;
+  @media (hover: hover) {
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+}
+
+@media (hover: hover) {
+  .form__label.file:hover {
+    border-color: #FFF;
+    color: #FFF;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .form__label.file:active {
+    border-color: #FFF;
+    color: #FFF;
+  }
+}
+
+.form__label.file span {
+  position: relative;
+}
+
+.form.form_feedback .form__label.file span {
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.form__label.file span::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -41px;
+  width: 30px;
+  height: 30px;
+  background-image: url(/assets/img/Attach.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  font-size: 30px;
+  transition: filter 0.3s ease;
+}
+
+.form__label.file:hover span::before {
+  filter: brightness(1000%) saturate(0%);
+}
+
+.form__label.textarea, .form__label {
+  position: relative;
+}
+
+.form__label.textarea::after, .form__label::after {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 28px;
+  width: 1px;
+  height: 0;
+  background-color: #FFF;
+  transition: height 0.3s ease;
+  transform: translateY(-50%);
+}
+
+.form__label.textarea:has(.form__textarea.active)::after, .form__label:has(.form__input.active)::after {
+  height: 22px;
+}
+
+@media (max-width: 1919px) and (min-width: 769px) {
+  .form__label {
+    width: calc((100% - 2vw) / 3);
+  }
+  .form__label.file {
+    height: 6vw;
+    margin: 1vw 0  millions
+  }
+  .form.form_feedback .form__label.file span {
+    font-size: 1.2vw;
+    line-height: 1.5vw;
+  }
+  .form__label.textarea::after, .form__label::after {
+    top: 2vw;
+    left: 1.5vw;
+  }
+  .form__label.textarea:has(.form__textarea.active)::after, .form__label:has(.form__input.active)::after {
+    height: 1.2vw;
+  }
+  .form__label.file span::before {
+    width: min(2vw, 24px);
+    height: min(2vw, 24px);
+    top: -0.2vw;
+    left: -min(2.5vw, 28px);
+  }
+}
+
+@media (max-width: 768px) {
+  .form__label {
+    width: 100%;
+  }
+  .form__label.file {
+    height: 80px;
+    padding: 28px 38px;
+  }
+  .form__label.file span::before {
+    width: 24px;
+    height: 24px;
+    top: -0.2rem;
+    left: -2.3rem;
+  }
+}
+
+@media (max-width: 376px) {
+  .form__label.file {
+    justify-content: flex-end;
+  }
+}

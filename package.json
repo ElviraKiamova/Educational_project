@@ -18,11 +18,14 @@
   },
   "homepage": "https://github.com/ElviraKiamova/Ingolf#readme",
   "devDependencies": {
+    "cssnano": "^7.0.7",
     "gulp": "^5.0.0",
     "gulp-autoprefixer": "^9.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^10.0.0",
     "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.1.4",
     "gulp-sourcemaps": "^3.0.0"
   }
 }

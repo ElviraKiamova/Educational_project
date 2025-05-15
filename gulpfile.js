@@ -6,21 +6,21 @@ const rename = require('gulp-rename');
 
 function styles() {
   return src([
-    'css/styles/normalize.css',
-    'css/blocks/**/*.css'
+    'assets/css/styles/normalize.css',
+    'assets/css/blocks/**/*.css'
   ])
     .pipe(sourcemaps.init())
     .pipe(concat('style.css'))
     .pipe(cleanCSS({ compatibility: 'ie8' }))
     .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write())
-    .pipe(dest('css/dist/'));
+    .pipe(dest('assets/css/dist/'));
 }
 
 function watchFiles() {
   watch([
-    'css/styles/normalize.css',
-    'css/blocks/**/*.css'
+    'assets/css/styles/normalize.css',
+    'assets/css/blocks/**/*.css'
   ], styles);
 }
 

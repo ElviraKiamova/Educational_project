@@ -1,0 +1,41 @@
+.form__box-button {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  color: #727272;
+  margin-top: 27px;
+}
+
+.form__box-button a {
+  color: #FFF;
+  cursor: default;
+  @media (hover: hover) {
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .form__box-button {
+    gap: 1.5vw;
+    margin-top: 1.2vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .form__box-button {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .form_feedback .form__box-button {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 3000px) {
+  .form_feedback .form__box-button {
+    margin-top: 28px;
+  }
+}

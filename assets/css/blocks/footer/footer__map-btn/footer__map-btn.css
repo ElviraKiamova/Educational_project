@@ -1,0 +1,20 @@
+.footer__map-btn {
+  width: 73px;
+  height: 73px;
+  background-color: #B4100D;
+  border-radius: 50px;
+  border: none;
+  background-image: url(/assets/img/footer-map-btn.svg);
+  background-size: 31px 21px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .footer__map-btn {
+    width: 4vw;
+    height: 4vw;
+    border-radius: 2.5vw;
+    background-size: 1.7vw 1.15vw;
+  }
+}
