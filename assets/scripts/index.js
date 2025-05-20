@@ -79,6 +79,7 @@ document.querySelectorAll('.header__nav-link').forEach(link => {
 
 // замена изображений на мобильных устройствах
 function updateCardImages() {
+  const cardSource = document.querySelector('.change');
   const cardImage = document.querySelector('.offset');
   const reviewImage = document.querySelector('.domstroy');
   const footerImage = document.querySelector('.footer__map-img');
@@ -86,17 +87,19 @@ function updateCardImages() {
   const isMobileFooter = window.matchMedia('(max-width: 376px)').matches;
 
   if (isMobile) {
-    cardImage.src = './assets/portfolio1-mobile.webp';
-    reviewImage.src = './assets/reviews-img-luk.webp';
+    cardSource.srcset = '/assets/img/portfolio1-mobile.webp';
+    cardImage.src = '/assets/img/portfolio1-mobile.webp';
+    reviewImage.src = './assets/img/reviews-img-luk.webp';
   } else {
-    cardImage.src = './assets/portfolio1.webp';
-    reviewImage.src = './assets/reviews-carousel-img.webp';
+    cardSource.srcset = '/assets/img/portfolio1.webp';
+    cardImage.src = '/assets/img/portfolio1.jpg';
+    reviewImage.src = './assets/img/reviews-carousel-img.webp';
   }
 
   if (isMobileFooter) {
-    footerImage.src = './assets/footer-img-mobile.png';
+    footerImage.src = './assets/img/footer-img-mobile.png';
   } else {
-    footerImage.src = './assets/footer-img.webp';
+    footerImage.src = './assets/img/footer-img.webp';
   }
 }
 document.addEventListener('DOMContentLoaded', updateCardImages);

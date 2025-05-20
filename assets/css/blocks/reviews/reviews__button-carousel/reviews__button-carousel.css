@@ -1,4 +1,4 @@
-.reviews__button-carousel {
+.reviews__item-carousel .reviews__button-carousel {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -11,22 +11,46 @@
   background-image: url(/assets/img/reviews-magnifier.svg);
   background-repeat: no-repeat;
   background-position: center;
-  z-index: 10;
+  z-index: 20;
   opacity: 0;
   cursor: pointer;
-  @media (hover: hover) {
-    transition: opacity 0.3s ease;
-  }
+  transition: opacity 0.3s ease;
 }
 
 @media (hover: hover) {  
   .reviews__item-carousel:hover .reviews__button-carousel {
+     position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background-color: #B4100D;
+  border: none;
+  border-radius: 50%;
+  background-image: url(/assets/img/reviews-magnifier.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 10;
     opacity: 1;
   }
 }
 
 @media (hover: none), (pointer: coarse) {  
   .reviews__item-carousel:active .reviews__button-carousel {
+     position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background-color: #B4100D;
+  border: none;
+  border-radius: 50%;
+  background-image: url(/assets/img/reviews-magnifier.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 10;
     opacity: 1;
   }
 }

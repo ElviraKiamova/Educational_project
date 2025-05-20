@@ -3,6 +3,8 @@ const concat = require('gulp-concat');
 const cleanCSS = require('gulp-clean-css');
 const sourcemaps = require('gulp-sourcemaps');
 const rename = require('gulp-rename');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
 
 function styles() {
   return src([
@@ -11,7 +13,13 @@ function styles() {
   ])
     .pipe(sourcemaps.init())
     .pipe(concat('style.css'))
-    .pipe(cleanCSS({ compatibility: 'ie8' }))
+    .pipe(postcss([
+      autoprefixer({
+        overrideBrowserslist: ['last 2 versions', '> 1%'],
+        cascade: false
+      })
+    ]))
+    .pipe(cleanCSS())
     .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write())
     .pipe(dest('assets/css/dist/'));

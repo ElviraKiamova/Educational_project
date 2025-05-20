@@ -18,7 +18,7 @@
 @media (max-width: 768px) {
   .company__switch-carousel {
     position: relative;
-    left: -11px;
+    left: -21px;
     width: 100%;
     justify-content: center;
   }

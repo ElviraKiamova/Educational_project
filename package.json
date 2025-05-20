@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/ElviraKiamova/Ingolf#readme",
   "devDependencies": {
+    "autoprefixer": "^10.4.21",
     "cssnano": "^7.0.7",
     "gulp": "^5.0.0",
     "gulp-autoprefixer": "^9.0.0",

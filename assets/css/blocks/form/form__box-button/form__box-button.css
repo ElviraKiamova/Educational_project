@@ -4,13 +4,16 @@
   gap: 30px;
   color: #727272;
   margin-top: 27px;
+  cursor: pointer;
 }
 
 .form__box-button a {
   color: #FFF;
-  cursor: default;
-  @media (hover: hover) {
-    cursor: pointer;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .form__box-button a {
+    cursor: default;
   }
 }
 
@@ -31,11 +34,5 @@
 @media (max-width: 768px) {
   .form_feedback .form__box-button {
     margin-top: 20px;
-  }
-}
-
-@media (max-width: 3000px) {
-  .form_feedback .form__box-button {
-    margin-top: 28px;
   }
 }

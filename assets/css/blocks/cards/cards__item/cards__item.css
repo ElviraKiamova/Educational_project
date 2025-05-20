@@ -32,7 +32,7 @@
     padding: 10px 10px 15px 10px;
   }
   .cards__item.cards-portfolio {
-    flex: 0 0 calc(100% - 40px);
+    flex: 100%;
     max-width: 335px;
     height: auto;
     padding: 10px 10px 14px;

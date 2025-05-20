@@ -18,8 +18,6 @@
 @media (max-width: 768px) {
   .header__container {
     display: none;
-    max-width: 1600px;
-    box-sizing: border-box;
     position: absolute;
     left: 0;
     top: 101%;

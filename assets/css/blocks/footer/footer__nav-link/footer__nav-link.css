@@ -2,9 +2,6 @@
   color: #FFF;
   font-size: 40px;
   line-height: 90%;
-  @media (hover: hover) {
-    cursor: pointer;
-  }
 }
 
 .footer__nav-item:first-child .footer__nav-link {
@@ -30,5 +27,11 @@
   }
   .footer__nav-item:first-child .footer__nav-link:first-of-type {
     order: 3;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .header__link:hover {
+    cursor: default;
   }
 }
