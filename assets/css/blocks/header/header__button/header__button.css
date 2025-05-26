@@ -8,32 +8,13 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
-  @media (hover: hover) {
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-@media (hover: hover) {
-  .header__button:hover {
-    background-color: #1F1F1F;
-    color: #FFF;
-    cursor: pointer;
-  }
-}
-
-@media (hover: none), (pointer: coarse) {
-  .header__button:active {
-    background-color: #1F1F1F;
-    color: #FFF;
-  }
-}
-
-@media (hover: none), (pointer: coarse) {
-  .header__button:hover {
-    background-color: inherit;
-    color: inherit;
-    cursor: default;
-  }
+.header__button:hover {
+  background-color: #1F1F1F;
+  color: #FFF;
+  cursor: pointer;
 }
 
 
@@ -49,5 +30,10 @@
   .header__button {
     width: 335px;
     margin-top: 24px;
+  }
+  
+  .header__button:active {
+    background-color: #1F1F1F;
+    color: #FFF;
   }
 }
