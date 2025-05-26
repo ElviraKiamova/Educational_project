@@ -13,14 +13,14 @@
   background-position: center;
   z-index: 20;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 1s ease;
 }
 
 @media (hover: hover) {  
   .reviews__item-carousel:hover .reviews__button-carousel {
     cursor: pointer;
     opacity: 1;
-    }
+  }
 }
 
 @media (max-width: 1900px) and (min-width: 769px) {
