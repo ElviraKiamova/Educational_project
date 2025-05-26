@@ -1,4 +1,7 @@
-.popup-gratitude__button {
+.gratitude__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 300px;
   height: 60px;
   background-color: #B4100D;
@@ -9,14 +12,14 @@
 }
 
 @media (max-width: 768px) {
-  .popup-gratitude__button {
+  .gratitude__link {
     font-size: 14px;
     padding: 8px 16px;
   }
 }
 
 @media (max-width: 375px) {
-  .popup-gratitude__button {
+  .gratitude__link {
     font-size: 12px;
     padding: 6px 12px;
   }
