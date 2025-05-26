@@ -13,46 +13,14 @@
   background-position: center;
   z-index: 20;
   opacity: 0;
-  cursor: pointer;
   transition: opacity 0.3s ease;
 }
 
 @media (hover: hover) {  
   .reviews__item-carousel:hover .reviews__button-carousel {
-     position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80px;
-  height: 80px;
-  background-color: #B4100D;
-  border: none;
-  border-radius: 50%;
-  background-image: url(/assets/img/reviews-magnifier.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  z-index: 10;
+    cursor: pointer;
     opacity: 1;
-  }
-}
-
-@media (hover: none), (pointer: coarse) {  
-  .reviews__item-carousel:active .reviews__button-carousel {
-     position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80px;
-  height: 80px;
-  background-color: #B4100D;
-  border: none;
-  border-radius: 50%;
-  background-image: url(/assets/img/reviews-magnifier.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  z-index: 10;
-    opacity: 1;
-  }
+    }
 }
 
 @media (max-width: 1900px) and (min-width: 769px) {

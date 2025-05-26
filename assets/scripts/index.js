@@ -89,17 +89,17 @@ function updateCardImages() {
   if (isMobile) {
     cardSource.srcset = '/assets/img/portfolio1-mobile.webp';
     cardImage.src = '/assets/img/portfolio1-mobile.webp';
-    reviewImage.src = './assets/img/reviews-img-luk.webp';
+    reviewImage.src = '/assets/img/reviews-img-luk.webp';
   } else {
     cardSource.srcset = '/assets/img/portfolio1.webp';
     cardImage.src = '/assets/img/portfolio1.jpg';
-    reviewImage.src = './assets/img/reviews-carousel-img.webp';
+    reviewImage.src = '/assets/img/reviews-carousel-img.webp';
   }
 
   if (isMobileFooter) {
-    footerImage.src = './assets/img/footer-img-mobile.png';
+    footerImage.src = '/assets/img/footer-img-mobile.png';
   } else {
-    footerImage.src = './assets/img/footer-img.webp';
+    footerImage.src = '/assets/img/footer-img.webp';
   }
 }
 document.addEventListener('DOMContentLoaded', updateCardImages);
