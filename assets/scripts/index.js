@@ -332,6 +332,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //  Карусель секции partners
 document.addEventListener('DOMContentLoaded', function() {
+  const swiperContainer = document.querySelector('.partners__box');
+  if (!swiperContainer) return;
   const partnersSwiper = new Swiper('.partners__box', {
     slidesPerView: 'auto',
     spaceBetween: 104,
@@ -518,6 +520,12 @@ document.addEventListener('DOMContentLoaded', function() {
     hideScrollbar: false,
     hideOnClose: false,
     on: {
+      init: (fancybox) => {
+      const content = document.querySelector('.fancybox__content');
+      if (content) {
+        content.style.padding = '0';
+      }
+    },
       done: (fancybox, slide) => {
         const firstInputEl = document.querySelector('#application-popup .form__input');
         if (firstInputEl) {

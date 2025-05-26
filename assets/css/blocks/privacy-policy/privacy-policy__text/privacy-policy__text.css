@@ -1,0 +1,18 @@
+.privacy-policy__text {
+  margin: 40px 0 55px;
+}
+
+@media (max-width: 1900px) and (min-width: 769px) {
+  .privacy-policy__text {
+    margin: 2vw 0 3vw;
+    font-size: 1.2vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .privacy-policy__text {
+    margin: 20px 0 30px;
+    font-size: 16px;
+    line-height: 130%;
+  }
+}

@@ -1,13 +1,14 @@
 .form {
+  flex-grow: 1;
   position: relative;
   width: 100%;
   max-width: 1920px;
-  padding: 100px 80px 270px;
+  padding: 100px 80px 0;
   background-color: #18191E;
   color: #F4F4F4;
   box-sizing: border-box;
-  min-height: 100vh;
   overflow-y: auto;
+ 
 }
 
 .form.form_feedback {

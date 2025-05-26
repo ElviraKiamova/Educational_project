@@ -7,7 +7,8 @@
   align-items: center;
   width: 100%;
   min-height: 100%;
-  background: rgb(9%, 10%, 12%, 0.5);
+  padding: 0;
+  background-color: #18191e;
   z-index: 30;
   font-weight: 400;
   font-size: 18px;
@@ -15,4 +16,8 @@
   letter-spacing: 0%;
   overflow-y: auto;
   overscroll-behavior: contain;
+}
+
+.popup-application.popup.fancybox__content {
+  padding: 0;
 }

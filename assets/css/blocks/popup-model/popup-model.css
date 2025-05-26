@@ -7,6 +7,7 @@
   align-items: center;
   width: 100%;
   height: 100%;
+  background-color: #18191e;
   z-index: 30;
   font-family: Golos Text;
   font-weight: 400;
@@ -20,4 +21,8 @@
   .popup-model {
     font-size: 1.2vw;
   }
+}
+
+.popup-model.popup.fancybox__content {
+  padding: 0;
 }
