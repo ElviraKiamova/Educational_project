@@ -670,6 +670,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', () => {
   const carouselCompanyElement = document.querySelector('.company__carousel .swiper-wrapper');
   const originalSlideElements = document.querySelectorAll('.company__carousel .swiper-slide:not(.clone)');
+  const switchButton = document.querySelector('.company__switch-carousel button');
   
   let cardWidths = [];
   let totalOriginalWidth = 0;
@@ -694,22 +695,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     for (let i = totalOriginalCards - 2; i < totalOriginalCards; i++) {
-      if (
-        carouselCompanyElement &&
-        originalSlideElements &&
-        originalSlideElements.length > 0 &&
-        originalSlideElements[i]
-      ) {
+      if (originalSlideElements[i]) {
         const clone = originalSlideElements[i].cloneNode(true);
         clone.classList.add('clone');
-        carouselCompanyElement.appendChild(clone);
+        carouselCompanyElement.insertBefore(clone, carouselCompanyElement.firstChild);
       }
     }
     
     updateCardWidths();
-
-goToSlide(0, false);
+    currentIndex = 0;
+    goToSlide(currentIndex, false);
   }
+
   function updateCardWidths() {
     const allSlides = document.querySelectorAll('.company__carousel .swiper-slide');
     cardWidths = Array.from(allSlides).map(slide => slide.offsetWidth + 20);
@@ -719,57 +716,71 @@ goToSlide(0, false);
   }
 
   function goToSlide(index, animate = true) {
-    if (!carouselCompanyElement) return;
+    if (isAnimating || !carouselCompanyElement) return;
+    
     currentIndex = index;
-    const allSlides = document.querySelectorAll('.company__carousel .swiper-slide');
     let position = 0;
+    
     for (let i = 0; i < index + 2; i++) {
-      if (allSlides[i]) {
-        position -= allSlides[i].offsetWidth + 20;
+      if (cardWidths[i]) {
+        position -= cardWidths[i];
       }
     }
+    
     translateX = position;
     carouselCompanyElement.style.transition = animate ? 'transform 0.5s ease' : 'none';
-    updateCarousel();
-  }
-
-  function updateCarousel() {
     carouselCompanyElement.style.transform = `translateX(${translateX}px)`;
+    
+    if (animate) {
+      isAnimating = true;
+      setTimeout(() => {
+        isAnimating = false;
+        checkInfiniteScroll();
+      }, 500);
+    }
   }
 
   function checkInfiniteScroll() {
     if (currentIndex >= totalOriginalCards) {
       currentIndex = 0;
       goToSlide(currentIndex, false);
-      setTimeout(() => {
-        carouselCompanyElement.style.transition = 'transform 0.5s ease';
-      }, 50);
     }
+
     else if (currentIndex < 0) {
       currentIndex = totalOriginalCards - 1;
       goToSlide(currentIndex, false);
-      setTimeout(() => {
-        carouselCompanyElement.style.transition = 'transform 0.5s ease';
-      }, 50);
     }
+  }
+
+  function handleSwipeEnd() {
+    if (!isDragging) return;
+    isDragging = false;
+    carouselCompanyElement.classList.remove('dragging');
+    
+    const dragDistance = translateX - currentTranslate;
+    if (Math.abs(dragDistance) > 50) {
+      if (dragDistance > 0) {
+        currentIndex--;
+      } else {
+        currentIndex++;
+      }
+    }
+    
+    goToSlide(currentIndex);
   }
 
   function initCarousel() {
     cloneSlides();
-    if (buttonSwitchCompanyElement) {
-      buttonSwitchCompanyElement.addEventListener('click', () => {
+    
+    if (switchButton) {
+      switchButton.addEventListener('click', () => {
         if (isAnimating || isDragging) return;
-        isAnimating = true;
         currentIndex++;
         goToSlide(currentIndex);
-        setTimeout(() => {
-          checkInfiniteScroll();
-          isAnimating = false;
-        }, 500);
       });
     }
 
-    carouselCompanyElement?.addEventListener('mousedown', (e) => {
+    carouselCompanyElement.addEventListener('mousedown', (e) => {
       if (isAnimating) return;
       isDragging = true;
       startX = e.pageX;
@@ -783,28 +794,12 @@ goToSlide(0, false);
       const deltaX = e.pageX - startX;
       translateX = currentTranslate + deltaX;
       carouselCompanyElement.style.transition = 'none';
-      updateCarousel();
+      carouselCompanyElement.style.transform = `translateX(${translateX}px)`;
     });
 
-    document.addEventListener('mouseup', () => {
-      if (!isDragging) return;
-      isDragging = false;
-      carouselCompanyElement.classList.remove('dragging');
-    
-      const dragDistance = translateX - currentTranslate;
-      if (Math.abs(dragDistance) > 50) {
-        if (dragDistance > 0) {
-          currentIndex--;
-        } else {
-          currentIndex++;
-        }
-      }
-      
-      goToSlide(currentIndex);
-      setTimeout(() => checkInfiniteScroll(), 50);
-    });
+    document.addEventListener('mouseup', handleSwipeEnd);
 
-    carouselCompanyElement?.addEventListener('touchstart', (e) => {
+    carouselCompanyElement.addEventListener('touchstart', (e) => {
       if (isAnimating) return;
       isDragging = true;
       startX = e.touches[0].pageX;
@@ -817,26 +812,10 @@ goToSlide(0, false);
       const deltaX = e.touches[0].pageX - startX;
       translateX = currentTranslate + deltaX;
       carouselCompanyElement.style.transition = 'none';
-      updateCarousel();
+      carouselCompanyElement.style.transform = `translateX(${translateX}px)`;
     }, { passive: true });
 
-    document.addEventListener('touchend', () => {
-      if (!isDragging) return;
-      isDragging = false;
-      carouselCompanyElement.classList.remove('dragging');
-      
-      const dragDistance = translateX - currentTranslate;
-      if (Math.abs(dragDistance) > 50) {
-        if (dragDistance > 0) {
-          currentIndex--;
-        } else {
-          currentIndex++;
-        }
-      }
-      
-      goToSlide(currentIndex);
-      setTimeout(() => checkInfiniteScroll(), 50);
-    }, { passive: true });
+    document.addEventListener('touchend', handleSwipeEnd, { passive: true });
 
     window.addEventListener('resize', () => {
       updateCardWidths();
@@ -846,4 +825,3 @@ goToSlide(0, false);
 
   initCarousel();
 });
-
