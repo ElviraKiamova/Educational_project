@@ -443,32 +443,8 @@ document.addEventListener('DOMContentLoaded', function() {
         input.classList.remove('active');
       });
       formData = {};
-      const gratitudePopup = document.querySelector('#gratitude-popup');
-      if (gratitudePopup) {
-        try {
-          Fancybox.close();
-          setTimeout(() => {
-            Fancybox.show([{ src: "#gratitude-popup", type: "inline" }], {
-              dragToClose: false,
-              closeButton: false,
-              mainClass: "fancybox-custom",
-              animated: true,
-              animationDuration: 100,
-              transitionEffect: "fade",
-              height: "auto",
-              protect: true,
-              hideOnClose: false,
-              on: {
-                init: (fancybox, slide) => {
-                  gratitudePopup.classList.add('active');
-                }
-              }
-            });
-          }, 200);
-        } catch (error) {
-          console.error(error);
-        }
-      }
+      Fancybox.close();
+      window.location.href = 'index-gratitude.html';
     });
   }
 
@@ -525,11 +501,11 @@ document.addEventListener('DOMContentLoaded', function() {
     hideOnClose: false,
     on: {
       init: (fancybox) => {
-      const content = document.querySelector('.fancybox__content');
-      if (content) {
-        content.style.padding = '0';
-      }
-    },
+        const content = document.querySelector('.fancybox__content');
+        if (content) {
+          content.style.padding = '0';
+        }
+      },
       done: (fancybox, slide) => {
         const firstInputEl = document.querySelector('#application-popup .form__input');
         if (firstInputEl) {
@@ -537,47 +513,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       },
       closing: () => {
-          clearForm('#application-popup form', '#application-popup .form__input, #application-popup textarea');
+        clearForm('#application-popup form', '#application-popup .form__input, #application-popup textarea');
       }
     }
-  });
-
-  Fancybox.bind("[data-src='#gratitude-popup']", {
-    dragToClose: false,
-    closeButton: false,
-    mainClass: "fancybox-custom",
-    animated: true,
-    animationDuration: 100,
-    transitionEffect: "fade",
-    height: "auto",
-    protect: true,
-    hideOnClose: false,
   });
 
   const applicationForm = document.querySelector('#application-popup form');
   if (applicationForm) {
     applicationForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      const gratitudePopup = document.querySelector('#gratitude-popup');
-      if (gratitudePopup) {
-          try {
-            Fancybox.close();
-            Fancybox.show([{ src: "#gratitude-popup", type: "inline" }], {
-              dragToClose: false,
-              closeButton: false,
-              mainClass: "fancybox-custom",
-              animated: true,
-              animationDuration: 100,
-              transitionEffect: "fade"
-            });
-          } catch (error) {
-            console.error(error);
-          }
-      }
-      const inputs = document.querySelectorAll('#application-popup .form__input, #application-popup textarea');
-        inputs.forEach(input => {
-          input.classList.remove('active');
-        });
+      Fancybox.close();
+      window.location.href = 'index-gratitude.html';
       clearForm('#application-popup form', '#application-popup .form__input, #application-popup textarea');
     });
   }
@@ -586,46 +532,10 @@ document.addEventListener('DOMContentLoaded', function() {
   if (formFeedback) {
     formFeedback.addEventListener('submit', function(e) {
       e.preventDefault();
-      const gratitudePopup = document.querySelector('#gratitude-popup');
-      if (gratitudePopup) {
-        try {
-          Fancybox.close();
-          setTimeout(() => {
-            Fancybox.show([{ src: "#gratitude-popup", type: "inline" }], {
-              dragToClose: false,
-              closeButton: false,
-              mainClass: "fancybox-custom",
-              animated: true,
-              animationDuration: 100,
-              transitionEffect: "fade"
-            });
-          }, 200);
-        } catch (error) {
-          console.error(error);
-        }
-      }
+      window.location.href = 'index-gratitude';
       clearForm('.form_feedback', '.form_feedback .form__input, .form_feedback textarea');
     });
   }
-
-  const gratitudeBtn = document.querySelector('.popup-gratitude__button');
-  if (gratitudeBtn) {
-    gratitudeBtn.addEventListener('click', () => {
-      Fancybox.close();
-      history.replaceState(null, '', window.location.pathname);
-    });
-  }
-
-  const gratitudePopup = document.querySelector('#gratitude-popup');
-  if (gratitudePopup) {
-    gratitudePopup.addEventListener('click', (e) => {
-      if (e.target === gratitudePopup) {
-        Fancybox.close();
-        history.replaceState(null, '', window.location.pathname);
-      }
-    });
-  }
-
 
   const initFormInputs = () => {
     const inputs = document.querySelectorAll('.form__input, textarea');
