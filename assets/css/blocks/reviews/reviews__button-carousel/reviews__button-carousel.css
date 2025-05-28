@@ -24,7 +24,7 @@
 }
 
 @media (max-width: 1900px) and (min-width: 769px) {
-  .reviews__button-carousel {
+  .reviews__item-carousel .reviews__button-carousel {
     width: 6vw;
     height: 6vw;
     background-size: 1.5vw 1.5vw;
