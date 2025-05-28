@@ -19,6 +19,50 @@ const closeButtonElements = document.querySelectorAll('.form__close');
 
 
 
+
+// Всплывающее окно с логотипом компании при открытии сайта
+document.addEventListener('DOMContentLoaded', () => {
+  const popup = document.querySelector('.popup-logo');
+  const page = document.querySelector('.page');
+  const hasSeenPopup = localStorage.getItem('hasSeenPopup');
+
+  if (popup && !hasSeenPopup) {
+    popup.classList.add('active');
+
+    setTimeout(() => {
+      popup.classList.remove('active');
+      if (page) {
+        page.classList.add('visible');
+      }
+      localStorage.setItem('hasSeenPopup', 'true');
+    }, 2000);
+  } else if (page) {
+    page.classList.add('visible');
+  }
+});
+
+
+
+// Открытие/закрытие бургер-меню
+burgerElement.addEventListener('click', () => {
+  containerElement.classList.toggle('header__container_active');
+  burgerElement.classList.toggle('active');
+});
+document.addEventListener('click', (evt) => {
+  if (!containerElement.contains(evt.target) && !burgerElement.contains(evt.target)) {
+    containerElement.classList.remove('header__container_active');
+    burgerElement.classList.remove('active');
+  }
+});
+document.querySelectorAll('.header__nav-link').forEach(link => {
+  link.addEventListener('click', (evt) => {
+    containerElement.classList.remove('header__container_active');
+    burgerElement.classList.remove('active');
+  });
+});
+
+
+
 // Переключение языка сайта в шапке проекта
 selectHeaderElement.addEventListener('click', (evt) => {
   evt.stopPropagation();
@@ -53,27 +97,6 @@ const swiper = new Swiper('.about__box.swiper', {
     bulletClass: 'about__dot',
     bulletActiveClass: 'about__dot_active',
   },
-});
-
-
-// Открытие/закрытие бургер-меню
-burgerElement.addEventListener('click', () => {
-  containerElement.classList.toggle('header__container_active');
-  burgerElement.classList.toggle('active');
-});
-
-document.addEventListener('click', (evt) => {
-  if (!containerElement.contains(evt.target) && !burgerElement.contains(evt.target)) {
-    containerElement.classList.remove('header__container_active');
-    burgerElement.classList.remove('active');
-  }
-});
-
-document.querySelectorAll('.header__nav-link').forEach(link => {
-  link.addEventListener('click', (evt) => {
-    containerElement.classList.remove('header__container_active');
-    burgerElement.classList.remove('active');
-  });
 });
 
 
@@ -123,6 +146,29 @@ window.addEventListener('resize', updateCardImages);
 
 
 
+// Переключение изображений в секции products
+itemElements.forEach(item => {
+  const leftButton = item.querySelector('.cards__item-button_left');
+  const rightButton = item.querySelector('.cards__item-button_right');
+  const img = item.querySelector('.cards__item-img');
+
+  leftButton.addEventListener('click', () => {
+    img.classList.remove('mirrored');
+    leftButton.classList.add('active');
+    leftButton.classList.remove('inactive');
+    rightButton.classList.add('inactive');
+    rightButton.classList.remove('active');
+  });
+
+  rightButton.addEventListener('click', () => {
+    img.classList.add('mirrored');
+    rightButton.classList.add('active');
+    rightButton.classList.remove('inactive');
+    leftButton.classList.add('inactive');
+    leftButton.classList.remove('active');
+  });
+});
+
 
 // аккардеон в секции Вопрос-Ответ
 document.querySelectorAll('.questions__faq-question').forEach(question => {
@@ -151,183 +197,142 @@ document.querySelectorAll('.questions__faq-question').forEach(question => {
 });
 
 
-// Переключение изображений в секции products
-itemElements.forEach(item => {
-  const leftButton = item.querySelector('.cards__item-button_left');
-  const rightButton = item.querySelector('.cards__item-button_right');
-  const img = item.querySelector('.cards__item-img');
 
-  leftButton.addEventListener('click', () => {
-    img.classList.remove('mirrored');
-    leftButton.classList.add('active');
-    leftButton.classList.remove('inactive');
-    rightButton.classList.add('inactive');
-    rightButton.classList.remove('active');
-  });
+// Подключение каруселей в секциях portfolio и reviews
+function initCarousel(config) {
+  const { containerSelector, itemsSelector, backButtonSelector, forwardButtonSelector, parentContainerSelector, visibleItems } = config;
+  const container = document.querySelector(containerSelector);
+  const parentContainer = document.querySelector(parentContainerSelector);
+  const isReviewsCarousel = containerSelector === '.reviews__carousel';
+  let swiper = null;
 
-  rightButton.addEventListener('click', () => {
-    img.classList.add('mirrored');
-    rightButton.classList.add('active');
-    rightButton.classList.remove('inactive');
-    leftButton.classList.add('inactive');
-    leftButton.classList.remove('active');
-  });
-});
+  if (!container || !parentContainer) return;
 
-
-
-// Подключение каруселей в секциииях  portfolio и reviews
-// function initCarousel(config) {
-//   const { containerSelector, itemsSelector, backButtonSelector, forwardButtonSelector, parentContainerSelector, visibleItems } = config;
-//   const container = document.querySelector(containerSelector);
-//   const parentContainer = document.querySelector(parentContainerSelector);
-//   const isReviewsCarousel = containerSelector === '.reviews__carousel';
-//   let swiper = null;
-
-//   if (!container || !parentContainer) return;
-
-//   function initSwiper() {
-//     if (!isReviewsCarousel || window.innerWidth > 768) return;
+  function initSwiper() {
+    if (!isReviewsCarousel || window.innerWidth > 768) return;
     
-//     swiper = new Swiper('.reviews__swiper', {
-//       slidesPerView: 'auto',
-//       freeMode: true,
-//       loop: true,
-//       loopAdditionalSlides: 4,
-//       centeredSlidesBounds: true,
-//       resistanceRatio: 0,
-//       slideToClickedSlide: true,
-//       initialSlide: 0,
-//       slidesOffsetBefore: 20,
-//       spaceBetween: 104,
-//       breakpoints: {
-//         768: {
-//           spaceBetween: 25
-//         }, 
-//         320: {
-//           spaceBetween: 25
-//         }
-//       }
-//     });
-
-//     setTimeout(() => swiper.slideTo(0, 0), 100);
-//   }
-
-//   function initDesktopCarousel() {
-//     const items = document.querySelectorAll(`${containerSelector} ${itemsSelector}`);
-//     let currentIndex = 0;
-//     const itemsPerView = visibleItems || 1;
-
-//     function updateCarousel() {
-//       const itemWidth = items[0]?.offsetWidth || 0;
-//       const gap = parseFloat(getComputedStyle(container).gap) || 0;
-//       const parentWidth = parentContainer.offsetWidth;
-//       const maxIndex = Math.max(0, items.length - itemsPerView);
-      
-//       currentIndex = Math.min(Math.max(currentIndex, 0), maxIndex);
-//       const translateX = -currentIndex * (itemWidth + gap);
-      
-//       container.style.transform = `translateX(${translateX}px)`;
-      
-//       if (backButtonSelector && forwardButtonSelector) {
-//         const backButton = document.querySelector(backButtonSelector);
-//         const forwardButton = document.querySelector(forwardButtonSelector);
-        
-//         backButton.classList.toggle('active', currentIndex > 0);
-//         forwardButton.classList.toggle('active', currentIndex < maxIndex);
-//       }
-//     }
-
-//     if (backButtonSelector) {
-//       document.querySelector(backButtonSelector).addEventListener('click', () => {
-//         if (currentIndex > 0) {
-//           currentIndex--;
-//           updateCarousel();
-//         }
-//       });
-//     }
-
-//     if (forwardButtonSelector) {
-//       document.querySelector(forwardButtonSelector).addEventListener('click', () => {
-//         const maxIndex = Math.max(0, items.length - itemsPerView);
-//         if (currentIndex < maxIndex) {
-//           currentIndex++;
-//           updateCarousel();
-//         }
-//       });
-//     }
-
-//     updateCarousel();
-//     window.addEventListener('resize', updateCarousel);
-//     return () => window.removeEventListener('resize', updateCarousel);
-//   }
-
-//   function handleResize() {
-//     if (isReviewsCarousel) {
-//       if (window.innerWidth <= 768 && !swiper) {
-//         initSwiper();
-//       } else if (window.innerWidth > 768 && swiper) {
-//         swiper.destroy();
-//         swiper = null;
-//         container.style.transform = 'translateX(0)';
-//       }
-//     }
-//   }
-
-//   if (isReviewsCarousel && window.innerWidth <= 768) {
-//     initSwiper();
-//   } else {
-//     const cleanup = initDesktopCarousel();
-//   }
-
-//   window.addEventListener('resize', handleResize);
-//   return () => {
-//     if (swiper) swiper.destroy();
-//     window.removeEventListener('resize', handleResize);
-//   };
-// }
-// document.addEventListener('DOMContentLoaded', () => {
-//   initCarousel({
-//     containerSelector: '.cards-portfolio',
-//     itemsSelector: '.cards__item',
-//     backButtonSelector: '.portfolio .switch__button.back',
-//     forwardButtonSelector: '.portfolio .switch__button.forward',
-//     parentContainerSelector: '.portfolio__container',
-//     visibleItems: 3
-//   });
-
-//   initCarousel({
-//     containerSelector: '.reviews__carousel',
-//     itemsSelector: '.reviews__item-carousel',
-//     backButtonSelector: '.reviews .switch__button.back',
-//     forwardButtonSelector: '.reviews .switch__button.forward',
-//     parentContainerSelector: '.reviews__container',
-//     visibleItems: 4
-//   });
-// });
-
-
-
-// Всплывающее окно с логотипом компании при открытии сайта
-document.addEventListener('DOMContentLoaded', () => {
-  const popup = document.querySelector('.popup-logo');
-  const page = document.querySelector('.page');
-  const hasSeenPopup = localStorage.getItem('hasSeenPopup');
-
-  if (popup && !hasSeenPopup) {
-    popup.classList.add('active');
-
-    setTimeout(() => {
-      popup.classList.remove('active');
-      if (page) {
-        page.classList.add('visible');
+    swiper = new Swiper('.reviews__swiper', {
+      slidesPerView: 'auto',
+      freeMode: true,
+      loop: true,
+      loopAdditionalSlides: 4,
+      centeredSlidesBounds: true,
+      resistanceRatio: 0,
+      slideToClickedSlide: true,
+      initialSlide: 0,
+      slidesOffsetBefore: 20,
+      spaceBetween: 104,
+      breakpoints: {
+        768: {
+          spaceBetween: 25
+        }, 
+        320: {
+          spaceBetween: 25
+        }
       }
-      localStorage.setItem('hasSeenPopup', 'true');
-    }, 2000);
-  } else if (page) {
-    page.classList.add('visible');
+    });
+
+    setTimeout(() => swiper.slideTo(0, 0), 100);
   }
+
+  function initDesktopCarousel() {
+    const items = document.querySelectorAll(`${containerSelector} ${itemsSelector}`);
+    let currentIndex = 0;
+    const itemsPerView = visibleItems || 1;
+
+    function updateCarousel() {
+      const itemWidth = items[0]?.offsetWidth || 0;
+      const gap = parseFloat(getComputedStyle(container).gap) || 0;
+      const parentWidth = parentContainer.offsetWidth;
+      const maxIndex = Math.max(0, items.length - itemsPerView);
+      
+      currentIndex = Math.min(Math.max(currentIndex, 0), maxIndex);
+      const translateX = -currentIndex * (itemWidth + gap);
+      
+      container.style.transform = `translateX(${translateX}px)`;
+      
+      if (backButtonSelector && forwardButtonSelector) {
+        const backButton = document.querySelector(backButtonSelector);
+        const forwardButton = document.querySelector(forwardButtonSelector);
+        backButton.disabled = currentIndex <= 0;
+        forwardButton.disabled = currentIndex >= maxIndex;
+      }
+    }
+
+    if (backButtonSelector) {
+      const backButton = document.querySelector(backButtonSelector);
+      backButton.addEventListener('click', () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateCarousel();
+          backButton.classList.add('active');
+          setTimeout(() => backButton.classList.remove('active'), 200);
+        }
+      });
+    }
+
+    if (forwardButtonSelector) {
+      const forwardButton = document.querySelector(forwardButtonSelector);
+      forwardButton.addEventListener('click', () => {
+        const maxIndex = Math.max(0, items.length - itemsPerView);
+        if (currentIndex < maxIndex) {
+          currentIndex++;
+          updateCarousel();
+          forwardButton.classList.add('active');
+          setTimeout(() => forwardButton.classList.remove('active'), 200);
+        }
+      });
+    }
+
+    updateCarousel();
+    window.addEventListener('resize', updateCarousel);
+    return () => window.removeEventListener('resize', updateCarousel);
+  }
+
+  function handleResize() {
+    if (isReviewsCarousel) {
+      if (window.innerWidth <= 768 && !swiper) {
+        initSwiper();
+      } else if (window.innerWidth > 768 && swiper) {
+        swiper.destroy();
+        swiper = null;
+        container.style.transform = 'translateX(0)';
+      }
+    }
+  }
+
+  if (isReviewsCarousel && window.innerWidth <= 768) {
+    initSwiper();
+  } else {
+    const cleanup = initDesktopCarousel();
+  }
+
+  window.addEventListener('resize', handleResize);
+  return () => {
+    if (swiper) swiper.destroy();
+    window.removeEventListener('resize', handleResize);
+  };
+}
+document.addEventListener('DOMContentLoaded', () => {
+  initCarousel({
+    containerSelector: '.cards-portfolio',
+    itemsSelector: '.cards__item',
+    backButtonSelector: '.portfolio .switch__button.back',
+    forwardButtonSelector: '.portfolio .switch__button.forward',
+    parentContainerSelector: '.portfolio__container',
+    visibleItems: 3
+  });
+
+  initCarousel({
+    containerSelector: '.reviews__carousel',
+    itemsSelector: '.reviews__item-carousel',
+    backButtonSelector: '.reviews .switch__button.back',
+    forwardButtonSelector: '.reviews .switch__button.forward',
+    parentContainerSelector: '.reviews__container',
+    visibleItems: 4
+  });
 });
+
 
 
 //  Карусель секции partners
@@ -368,7 +373,6 @@ document.addEventListener('DOMContentLoaded', function() {
     partnersSwiper.update();
   });
 });
-
 
 
 
@@ -660,10 +664,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
-
-
-
-
 
 
 // прокрутка карусели в секции Company

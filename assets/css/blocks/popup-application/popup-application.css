@@ -19,5 +19,6 @@
 }
 
 .popup-application.popup.fancybox__content {
+  background-color: #18191e;
   padding: 0;
 }
