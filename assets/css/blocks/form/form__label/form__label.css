@@ -15,6 +15,7 @@
   }
 }
 
+
 @media (hover: hover) {
   .form__label.file:hover {
     border-color: #FFF;
@@ -123,4 +124,73 @@
   .form__label.file {
     justify-content: flex-end;
   }
+}
+
+
+.form__file-preview {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #aaa;
+  word-break: break-word;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.form__file-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.form__file-item {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.form__file-icon {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.form__file-clear-btn,
+.form__file-remove-btn {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  padding: 14px 20px;
+  font-size: 12px;
+}
+
+.form__file-clear-btn {
+  display: block;
+  margin: 10px 0;
+  padding: 5px 10px;
+  background-color: rgba(255, 82, 82, 0.1);
+  border-radius: 3px;
+}
+
+.form__file-remove-btn {
+  margin-left: 10px;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.form__file-clear-btn:hover,
+.form__file-remove-btn:hover {
+  color: #ff0000;
+}
+
+.form__file-preview {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.form__file-label--has-files + .form__file-preview {
+  max-height: 300px;
+  opacity: 1;
 }

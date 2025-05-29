@@ -444,7 +444,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       formData = {};
       Fancybox.close();
-      window.location.href = 'index-gratitude.html';
+      window.location.href = 'index-gratitude';
     });
   }
 
@@ -523,7 +523,7 @@ document.addEventListener('DOMContentLoaded', function() {
     applicationForm.addEventListener('submit', function(e) {
       e.preventDefault();
       Fancybox.close();
-      window.location.href = 'index-gratitude.html';
+      window.location.href = 'index-gratitude';
       clearForm('#application-popup form', '#application-popup .form__input, #application-popup textarea');
     });
   }
@@ -735,3 +735,115 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initCarousel();
 });
+
+
+
+
+
+// Добавление файлов в форму отправки
+const fileStorage = new Map();
+document.querySelectorAll('.form__input-file').forEach(input => {
+  const previewContainer = input.closest('.form__label.file').nextElementSibling;
+  if (!previewContainer || !previewContainer.classList.contains('form__file-preview')) {
+    const newContainer = document.createElement('div');
+    newContainer.className = 'form__file-preview';
+    input.closest('.form__label.file').after(newContainer);
+  }
+
+  input.addEventListener('change', function() {
+    if (this.files && this.files.length > 0) {
+      Array.from(this.files).forEach(file => {
+        fileStorage.set(file.name, file);
+      });
+      
+      updateFilePreview(previewContainer);
+      input.closest('.form__label.file').classList.add('form__file-label--has-files');
+    }
+    
+    this.value = '';
+  });
+});
+
+function updateFilePreview(container) {
+  const list = document.createElement('ul');
+  list.className = 'form__file-list';
+  if (fileStorage.size > 0) {
+    const clearBtn = document.createElement('button');
+    clearBtn.textContent = 'Очистить все';
+    clearBtn.className = 'form__file-clear-btn';
+    clearBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      fileStorage.clear();
+      container.innerHTML = '';
+      document.querySelector('.form__file-label').classList.remove('form__file-label--has-files');
+    });
+    container.appendChild(clearBtn);
+  }
+
+  Array.from(fileStorage.values()).forEach((file, index) => {
+    const item = document.createElement('li');
+    item.className = 'form__file-item';
+    
+    const icon = document.createElement('span');
+    icon.className = 'form__file-icon';
+    icon.textContent = getFileIcon(file.type);
+    
+    const name = document.createElement('span');
+    name.className = 'form__file-name';
+    name.textContent = `${index + 1}. ${file.name} (${formatFileSize(file.size)})`;
+    
+    const removeBtn = document.createElement('button');
+    removeBtn.className = 'form__file-remove-btn';
+    removeBtn.textContent = '×';
+    removeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      fileStorage.delete(file.name);
+      updateFilePreview(container);
+      if (fileStorage.size === 0) {
+        document.querySelector('.form__file-label').classList.remove('form__file-label--has-files');
+      }
+    });
+      
+    item.appendChild(icon);
+    item.appendChild(name);
+    item.appendChild(removeBtn);
+    list.appendChild(item);
+  });
+  
+  container.innerHTML = '';
+  if (fileStorage.size > 0) {
+    container.appendChild(list);
+  }
+}
+
+function getFileIcon(fileType) {
+  if (fileType.startsWith('image/')) return '🖼️';
+  if (fileType.startsWith('video/')) return '🎬';
+  if (fileType.includes('pdf')) return '📄';
+  return '📁';
+}
+
+function formatFileSize(bytes) {
+  if (bytes === 0) return '0 Bytes';
+  const BYTES_IN_KILOBYTE = 1024;
+  const UNITS = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+  const unitIndex = Math.floor(Math.log(bytes) / Math.log(BYTES_IN_KILOBYTE));
+  const sizeInUnit = bytes / Math.pow(BYTES_IN_KILOBYTE, unitIndex);
+  const formattedSize = parseFloat(sizeInUnit.toFixed(2));
+  return `${formattedSize} ${UNITS[unitIndex]}`;
+}
+
+const formFeedback = document.querySelector('.form_feedback');
+if (formFeedback) {
+  formFeedback.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    fileStorage.forEach(file => {
+      formData.append('files[]', file);
+    });
+
+    window.location.href = 'index-gratitude';
+    fileStorage.clear();
+    clearForm('.form_feedback', '.form_feedback .form__input, .form_feedback textarea');
+  });
+}
