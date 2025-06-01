@@ -16,10 +16,10 @@
 }
 
 .about__button-control.about__button--prev {
-  background-image: url(./assets/img/prev.svg);
+  background-image: url(/Ingolf/assets/img/prev.svg);
 }
 
 .about__button-control.about__button--next {
-  background-image: url(./assets/img/prev.svg);
+  background-image: url(/Ingolf/assets/img/prev.svg);
   transform: rotate(180deg);
 }
