@@ -11,10 +11,9 @@
   caret-color: transparent;
   outline: none;
   cursor: default;
-  
-  /* @media (hover: hover) {
+  @media (hover: hover) {
     transition: border 0.3s ease, background-color 0.3s ease;
-  } */
+  }
 }
 
 .form__input::placeholder {

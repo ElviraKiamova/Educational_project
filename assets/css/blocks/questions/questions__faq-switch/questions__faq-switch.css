@@ -11,7 +11,7 @@
 }
 
 .questions__faq-switch_plus {
-  background-image: url(/assets/img/questions-plus.svg);
+  background-image: url(./assets/img/questions-plus.svg);
   opacity: 1;
   transform: scale(1);
 }
@@ -19,7 +19,7 @@
 .questions__faq-switch_minus {
   top: -13px;
   left: -5px;
-  background-image: url(/assets/img/questions-minus.svg);
+  background-image: url(./assets/img/questions-minus.svg);
   width: 32px;
   opacity: 1;
   transform: scale(1);

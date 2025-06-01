@@ -23,7 +23,7 @@
   right: -15px;
   width: 10px;
   height: 10px;
-  background-image: url(/assets/img/dropdown.svg);
+  background-image: url(./assets/img/dropdown.svg);
   background-repeat: no-repeat;
   transform: translateY(-50%);
   filter: invert(49%) sepia(6%) saturate(135%) hue-rotate(314deg) brightness(93%) contrast(89%);
@@ -51,7 +51,7 @@
     right: -0.8vw;
     width: 0.6vw;
     height: 0.6vw;
-    background-image: url(/assets/img/dropdown.svg);
+    background-image: url(./assets/img/dropdown.svg);
     background-repeat: no-repeat;
     background-size: contain;
     transform: translateY(-50%);
