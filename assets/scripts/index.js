@@ -847,3 +847,48 @@ if (formFeedback) {
     clearForm('.form_feedback', '.form_feedback .form__input, .form_feedback textarea');
   });
 }
+
+
+
+
+
+// Подключаем API Яндекс Карт
+document.querySelector('.footer__map-btn').addEventListener('click', function() {
+  if (!window.mapInitialized) {
+    initMap();
+    window.mapInitialized = true;
+  }
+});
+
+function initMap() {
+  ymaps.ready(function() {
+    var myMap = new ymaps.Map("yandex-map", {
+      center: [54.852666, 56.083728],
+      zoom: 15
+    });
+
+    var myPlacemark = new ymaps.Placemark([54.722330, 55.942583], {
+      hintContent: 'Юбилейная, 17/4',
+      balloonContent: 'Наш офис'
+    }, {
+      preset: 'islands#redDotIcon'
+    });
+
+    myMap.geoObjects.add(myPlacemark);
+    myMap.controls.add('zoomControl');
+  });
+}
+
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      initMap();
+      window.mapInitialized = true;
+      observer.disconnect();
+    }
+  }, {
+    rootMargin: '200px'
+  });
+  
+  observer.observe(document.getElementById('yandex-map'));
+}
