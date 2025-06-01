@@ -5,6 +5,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const rename = require('gulp-rename');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
+const urlAdjuster = require('gulp-url-adjuster');
 
 function styles() {
   return src([
@@ -13,6 +14,9 @@ function styles() {
   ])
     .pipe(sourcemaps.init())
     .pipe(concat('style.css'))
+    .pipe(urlAdjuster({
+      prepend: '../../',
+    }))
     .pipe(postcss([
       autoprefixer({
         overrideBrowserslist: ['last 2 versions', '> 1%'],
