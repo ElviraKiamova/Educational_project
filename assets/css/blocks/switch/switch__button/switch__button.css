@@ -11,21 +11,21 @@
 }
 
 .switch__button.forward {
-  background-image: url(/Ingolf/assets/img/prev-gray.svg);
+  background-image: url(/Educational_project/assets/img/prev-gray.svg);
   transform: rotate(180deg)
 }
 
 .switch__button.back {
-  background-image: url(/Ingolf/assets/img/prev-gray.svg);
+  background-image: url(/Educational_project/assets/img/prev-gray.svg);
 }
 
 .switch__button.active {
   background-color: #B4100D;
-  background-image: url(/Ingolf/assets/img/prev.svg);
+  background-image: url(/Educational_project/assets/img/prev.svg);
 }
 
 .switch__button:disabled {
-  background-image: url(/Ingolf/assets/img/prev-gray.svg);
+  background-image: url(/Educational_project/assets/img/prev-gray.svg);
   background-color: #FFF;
   opacity: 0.7;
   cursor: not-allowed;

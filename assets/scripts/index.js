@@ -111,33 +111,33 @@ function updateCardImages() {
 
   if (cardSource) {
     if (isMobile) {
-      cardSource.srcset = '/assets/img/portfolio1-mobile.webp';
+      cardSource.srcset = './assets/img/portfolio1-mobile.webp';
     } else {
-      cardSource.srcset = '/assets/img/portfolio1.webp';
+      cardSource.srcset = './assets/img/portfolio1.webp';
     }
   }
 
   if (cardImage) {
     if (isMobile) {
-      cardImage.src = '/assets/img/portfolio1-mobile.webp';
+      cardImage.src = './assets/img/portfolio1-mobile.webp';
     } else {
-      cardImage.src = '/assets/img/portfolio1.jpg';
+      cardImage.src = './assets/img/portfolio1.jpg';
     }
   }
 
   if (reviewImage) {
     if (isMobile) {
-      reviewImage.src = '/assets/img/reviews-img-luk.webp';
+      reviewImage.src = './assets/img/reviews-img-luk.webp';
     } else {
-      reviewImage.src = '/assets/img/reviews-carousel-img.webp';
+      reviewImage.src = './assets/img/reviews-carousel-img.webp';
     }
   }
 
   if (footerImage) {
     if (isMobileFooter) {
-      footerImage.src = '/assets/img/footer-img-mobile.png';
+      footerImage.src = './assets/img/footer-img-mobile.png';
     } else {
-      footerImage.src = '/assets/img/footer-img.webp';
+      footerImage.src = './assets/img/footer-img.webp';
     }
   }
 }
